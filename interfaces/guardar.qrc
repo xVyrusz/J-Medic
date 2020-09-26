@@ -1,0 +1,5 @@
+<RCC>
+  <qresource prefix="guardar">
+    <file>guardar.png</file>
+  </qresource>
+</RCC>

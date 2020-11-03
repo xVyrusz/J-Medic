@@ -143,7 +143,7 @@ color: rgb(0, 0, 0);</string>
      <rect>
       <x>270</x>
       <y>130</y>
-      <width>161</width>
+      <width>151</width>
       <height>20</height>
      </rect>
     </property>
@@ -151,14 +151,14 @@ color: rgb(0, 0, 0);</string>
    <widget class="QLabel" name="label_2">
     <property name="geometry">
      <rect>
-      <x>270</x>
-      <y>110</y>
-      <width>161</width>
-      <height>16</height>
+      <x>220</x>
+      <y>100</y>
+      <width>261</width>
+      <height>31</height>
      </rect>
     </property>
     <property name="text">
-     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;Ingresa el ID del Medico&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Ingresa el ID del Medico&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
    <widget class="QPushButton" name="boton_buscar">

@@ -79,7 +79,7 @@ QPushButton:hover:before {
      <string>Nueva consulta</string>
     </property>
    </widget>
-   <widget class="QTableWidget" name="tableWidget">
+   <widget class="QTableWidget" name="tabla_consultas">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -165,7 +165,7 @@ QPushButton:hover:before {
      <string>ID Paciente</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="lineEdit">
+   <widget class="QLineEdit" name="input_idm">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -175,7 +175,7 @@ QPushButton:hover:before {
      </rect>
     </property>
    </widget>
-   <widget class="QLineEdit" name="lineEdit_2">
+   <widget class="QLineEdit" name="input_idp">
     <property name="geometry">
      <rect>
       <x>280</x>
@@ -198,7 +198,7 @@ QPushButton:hover:before {
      <string>Motivo de consulta</string>
     </property>
    </widget>
-   <widget class="QComboBox" name="comboBox">
+   <widget class="QComboBox" name="motivo_consulta">
     <property name="geometry">
      <rect>
       <x>560</x>
@@ -275,7 +275,7 @@ QPushButton:hover:before {
      <string>Día</string>
     </property>
    </widget>
-   <widget class="QComboBox" name="comboBox_5">
+   <widget class="QComboBox" name="anio">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -368,7 +368,7 @@ QPushButton:hover:before {
      </property>
     </item>
    </widget>
-   <widget class="QComboBox" name="comboBox_6">
+   <widget class="QComboBox" name="mes">
     <property name="geometry">
      <rect>
       <x>150</x>
@@ -441,7 +441,7 @@ QPushButton:hover:before {
      </property>
     </item>
    </widget>
-   <widget class="QComboBox" name="comboBox_7">
+   <widget class="QComboBox" name="dia">
     <property name="geometry">
      <rect>
       <x>310</x>
@@ -609,7 +609,7 @@ QPushButton:hover:before {
      </property>
     </item>
    </widget>
-   <widget class="QPushButton" name="pushButton">
+   <widget class="QPushButton" name="generar_idc">
     <property name="geometry">
      <rect>
       <x>500</x>
@@ -622,7 +622,7 @@ QPushButton:hover:before {
      <string>Generar ID de consulta</string>
     </property>
    </widget>
-   <widget class="QTableWidget" name="tableWidget_2">
+   <widget class="QTableWidget" name="tabla_idc">
     <property name="geometry">
      <rect>
       <x>20</x>
@@ -683,7 +683,7 @@ QPushButton:hover:before {
      <string>Ingrese el ID de consulta</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="lineEdit_3">
+   <widget class="QLineEdit" name="input_idc">
     <property name="geometry">
      <rect>
       <x>210</x>
@@ -693,7 +693,7 @@ QPushButton:hover:before {
      </rect>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_2">
+   <widget class="QPushButton" name="guardar_consulta">
     <property name="geometry">
      <rect>
       <x>610</x>
@@ -754,7 +754,7 @@ QPushButton:hover:before {
      <string>Tratamiento</string>
     </property>
    </widget>
-   <widget class="QTextEdit" name="textEdit">
+   <widget class="QTextEdit" name="pruebas_realizadas">
     <property name="geometry">
      <rect>
       <x>30</x>
@@ -771,7 +771,7 @@ QPushButton:hover:before {
 color: rgb(12, 12, 12);</string>
     </property>
    </widget>
-   <widget class="QTextEdit" name="textEdit_2">
+   <widget class="QTextEdit" name="diagnostico">
     <property name="geometry">
      <rect>
       <x>250</x>
@@ -785,7 +785,7 @@ color: rgb(12, 12, 12);</string>
 color: rgb(12, 12, 12);</string>
     </property>
    </widget>
-   <widget class="QTextEdit" name="textEdit_3">
+   <widget class="QTextEdit" name="tratamiento">
     <property name="geometry">
      <rect>
       <x>460</x>

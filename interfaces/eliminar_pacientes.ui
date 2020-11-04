@@ -109,7 +109,7 @@ QPushButton:hover:before {
      <string>Nombre</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="lineEdit">
+   <widget class="QLineEdit" name="input_idp">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -119,7 +119,7 @@ QPushButton:hover:before {
      </rect>
     </property>
    </widget>
-   <widget class="QLineEdit" name="lineEdit_2">
+   <widget class="QLineEdit" name="input_nombre">
     <property name="geometry">
      <rect>
       <x>420</x>
@@ -177,7 +177,7 @@ QPushButton:hover:before {
      <string>Sexo</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="lineEdit_3">
+   <widget class="QLineEdit" name="input_apellidop">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -187,7 +187,7 @@ QPushButton:hover:before {
      </rect>
     </property>
    </widget>
-   <widget class="QLineEdit" name="lineEdit_4">
+   <widget class="QLineEdit" name="input_apellidom">
     <property name="geometry">
      <rect>
       <x>280</x>
@@ -197,7 +197,7 @@ QPushButton:hover:before {
      </rect>
     </property>
    </widget>
-   <widget class="QLineEdit" name="lineEdit_5">
+   <widget class="QLineEdit" name="input_sexo">
     <property name="geometry">
      <rect>
       <x>550</x>
@@ -255,7 +255,7 @@ QPushButton:hover:before {
      <string>Edad</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="lineEdit_6">
+   <widget class="QLineEdit" name="input_peso">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -265,7 +265,7 @@ QPushButton:hover:before {
      </rect>
     </property>
    </widget>
-   <widget class="QLineEdit" name="lineEdit_7">
+   <widget class="QLineEdit" name="input_estatura">
     <property name="geometry">
      <rect>
       <x>280</x>
@@ -275,7 +275,7 @@ QPushButton:hover:before {
      </rect>
     </property>
    </widget>
-   <widget class="QLineEdit" name="lineEdit_8">
+   <widget class="QLineEdit" name="input_edad">
     <property name="geometry">
      <rect>
       <x>550</x>
@@ -333,7 +333,7 @@ QPushButton:hover:before {
      <string>Alergias</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="lineEdit_9">
+   <widget class="QLineEdit" name="input_telefono">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -343,17 +343,7 @@ QPushButton:hover:before {
      </rect>
     </property>
    </widget>
-   <widget class="QLineEdit" name="lineEdit_10">
-    <property name="geometry">
-     <rect>
-      <x>280</x>
-      <y>350</y>
-      <width>251</width>
-      <height>20</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QLineEdit" name="lineEdit_11">
+   <widget class="QLineEdit" name="input_alergias">
     <property name="geometry">
      <rect>
       <x>550</x>
@@ -363,7 +353,7 @@ QPushButton:hover:before {
      </rect>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton">
+   <widget class="QPushButton" name="boton_buscar">
     <property name="geometry">
      <rect>
       <x>580</x>
@@ -376,7 +366,7 @@ QPushButton:hover:before {
      <string>Buscar</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_2">
+   <widget class="QPushButton" name="boton_eliminar">
     <property name="geometry">
      <rect>
       <x>680</x>
@@ -389,7 +379,7 @@ QPushButton:hover:before {
      <string>Eliminar</string>
     </property>
    </widget>
-   <widget class="QTableWidget" name="tableWidget">
+   <widget class="QTableWidget" name="tabla_pacientes">
     <property name="geometry">
      <rect>
       <x>20</x>
@@ -453,6 +443,66 @@ QPushButton:hover:before {
       <string>Alergias</string>
      </property>
     </column>
+   </widget>
+   <widget class="QComboBox" name="comboBox">
+    <property name="geometry">
+     <rect>
+      <x>280</x>
+      <y>350</y>
+      <width>111</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <item>
+     <property name="text">
+      <string>A+</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>A-</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>B+</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>B-</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>AB+</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>AB-</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>O+</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>O-</string>
+     </property>
+    </item>
+   </widget>
+   <widget class="QLineEdit" name="input_tipo_sangre">
+    <property name="geometry">
+     <rect>
+      <x>400</x>
+      <y>350</y>
+      <width>131</width>
+      <height>20</height>
+     </rect>
+    </property>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">

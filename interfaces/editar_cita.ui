@@ -102,7 +102,7 @@ QPushButton:hover:before {
      <string>Fecha de cita</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="lineEdit">
+   <widget class="QLineEdit" name="input_idp">
     <property name="geometry">
      <rect>
       <x>180</x>
@@ -112,7 +112,7 @@ QPushButton:hover:before {
      </rect>
     </property>
    </widget>
-   <widget class="QLineEdit" name="lineEdit_2">
+   <widget class="QLineEdit" name="input_fechac">
     <property name="geometry">
      <rect>
       <x>180</x>
@@ -122,7 +122,7 @@ QPushButton:hover:before {
      </rect>
     </property>
    </widget>
-   <widget class="QComboBox" name="comboBox_5">
+   <widget class="QComboBox" name="anio">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -228,7 +228,7 @@ QPushButton:hover:before {
      <string>Año</string>
     </property>
    </widget>
-   <widget class="QComboBox" name="comboBox_6">
+   <widget class="QComboBox" name="mes">
     <property name="geometry">
      <rect>
       <x>150</x>
@@ -314,7 +314,7 @@ QPushButton:hover:before {
      <string>Mes</string>
     </property>
    </widget>
-   <widget class="QComboBox" name="comboBox_7">
+   <widget class="QComboBox" name="dia">
     <property name="geometry">
      <rect>
       <x>320</x>
@@ -495,7 +495,7 @@ QPushButton:hover:before {
      <string>Día</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton">
+   <widget class="QPushButton" name="boton_agendar">
     <property name="geometry">
      <rect>
       <x>630</x>
@@ -508,7 +508,7 @@ QPushButton:hover:before {
      <string>Agendar cita</string>
     </property>
    </widget>
-   <widget class="QTableWidget" name="tableWidget">
+   <widget class="QTableWidget" name="tabla_citas">
     <property name="geometry">
      <rect>
       <x>90</x>
@@ -548,7 +548,7 @@ QPushButton:hover:before {
      </property>
     </column>
    </widget>
-   <widget class="QPushButton" name="pushButton_2">
+   <widget class="QPushButton" name="boton_buscarc">
     <property name="geometry">
      <rect>
       <x>480</x>
@@ -574,7 +574,7 @@ QPushButton:hover:before {
      <string>ID de cita</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="lineEdit_3">
+   <widget class="QLineEdit" name="input_idc">
     <property name="geometry">
      <rect>
       <x>180</x>

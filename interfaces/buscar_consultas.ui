@@ -137,7 +137,7 @@ QPushButton:hover:before {
      <string>Motivo de consulta</string>
     </property>
    </widget>
-   <widget class="QComboBox" name="comboBox">
+   <widget class="QComboBox" name="motivo">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -178,7 +178,7 @@ QPushButton:hover:before {
      <string>Fecha de visita</string>
     </property>
    </widget>
-   <widget class="QComboBox" name="comboBox_2">
+   <widget class="QComboBox" name="anio">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -284,7 +284,7 @@ QPushButton:hover:before {
      <string>Año</string>
     </property>
    </widget>
-   <widget class="QComboBox" name="comboBox_3">
+   <widget class="QComboBox" name="mes">
     <property name="geometry">
      <rect>
       <x>150</x>
@@ -370,7 +370,7 @@ QPushButton:hover:before {
      <string>Mes</string>
     </property>
    </widget>
-   <widget class="QComboBox" name="comboBox_4">
+   <widget class="QComboBox" name="dia">
     <property name="geometry">
      <rect>
       <x>320</x>
@@ -551,7 +551,7 @@ QPushButton:hover:before {
      <string>Día</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton">
+   <widget class="QPushButton" name="boton_buscarid">
     <property name="geometry">
      <rect>
       <x>570</x>
@@ -567,7 +567,7 @@ QPushButton:hover:before {
      <string>Buscar por ID</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="lineEdit">
+   <widget class="QLineEdit" name="input_idc">
     <property name="geometry">
      <rect>
       <x>310</x>
@@ -577,7 +577,7 @@ QPushButton:hover:before {
      </rect>
     </property>
    </widget>
-   <widget class="QLineEdit" name="lineEdit_2">
+   <widget class="QLineEdit" name="input_medico">
     <property name="geometry">
      <rect>
       <x>310</x>
@@ -587,7 +587,7 @@ QPushButton:hover:before {
      </rect>
     </property>
    </widget>
-   <widget class="QLineEdit" name="lineEdit_3">
+   <widget class="QLineEdit" name="input_paciente">
     <property name="geometry">
      <rect>
       <x>310</x>
@@ -597,7 +597,7 @@ QPushButton:hover:before {
      </rect>
     </property>
    </widget>
-   <widget class="QLineEdit" name="lineEdit_4">
+   <widget class="QLineEdit" name="input_motivo">
     <property name="geometry">
      <rect>
       <x>310</x>
@@ -607,7 +607,7 @@ QPushButton:hover:before {
      </rect>
     </property>
    </widget>
-   <widget class="QLineEdit" name="lineEdit_5">
+   <widget class="QLineEdit" name="input_fechav">
     <property name="geometry">
      <rect>
       <x>310</x>
@@ -617,7 +617,7 @@ QPushButton:hover:before {
      </rect>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_2">
+   <widget class="QPushButton" name="boton_buscarmed">
     <property name="geometry">
      <rect>
       <x>570</x>
@@ -630,7 +630,7 @@ QPushButton:hover:before {
      <string>Buscar por medico</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_3">
+   <widget class="QPushButton" name="boton_buscarpac">
     <property name="geometry">
      <rect>
       <x>570</x>
@@ -643,7 +643,7 @@ QPushButton:hover:before {
      <string>Buscar por paciente</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_4">
+   <widget class="QPushButton" name="boton_buscarmotivo">
     <property name="geometry">
      <rect>
       <x>570</x>
@@ -656,7 +656,7 @@ QPushButton:hover:before {
      <string>Buscar por motivo</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_5">
+   <widget class="QPushButton" name="boton_buscarfecha">
     <property name="geometry">
      <rect>
       <x>570</x>
@@ -669,7 +669,7 @@ QPushButton:hover:before {
      <string>Buscar por fecha</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_6">
+   <widget class="QPushButton" name="boton_mostrartodo">
     <property name="geometry">
      <rect>
       <x>500</x>
@@ -682,7 +682,7 @@ QPushButton:hover:before {
      <string>Mostrar todas las consultas</string>
     </property>
    </widget>
-   <widget class="QTableWidget" name="tableWidget">
+   <widget class="QTableWidget" name="tabla_consultas">
     <property name="geometry">
      <rect>
       <x>30</x>

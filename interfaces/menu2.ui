@@ -14,7 +14,50 @@
    <string>MainWindow</string>
   </property>
   <property name="styleSheet">
-   <string notr="true"/>
+   <string notr="true">*{
+    background-color: rgb(0, 0, 0);
+    font-family: Arial;
+    color: rgb(255, 255, 255);
+}
+
+QMenuBar{
+    text-decoration: underline rgb(255, 255, 255);
+}
+
+QLabel{
+    font: 75 18pt;
+}
+
+QLineEdit,QComboBox,QDoubleSpinBox,QSpinBox{
+    color: rgb(0, 0, 0);
+    background-color: rgb(255, 255, 255);
+    font: 75 14pt &quot;Arial&quot;;
+}
+
+QPushButton{
+  color: #fff !important;
+  font-size: 20px;
+  font-weight: 500;
+  background: #318aac;
+  border: 2px solid;
+  border-color: #318aac;
+  position: relative;
+}
+
+QPushButton:before {
+  content:&quot;&quot;;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 0px;
+  background: rgba(255, 255, 255, 0.1);
+  transition: all 1s ease;
+}
+
+QPushButton:hover:before {
+  height: 100%;
+}</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QLabel" name="label">
@@ -186,7 +229,7 @@
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">image: url(:/editar_consulta/editardoc.png);</string>
+     <string notr="true">image: url(:/editar_consultas/editardoc.png);</string>
     </property>
     <property name="text">
      <string/>
@@ -218,7 +261,7 @@
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">image: url(:/cita/Citas.png);</string>
+     <string notr="true">image: url(:/citas/Citas.png);</string>
     </property>
     <property name="text">
      <string/>
@@ -234,7 +277,7 @@
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">image: url(:/eliminar_paciente/eliminar_paciente.png);</string>
+     <string notr="true">image: url(:/citas/Citas.png);</string>
     </property>
     <property name="text">
      <string/>
@@ -282,7 +325,7 @@
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">image: url(:/cita/Citas.png);</string>
+     <string notr="true">image: url(:/citas/Citas.png);</string>
     </property>
     <property name="text">
      <string/>
@@ -301,7 +344,7 @@
      <string notr="true">image: url(:/regresar/regresar.png);</string>
     </property>
     <property name="text">
-     <string>l</string>
+     <string/>
     </property>
    </widget>
    <widget class="QLabel" name="label_21">
@@ -597,7 +640,7 @@
   </action>
  </widget>
  <resources>
-  <include location="J-Medic/interfaces/guardar.qrc"/>
+  <include location="../image/Imagenes.qrc"/>
  </resources>
  <connections/>
 </ui>

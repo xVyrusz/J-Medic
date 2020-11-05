@@ -449,7 +449,7 @@ background-color: rgb(255, 255, 255);</string>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">image: url(:/guardar2/guardar.png);</string>
+     <string notr="true">image: url(:/guardar/guardar.png);</string>
     </property>
     <property name="text">
      <string/>
@@ -524,7 +524,7 @@ background-color: rgb(255, 255, 255);</string>
   </action>
  </widget>
  <resources>
-  <include location="guardar2.qrc"/>
+  <include location="../image/guardar.qrc"/>
  </resources>
  <connections/>
 </ui>

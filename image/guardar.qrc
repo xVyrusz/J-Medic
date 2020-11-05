@@ -1,5 +1,5 @@
 <RCC>
   <qresource prefix="guardar">
-    <file>usuario2.png</file>
+    <file>guardar.png</file>
   </qresource>
 </RCC>

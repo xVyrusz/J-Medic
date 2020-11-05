@@ -804,7 +804,7 @@ background-color: rgb(255, 255, 255);</string>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <resources>
-  <include location="guardar.qrc"/>
+  <include location="../image/guardar.qrc"/>
  </resources>
  <connections/>
 </ui>

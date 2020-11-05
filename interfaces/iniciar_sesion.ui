@@ -119,7 +119,7 @@ QPushButton:hover:before {
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">border-image: url(:/guardar/usuario2.png);</string>
+     <string notr="true">image: url(:/usuario/usuario2.png);</string>
     </property>
     <property name="text">
      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
@@ -152,7 +152,7 @@ QPushButton:hover:before {
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <resources>
-  <include location="guardar.qrc"/>
+  <include location="../image/guardar2.qrc"/>
  </resources>
  <connections/>
 </ui>

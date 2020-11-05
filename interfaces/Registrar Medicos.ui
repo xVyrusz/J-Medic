@@ -299,7 +299,7 @@ color: rgb(0, 0, 0);</string>
      <x>0</x>
      <y>0</y>
      <width>660</width>
-     <height>19</height>
+     <height>20</height>
     </rect>
    </property>
    <property name="font">
@@ -343,7 +343,7 @@ color: rgb(0, 0, 0);</string>
   </action>
  </widget>
  <resources>
-  <include location="guardar.qrc"/>
+  <include location="../image/guardar.qrc"/>
  </resources>
  <connections/>
 </ui>

@@ -10,8 +10,8 @@ class Ventana(QMainWindow):
         self.vista_inicioSesion()
         self.centrar_ventana()
         self.tamaño_ventana()
-        self.boton_iniciarsesion.clicked.connect(self.validar_datos)
-        
+        #self.boton_iniciarsesion.clicked.connect(self.validar_datos)
+
     def tamaño_ventana(self):
         #Fijas el tamaño mínimo
         self.setMinimumSize(500,500)
@@ -29,7 +29,7 @@ class Ventana(QMainWindow):
 
     def vista_inicioSesion(self):
         #Cargar la interfaz
-        uic.loadUi("interfaces/iniciar_sesion.ui", self)
+        uic.loadUi("interfaces/buscar_pacientes.ui", self)
         #Fijar el titulo de la ventana
         self.setWindowTitle("J-Medic: Inicio de Sesion")
 

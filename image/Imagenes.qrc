@@ -1,5 +1,20 @@
 <RCC>
-  <qresource prefix="Guardar">
-    <file>guardar.png</file>
+  <qresource prefix="editar_paciente">
+    <file>editar_paciente.png</file>
+  </qresource>
+  <qresource prefix="regresar">
+    <file>regresar.png</file>
+  </qresource>
+  <qresource prefix="eliminar_consulta">
+    <file>deletedoc.png</file>
+  </qresource>
+  <qresource prefix="citas">
+    <file>Citas.png</file>
+  </qresource>
+  <qresource prefix="editar_consultas">
+    <file>editardoc.png</file>
+  </qresource>
+  <qresource prefix="editar_medico">
+    <file>add_medico.png</file>
   </qresource>
 </RCC>

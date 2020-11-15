@@ -227,8 +227,8 @@ QPushButton:hover:before {
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">color: rgb(0, 0, 0);
-background-color: rgb(255, 255, 255);</string>
+     <string notr="true">color: rgb(255, 255, 255);
+background-color: rgb(0, 0, 0);</string>
     </property>
     <row>
      <property name="text">
@@ -439,22 +439,6 @@ background-color: rgb(255, 255, 255);</string>
      <string>Guardar</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_17">
-    <property name="geometry">
-     <rect>
-      <x>900</x>
-      <y>330</y>
-      <width>51</width>
-      <height>51</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">image: url(:/guardar/guardar.png);</string>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-   </widget>
    <widget class="QDoubleSpinBox" name="input_Peso">
     <property name="geometry">
      <rect>
@@ -505,7 +489,7 @@ background-color: rgb(255, 255, 255);</string>
      <x>0</x>
      <y>0</y>
      <width>1132</width>
-     <height>21</height>
+     <height>20</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuMenu">

@@ -89,7 +89,7 @@ QPushButton:hover:before {
      <string>Agregar Medico</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton">
+   <widget class="QPushButton" name="boton_AgregarMedico">
     <property name="geometry">
      <rect>
       <x>290</x>
@@ -115,7 +115,7 @@ QPushButton:hover:before {
      <string>Agregar Paciente</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_2">
+   <widget class="QPushButton" name="boton_AgregarPaciente">
     <property name="geometry">
      <rect>
       <x>290</x>
@@ -141,7 +141,7 @@ QPushButton:hover:before {
      <string>Agregar Consulta</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_3">
+   <widget class="QPushButton" name="boton_AgregarConsulta">
     <property name="geometry">
      <rect>
       <x>290</x>
@@ -167,7 +167,7 @@ QPushButton:hover:before {
      <string>Buscar Medico</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_4">
+   <widget class="QPushButton" name="boton_BuscarMedico">
     <property name="geometry">
      <rect>
       <x>570</x>
@@ -193,7 +193,7 @@ QPushButton:hover:before {
      <string>Buscar Paciente</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_5">
+   <widget class="QPushButton" name="boton_BuscarPaciente">
     <property name="geometry">
      <rect>
       <x>570</x>
@@ -219,7 +219,7 @@ QPushButton:hover:before {
      <string>Buscar Consulta</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_6">
+   <widget class="QPushButton" name="boton_BuscarConsulta">
     <property name="geometry">
      <rect>
       <x>570</x>
@@ -232,7 +232,7 @@ QPushButton:hover:before {
      <string>Ir</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_7">
+   <widget class="QPushButton" name="boton_AgregarCita">
     <property name="geometry">
      <rect>
       <x>290</x>
@@ -255,7 +255,7 @@ QPushButton:hover:before {
      </rect>
     </property>
     <property name="text">
-     <string>Agregar Citas</string>
+     <string>Agregar Cita</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_9">
@@ -271,7 +271,7 @@ QPushButton:hover:before {
      <string>Buscar Cita</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_8">
+   <widget class="QPushButton" name="boton_BuscarCita">
     <property name="geometry">
      <rect>
       <x>570</x>
@@ -297,7 +297,7 @@ QPushButton:hover:before {
      <string>Mas opciones</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_9">
+   <widget class="QPushButton" name="boton_MasOpciones">
     <property name="geometry">
      <rect>
       <x>570</x>

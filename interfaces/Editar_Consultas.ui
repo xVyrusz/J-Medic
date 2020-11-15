@@ -297,7 +297,7 @@ color: rgb(0, 0, 0);</string>
      <string>Buscar</string>
     </property>
    </widget>
-   <widget class="QTableWidget" name="input_tabla">
+   <widget class="QTableWidget" name="tabla_Consultas">
     <property name="geometry">
      <rect>
       <x>10</x>

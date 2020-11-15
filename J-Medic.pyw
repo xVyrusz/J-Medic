@@ -15,8 +15,6 @@ class Ventana(QMainWindow):
     def tamaño_ventana(self):
         #Fijas el tamaño mínimo
         self.setMinimumSize(500,500)
-        #Fijas el tamaño máximo
-        self.setMaximumSize(800,600)
 
     def centrar_ventana(self):
         #Mover la Ventana y centrarla en el escritorio

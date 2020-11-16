@@ -2,6 +2,7 @@ import sys, os, re, ctypes
 from PyQt5 import uic, QtCore, QtWidgets
 import modulos.iniciosesion as iniciosesion
 import modulos.menu as menu
+import modulos.registrar_medicos as registrar_medicos
 
 class Controller:
 
@@ -20,7 +21,7 @@ class Controller:
         self.window.show()
 
     def show_window_two(self, text):
-        self.window_two = WindowTwo(text)
+        self.window_two = registrar_medicos.WindowTwo(text)
         self.window.close()
         self.window_two.show()
 

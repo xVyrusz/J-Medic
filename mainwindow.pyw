@@ -10,12 +10,14 @@ class Ventana(QMainWindow):
         QMainWindow.__init__(self)
         #Cargar la interfaz
         uic.loadUi("interfaces/registro_pacientes.ui", self)
+        self.calando()
+        pass
+
+    def calando(self):
         self.input_Nombre.textChanged.connect(self.validar_nombre)
         self.input_ApellidoP.textChanged.connect(self.validar_apellidoP)
         self.input_ApellidoM.textChanged.connect(self.validar_apellidoM)
         self.input_Telefono.textChanged.connect(self.validar_telefono)
-
-
         pass
 
     def validar_nombre(self):

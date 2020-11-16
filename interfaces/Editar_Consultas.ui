@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Editar Consultas</string>
   </property>
   <property name="styleSheet">
    <string notr="true">*{
@@ -265,7 +265,7 @@ color: rgb(0, 0, 0);</string>
      <string notr="true">font: 12pt &quot;Arial&quot;;</string>
     </property>
     <property name="text">
-     <string>Diagnostico</string>
+     <string>Diagnóstico</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_9">
@@ -313,12 +313,12 @@ color: rgb(0, 0, 0);</string>
     </column>
     <column>
      <property name="text">
-      <string>Nombre Medico</string>
+      <string>Nombre Médico</string>
      </property>
     </column>
     <column>
      <property name="text">
-      <string>Apellido Medico</string>
+      <string>Apellido Médico</string>
      </property>
     </column>
     <column>
@@ -348,7 +348,7 @@ color: rgb(0, 0, 0);</string>
     </column>
     <column>
      <property name="text">
-      <string>Diagnostico</string>
+      <string>Diagnóstico</string>
      </property>
     </column>
     <column>
@@ -367,7 +367,7 @@ color: rgb(0, 0, 0);</string>
      </rect>
     </property>
     <property name="text">
-     <string>Aceptar Cambios</string>
+     <string>Guardar</string>
     </property>
    </widget>
   </widget>

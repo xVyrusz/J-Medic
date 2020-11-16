@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>J-MEDIC Menu Principal</string>
   </property>
   <property name="styleSheet">
    <string notr="true">*{
@@ -86,7 +86,7 @@ QPushButton:hover:before {
      </rect>
     </property>
     <property name="text">
-     <string>Agregar Medico</string>
+     <string>Agregar Médico</string>
     </property>
    </widget>
    <widget class="QPushButton" name="boton_AgregarMedico">
@@ -164,7 +164,7 @@ QPushButton:hover:before {
      </rect>
     </property>
     <property name="text">
-     <string>Buscar Medico</string>
+     <string>Buscar Médico</string>
     </property>
    </widget>
    <widget class="QPushButton" name="boton_BuscarMedico">
@@ -294,7 +294,7 @@ QPushButton:hover:before {
      </rect>
     </property>
     <property name="text">
-     <string>Mas opciones</string>
+     <string>Más opciones</string>
     </property>
    </widget>
    <widget class="QPushButton" name="boton_MasOpciones">

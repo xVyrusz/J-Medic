@@ -95,7 +95,7 @@ QPushButton:hover:before {
      </rect>
     </property>
     <property name="text">
-     <string>Ingrese ID de la consulta</string>
+     <string>Ingresa ID de la consulta</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_3">

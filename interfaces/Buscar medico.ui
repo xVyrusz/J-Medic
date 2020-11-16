@@ -17,7 +17,7 @@
    </size>
   </property>
   <property name="windowTitle">
-   <string>J-MEDIC Buscar Medico</string>
+   <string>J-MEDIC Buscar Médico</string>
   </property>
   <property name="styleSheet">
    <string notr="true">*{
@@ -96,7 +96,7 @@ color: rgb(255, 255, 255);</string>
     </row>
     <column>
      <property name="text">
-      <string>ID Medico</string>
+      <string>ID Médico</string>
      </property>
     </column>
     <column>
@@ -135,7 +135,7 @@ color: rgb(255, 255, 255);</string>
      </rect>
     </property>
     <property name="text">
-     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Buscar Medicos&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Buscar Médicos&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
    <widget class="QLineEdit" name="input_id_medico">
@@ -158,7 +158,7 @@ color: rgb(255, 255, 255);</string>
      </rect>
     </property>
     <property name="text">
-     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Ingresa el ID del Medico&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Ingresa el ID del Médico&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
    <widget class="QPushButton" name="boton_buscar">

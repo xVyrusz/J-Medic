@@ -287,7 +287,7 @@ background-color: rgb(0, 0, 0);</string>
     </column>
     <column>
      <property name="text">
-      <string>Telefono</string>
+      <string>Teléfono</string>
      </property>
     </column>
     <column>
@@ -363,7 +363,7 @@ background-color: rgb(0, 0, 0);</string>
      </rect>
     </property>
     <property name="text">
-     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Telefono&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Teléfono&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
    <widget class="QLineEdit" name="input_Telefono">

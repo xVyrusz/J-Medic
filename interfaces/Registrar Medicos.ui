@@ -17,7 +17,7 @@
    </font>
   </property>
   <property name="windowTitle">
-   <string>J-MEDIC Registro de Medicos</string>
+   <string>J-MEDIC Registro de Médicos</string>
   </property>
   <property name="styleSheet">
    <string notr="true">*{
@@ -85,7 +85,7 @@ QPushButton:hover:before {
      </font>
     </property>
     <property name="text">
-     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:24pt; font-weight:600;&quot;&gt;Registar Medicos&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:24pt; font-weight:600;&quot;&gt;Registar Médicos&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_Nombre">
@@ -150,7 +150,7 @@ QPushButton:hover:before {
      </rect>
     </property>
     <property name="text">
-     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Telefono&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Teléfono&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
    <widget class="QComboBox" name="input_Turno_2">
@@ -260,7 +260,7 @@ color: rgb(0, 0, 0);</string>
 color: rgb(0, 0, 0);</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="Boton_Guardar">
+   <widget class="QPushButton" name="boton_guardar">
     <property name="geometry">
      <rect>
       <x>430</x>
@@ -307,7 +307,7 @@ color: rgb(0, 0, 0);</string>
    </widget>
    <widget class="QMenu" name="menuMostrar_Medicos">
     <property name="title">
-     <string>Lista de Medicos</string>
+     <string>Lista de Médicos</string>
     </property>
     <addaction name="actionVer"/>
    </widget>

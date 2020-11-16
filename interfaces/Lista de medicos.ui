@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>J-MEDIC Lista de Medicos</string>
+   <string>J-MEDIC Lista de Médicos</string>
   </property>
   <property name="styleSheet">
    <string notr="true">*{
@@ -45,7 +45,7 @@ QLineEdit,QComboBox,QDoubleSpinBox,QSpinBox{
      </rect>
     </property>
     <property name="text">
-     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:24pt;&quot;&gt;Lista de Medicos&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:24pt;&quot;&gt;Lista de Médicos&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
    <widget class="QTableWidget" name="tabla_medicos">
@@ -91,7 +91,7 @@ background-color: rgb(0, 0, 0);</string>
     </row>
     <column>
      <property name="text">
-      <string>ID Medico</string>
+      <string>ID Médico</string>
      </property>
     </column>
     <column>

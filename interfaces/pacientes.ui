@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>710</width>
+    <width>1131</width>
     <height>574</height>
    </rect>
   </property>
@@ -63,8 +63,8 @@ QPushButton:hover:before {
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>290</x>
-      <y>0</y>
+      <x>490</x>
+      <y>10</y>
       <width>131</width>
       <height>71</height>
      </rect>
@@ -76,10 +76,10 @@ QPushButton:hover:before {
    <widget class="QTableWidget" name="tabla_pacientes">
     <property name="geometry">
      <rect>
-      <x>20</x>
+      <x>0</x>
       <y>120</y>
-      <width>671</width>
-      <height>241</height>
+      <width>1111</width>
+      <height>391</height>
      </rect>
     </property>
     <column>
@@ -144,7 +144,7 @@ QPushButton:hover:before {
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>710</width>
+     <width>1131</width>
      <height>20</height>
     </rect>
    </property>

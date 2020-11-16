@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>724</width>
+    <width>1147</width>
     <height>594</height>
    </rect>
   </property>
@@ -169,7 +169,7 @@ QPushButton:hover:before {
      <rect>
       <x>20</x>
       <y>220</y>
-      <width>691</width>
+      <width>1121</width>
       <height>131</height>
      </rect>
     </property>
@@ -247,7 +247,7 @@ QPushButton:hover:before {
      <rect>
       <x>20</x>
       <y>400</y>
-      <width>691</width>
+      <width>1111</width>
       <height>141</height>
      </rect>
     </property>
@@ -313,7 +313,7 @@ QPushButton:hover:before {
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>724</width>
+     <width>1147</width>
      <height>20</height>
     </rect>
    </property>

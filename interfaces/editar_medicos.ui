@@ -73,7 +73,7 @@ QPushButton:hover:before {
      <string notr="true">font: 75 18pt &quot;Arial&quot;;</string>
     </property>
     <property name="text">
-     <string>Editar Medicos</string>
+     <string>Editar médicos</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_2">
@@ -151,7 +151,7 @@ QPushButton:hover:before {
      </rect>
     </property>
     <property name="text">
-     <string>Telefono</string>
+     <string>Teléfono</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_8">
@@ -164,7 +164,7 @@ QPushButton:hover:before {
      </rect>
     </property>
     <property name="text">
-     <string>Cedula</string>
+     <string>Cédula</string>
     </property>
    </widget>
    <widget class="QLineEdit" name="input_idm">
@@ -284,7 +284,7 @@ QPushButton:hover:before {
     </property>
     <column>
      <property name="text">
-      <string>ID Medico</string>
+      <string>ID Médico</string>
      </property>
     </column>
     <column>
@@ -304,12 +304,12 @@ QPushButton:hover:before {
     </column>
     <column>
      <property name="text">
-      <string>Cedula</string>
+      <string>Cédula</string>
      </property>
     </column>
     <column>
      <property name="text">
-      <string>Telefono</string>
+      <string>Teléfono</string>
      </property>
     </column>
     <column>

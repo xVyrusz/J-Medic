@@ -95,12 +95,12 @@ QPushButton:hover:before {
     </column>
     <column>
      <property name="text">
-      <string>Nombre medico</string>
+      <string>Nombre médico</string>
      </property>
     </column>
     <column>
      <property name="text">
-      <string>Apellido medico</string>
+      <string>Apellido médico</string>
      </property>
     </column>
     <column>
@@ -130,7 +130,7 @@ QPushButton:hover:before {
     </column>
     <column>
      <property name="text">
-      <string>Diagnostico</string>
+      <string>Diagnóstico</string>
      </property>
     </column>
     <column>
@@ -149,7 +149,7 @@ QPushButton:hover:before {
      </rect>
     </property>
     <property name="text">
-     <string>ID Medico</string>
+     <string>ID Médico</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_3">
@@ -265,12 +265,12 @@ QPushButton:hover:before {
     </column>
     <column>
      <property name="text">
-      <string>Nombre Doctor</string>
+      <string>Nombre Médico</string>
      </property>
     </column>
     <column>
      <property name="text">
-      <string>Apellido Doctor</string>
+      <string>Apellido Médico</string>
      </property>
     </column>
     <column>
@@ -362,7 +362,7 @@ QPushButton:hover:before {
      <string notr="true">font: 18pt &quot;Arial&quot;;</string>
     </property>
     <property name="text">
-     <string>Diagnostico</string>
+     <string>Diagnóstico</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_12">

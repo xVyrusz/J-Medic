@@ -298,7 +298,7 @@ QPushButton:hover:before {
      <string notr="true">font: 75 12pt &quot;Arial&quot;;</string>
     </property>
     <property name="text">
-     <string>Telefono</string>
+     <string>Teléfono</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_11">

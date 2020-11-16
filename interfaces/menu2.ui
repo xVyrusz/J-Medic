@@ -116,9 +116,9 @@ QPushButton:hover:before {
     <property name="geometry">
      <rect>
       <x>190</x>
-      <y>190</y>
+      <y>200</y>
       <width>201</width>
-      <height>61</height>
+      <height>71</height>
      </rect>
     </property>
     <property name="text">
@@ -129,22 +129,9 @@ QPushButton:hover:before {
     <property name="geometry">
      <rect>
       <x>410</x>
-      <y>190</y>
+      <y>210</y>
       <width>201</width>
       <height>61</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_7">
-    <property name="geometry">
-     <rect>
-      <x>190</x>
-      <y>270</y>
-      <width>201</width>
-      <height>71</height>
      </rect>
     </property>
     <property name="text">
@@ -155,20 +142,7 @@ QPushButton:hover:before {
     <property name="geometry">
      <rect>
       <x>190</x>
-      <y>360</y>
-      <width>201</width>
-      <height>71</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_9">
-    <property name="geometry">
-     <rect>
-      <x>410</x>
-      <y>270</y>
+      <y>300</y>
       <width>201</width>
       <height>71</height>
      </rect>
@@ -181,7 +155,7 @@ QPushButton:hover:before {
     <property name="geometry">
      <rect>
       <x>410</x>
-      <y>360</y>
+      <y>300</y>
       <width>201</width>
       <height>71</height>
      </rect>
@@ -194,7 +168,7 @@ QPushButton:hover:before {
     <property name="geometry">
      <rect>
       <x>410</x>
-      <y>450</y>
+      <y>400</y>
       <width>201</width>
       <height>71</height>
      </rect>
@@ -216,7 +190,7 @@ QPushButton:hover:before {
      <string notr="true">font: 18pt &quot;Arial&quot;;</string>
     </property>
     <property name="text">
-     <string>Editar medico</string>
+     <string>Editar médico</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_22">
@@ -239,7 +213,7 @@ QPushButton:hover:before {
     <property name="geometry">
      <rect>
       <x>190</x>
-      <y>190</y>
+      <y>200</y>
       <width>191</width>
       <height>31</height>
      </rect>
@@ -255,7 +229,7 @@ QPushButton:hover:before {
     <property name="geometry">
      <rect>
       <x>410</x>
-      <y>190</y>
+      <y>200</y>
       <width>191</width>
       <height>31</height>
      </rect>
@@ -276,43 +250,11 @@ QPushButton:hover:before {
      <string>Editar citas</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_25">
-    <property name="geometry">
-     <rect>
-      <x>410</x>
-      <y>270</y>
-      <width>201</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">font: 18pt &quot;Arial&quot;;</string>
-    </property>
-    <property name="text">
-     <string>Eliminar medico</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_26">
-    <property name="geometry">
-     <rect>
-      <x>190</x>
-      <y>270</y>
-      <width>201</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">font: 18pt &quot;Arial&quot;;</string>
-    </property>
-    <property name="text">
-     <string>Eliminar paciente</string>
-    </property>
-   </widget>
    <widget class="QLabel" name="label_27">
     <property name="geometry">
      <rect>
       <x>190</x>
-      <y>360</y>
+      <y>300</y>
       <width>201</width>
       <height>31</height>
      </rect>
@@ -328,7 +270,7 @@ QPushButton:hover:before {
     <property name="geometry">
      <rect>
       <x>410</x>
-      <y>360</y>
+      <y>300</y>
       <width>201</width>
       <height>31</height>
      </rect>
@@ -357,20 +299,7 @@ QPushButton:hover:before {
     <property name="geometry">
      <rect>
       <x>560</x>
-      <y>400</y>
-      <width>51</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>IR</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="boton_eliminar_medico">
-    <property name="geometry">
-     <rect>
-      <x>560</x>
-      <y>310</y>
+      <y>340</y>
       <width>51</width>
       <height>31</height>
      </rect>
@@ -383,7 +312,7 @@ QPushButton:hover:before {
     <property name="geometry">
      <rect>
       <x>560</x>
-      <y>220</y>
+      <y>240</y>
       <width>51</width>
       <height>31</height>
      </rect>
@@ -409,20 +338,7 @@ QPushButton:hover:before {
     <property name="geometry">
      <rect>
       <x>340</x>
-      <y>220</y>
-      <width>51</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>IR</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="boton_eliminar_paciente">
-    <property name="geometry">
-     <rect>
-      <x>340</x>
-      <y>310</y>
+      <y>240</y>
       <width>51</width>
       <height>31</height>
      </rect>
@@ -435,7 +351,7 @@ QPushButton:hover:before {
     <property name="geometry">
      <rect>
       <x>340</x>
-      <y>400</y>
+      <y>340</y>
       <width>51</width>
       <height>31</height>
      </rect>
@@ -448,7 +364,7 @@ QPushButton:hover:before {
     <property name="geometry">
      <rect>
       <x>560</x>
-      <y>490</y>
+      <y>440</y>
       <width>51</width>
       <height>31</height>
      </rect>
@@ -461,7 +377,7 @@ QPushButton:hover:before {
     <property name="geometry">
      <rect>
       <x>410</x>
-      <y>450</y>
+      <y>400</y>
       <width>161</width>
       <height>31</height>
      </rect>

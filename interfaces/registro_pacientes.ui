@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>J-Medic Registro de Pacientes</string>
+   <string>J-Medic Registrar Pacientes</string>
   </property>
   <property name="styleSheet">
    <string notr="true">*{
@@ -311,7 +311,7 @@ QPushButton:hover:before {
      </rect>
     </property>
     <property name="text">
-     <string> Telefono:</string>
+     <string> Teléfono:</string>
     </property>
    </widget>
    <widget class="QLineEdit" name="input_Telefono">
@@ -427,22 +427,6 @@ QPushButton:hover:before {
     </property>
     <property name="text">
      <string>Guardar</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="imagen_Guardar">
-    <property name="geometry">
-     <rect>
-      <x>610</x>
-      <y>470</y>
-      <width>51</width>
-      <height>61</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">image: url(:/Guardar/guardar.png);</string>
-    </property>
-    <property name="text">
-     <string/>
     </property>
    </widget>
   </widget>

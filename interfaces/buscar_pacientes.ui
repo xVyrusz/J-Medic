@@ -83,7 +83,7 @@ QPushButton:hover:before {
      </rect>
     </property>
     <property name="text">
-     <string> Ingrese el Id:</string>
+     <string> Ingresa el ID</string>
     </property>
    </widget>
    <widget class="QLineEdit" name="input_BuscarId">
@@ -109,7 +109,7 @@ QPushButton:hover:before {
      </rect>
     </property>
     <property name="text">
-     <string>Buscar por Id</string>
+     <string>Buscar por ID</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_3">
@@ -122,7 +122,7 @@ QPushButton:hover:before {
      </rect>
     </property>
     <property name="text">
-     <string>Ingrese el Nombre:</string>
+     <string>Ingresa el Nombre</string>
     </property>
    </widget>
    <widget class="QLineEdit" name="input_BuscarNombre">
@@ -190,7 +190,7 @@ QPushButton:hover:before {
     </column>
     <column>
      <property name="text">
-      <string>Apelliod Materno</string>
+      <string>Apellido Materno</string>
      </property>
     </column>
     <column>
@@ -215,7 +215,7 @@ QPushButton:hover:before {
     </column>
     <column>
      <property name="text">
-      <string>Telefono</string>
+      <string>Teléfono</string>
      </property>
     </column>
     <column>
@@ -263,12 +263,12 @@ QPushButton:hover:before {
     </column>
     <column>
      <property name="text">
-      <string>Nombre del Doctor</string>
+      <string>Nombre Médico</string>
      </property>
     </column>
     <column>
      <property name="text">
-      <string>Apellio Doctor</string>
+      <string>Apellido Médico</string>
      </property>
     </column>
     <column>
@@ -298,7 +298,7 @@ QPushButton:hover:before {
     </column>
     <column>
      <property name="text">
-      <string>Diagnostico</string>
+      <string>Diagnóstico</string>
      </property>
     </column>
     <column>

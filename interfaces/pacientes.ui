@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Pacientes</string>
+   <string>J-MEDIC Pacientes</string>
   </property>
   <property name="styleSheet">
    <string notr="true">*{
@@ -73,7 +73,7 @@ QPushButton:hover:before {
      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600; color:#ffffff;&quot;&gt;Pacientes&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
-   <widget class="QTableWidget" name="tableWidget">
+   <widget class="QTableWidget" name="tabla_pacientes">
     <property name="geometry">
      <rect>
       <x>20</x>
@@ -84,7 +84,7 @@ QPushButton:hover:before {
     </property>
     <column>
      <property name="text">
-      <string>Id Alumnos</string>
+      <string>Id Paciente</string>
      </property>
     </column>
     <column>
@@ -109,7 +109,7 @@ QPushButton:hover:before {
     </column>
     <column>
      <property name="text">
-      <string>Peso KG</string>
+      <string>Peso </string>
      </property>
     </column>
     <column>
@@ -124,7 +124,7 @@ QPushButton:hover:before {
     </column>
     <column>
      <property name="text">
-      <string>Telefono</string>
+      <string>Teléfono</string>
      </property>
     </column>
     <column>

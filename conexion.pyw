@@ -24,89 +24,11 @@ def _connect_to_db(
         print('errror: ', e)
 
 
-def get_blood():
-    result = {}
-    connection = _connect_to_db()
+if __name__ == '__main__':
+    _connect_to_db()
 
-    try:
-        with connection.cursor() as cursor:
-            row_count = 0
-            e='none'
-            #Read everything of tipo_sangre
-            sql = f"""SELECT * FROM pacientes"""
-            cursor.execute(sql)
-            result = cursor.fetchall()
-    except Exception as e:
-        print(e)
-        e.ex.args[0]
-    finally:
-        connection.close()
-        return result
 
-def traer_medicos():
-    result = {}
-    connection = _connect_to_db()
-
-    try:
-        with connection.cursor() as cursor:
-            row_count = 0
-            e='none'
-            #Read everything of <UNA TABLA>
-            sql = f"""SELECT * FROM tipo_sangre"""
-            cursor.execute(sql)
-            result = cursor.fetchall()
-    except Exception as e:
-        print(e)
-        e.ex.args[0]
-    finally:
-        connection.close()
-        return result
-#sangre es el parametro
-def insertar_sangre(sangre):
-    result = {}
-    connection = _connect_to_db()
-
-    try:
-        with connection.cursor() as cursor:
-            #Read everything of <UNA TABLA>
-            sql = f"""INSERT INTO tipo_sangre(nombreSangre) VALUES(%s)"""
-            cursor.execute(sql, (sangre))
-        connection.commit()
-        with connection.cursor() as cursor:
-            sql = f"""SELECT * FROM tipo_sangre"""
-            cursor.execute(sql)
-            result = cursor.fetchall()
-            return result
-    except Exception as e:
-        print(e)
-        e.ex.args[0]
-    finally:
-        connection.close()
-        return result
-
-def insertar_pacientes(paciente):
-    result = {}
-    connection = _connect_to_db()
-
-    try:
-        with connection.cursor() as cursor:
-            #Read everything of <UNA TABLA>
-            sql = f"""INSERT INTO pacientes(nombrePaciente) VALUES(%s)"""
-            cursor.execute(sql, (paciente))
-        connection.commit()
-        with connection.cursor() as cursor:
-            sql = f"""SELECT * FROM pacientes"""
-            cursor.execute(sql)
-            result = cursor.fetchall()
-            return result
-    except Exception as e:
-        print(e)
-        e.ex.args[0]
-    finally:
-        connection.close()
-        return result
-
-hola = insertar_pacientes("Jesus")
+hola = insertar_pacientes("Jesus","carreon")
 print(hola)
 print("**************************************")
 #sangresita = get_blood()

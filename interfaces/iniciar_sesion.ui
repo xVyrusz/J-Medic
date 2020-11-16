@@ -60,21 +60,21 @@ QPushButton:hover:before {
 }</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QLineEdit" name="lineEdit">
+   <widget class="QLineEdit" name="input_Usuario">
     <property name="geometry">
      <rect>
-      <x>190</x>
-      <y>140</y>
+      <x>200</x>
+      <y>80</y>
       <width>131</width>
       <height>21</height>
      </rect>
     </property>
    </widget>
-   <widget class="QLineEdit" name="lineEdit_2">
+   <widget class="QLineEdit" name="input_Contra">
     <property name="geometry">
      <rect>
-      <x>190</x>
-      <y>190</y>
+      <x>200</x>
+      <y>130</y>
       <width>131</width>
       <height>20</height>
      </rect>
@@ -86,50 +86,34 @@ QPushButton:hover:before {
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>100</x>
-      <y>140</y>
-      <width>81</width>
+      <x>90</x>
+      <y>80</y>
+      <width>91</width>
       <height>21</height>
      </rect>
     </property>
     <property name="text">
-     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:400;&quot;&gt;Usuario&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:400;&quot;&gt;Usuario:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_2">
     <property name="geometry">
      <rect>
       <x>60</x>
-      <y>190</y>
+      <y>130</y>
       <width>131</width>
       <height>21</height>
      </rect>
     </property>
     <property name="text">
-     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Contraseña&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_3">
-    <property name="geometry">
-     <rect>
-      <x>210</x>
-      <y>50</y>
-      <width>81</width>
-      <height>81</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">image: url(:/usuario/usuario2.png);</string>
-    </property>
-    <property name="text">
-     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Contraseña:&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
    <widget class="QPushButton" name="boton_iniciar">
     <property name="geometry">
      <rect>
       <x>180</x>
-      <y>240</y>
+      <y>180</y>
       <width>141</width>
       <height>23</height>
      </rect>
@@ -145,7 +129,7 @@ QPushButton:hover:before {
      <x>0</x>
      <y>0</y>
      <width>456</width>
-     <height>21</height>
+     <height>20</height>
     </rect>
    </property>
   </widget>

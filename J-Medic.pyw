@@ -1,55 +1,37 @@
 import sys, os, re, ctypes
 from PyQt5.QtWidgets import QApplication, QMainWindow, QPushButton
-from PyQt5 import uic
+from PyQt5 import uic, QtCore
+import modulos.iniciosesion as iniciosesion
 
-class Ventana(QMainWindow):
+class Controller:
 
     def __init__(self):
-        #iniciar el objeto
-        QMainWindow.__init__(self)
-        self.vista_inicioSesion()
-        self.centrar_ventana()
-        self.tamaño_ventana()
-        self.boton_iniciar.clicked.connect(self.validar_datos)
+        pass
 
-    def tamaño_ventana(self):
-        #Fijas el tamaño mínimo
-        self.setMinimumSize(500,500)
-        #Fijas el tamaño máximo
-        self.setMaximumSize(800,600)
+    def iniciar_sesion(self):
+        self.iniciar_sesion = iniciosesion.Ventana()
+        self.iniciar_sesion.switch_window.connect(self.show_main)
+        self.iniciar_sesion.show()
 
-    def centrar_ventana(self):
-        #Mover la Ventana y centrarla en el escritorio
-        resolucion = ctypes.windll.user32
-        resolucion_ancho = resolucion.GetSystemMetrics(0)
-        resolucion_alto = resolucion.GetSystemMetrics(1)
-        left = (resolucion_ancho / 2) - (self.frameSize().width() / 2)
-        top = (resolucion_alto / 2) - (self.frameSize().width() / 2)
-        self.move(left, top)
+    def show_main(self):
+        self.window = MainWindow()
+        self.window.switch_window.connect(self.show_window_two)
+        self.login.close()
+        self.window.show()
 
-    def vista_inicioSesion(self):
-        #Cargar la interfaz
-        uic.loadUi("interfaces/iniciar_sesion.ui", self)
-        #Fijar el titulo de la ventana
-        self.setWindowTitle("J-Medic: Inicio de Sesion")
-
-    def validar_datos(self):
-        #Cargar la interfaz
-        uic.loadUi("interfaces/menu2.ui", self)
-        #Fijar el titulo de la ventana
-        self.setWindowTitle("J-Medic: Buscar medico")
-
-    pass
+    def show_window_two(self, text):
+        self.window_two = WindowTwo(text)
+        self.window.close()
+        self.window_two.show()
 
 
 
+def main():
+    app = QApplication(sys.argv)
+    controller = Controller()
+    controller.iniciar_sesion()
+    sys.exit(app.exec_())
 
 
-#iniciar aplicacion
-app = QApplication(sys.argv)
-#Crear Objeto
-_ventana = Ventana()
-#Mostrar ventana
-_ventana.show()
-#Ejecuar Aplicacion
-app.exec_()
+if __name__ == '__main__':
+    main()

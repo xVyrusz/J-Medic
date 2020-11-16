@@ -63,14 +63,14 @@ QPushButton:hover:before {
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>280</x>
+      <x>330</x>
       <y>0</y>
-      <width>231</width>
+      <width>161</width>
       <height>61</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">font: 26pt &quot;Arial&quot;;</string>
+     <string notr="true">font: 75 18pt &quot;Arial&quot;;</string>
     </property>
     <property name="text">
      <string>Editar Medicos</string>
@@ -321,8 +321,8 @@ QPushButton:hover:before {
    <widget class="QLineEdit" name="input_turno">
     <property name="geometry">
      <rect>
-      <x>470</x>
-      <y>270</y>
+      <x>600</x>
+      <y>230</y>
       <width>41</width>
       <height>21</height>
      </rect>

@@ -64,14 +64,14 @@ QPushButton:hover:before {
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>260</x>
+      <x>310</x>
       <y>0</y>
-      <width>281</width>
+      <width>211</width>
       <height>41</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">font: 26pt &quot;Arial&quot;;</string>
+     <string notr="true">font: 18pt &quot;Arial&quot;;</string>
     </property>
     <property name="text">
      <string>Eliminar pacientes</string>
@@ -420,7 +420,7 @@ QPushButton:hover:before {
     </column>
     <column>
      <property name="text">
-      <string>New Column</string>
+      <string>Estatura</string>
      </property>
     </column>
     <column>

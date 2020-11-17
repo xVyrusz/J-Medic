@@ -1,14 +1,12 @@
-
-
-
-def get_medicos():
+def get_cita():
     result = {}
     connection = _connect_to_db()
     try:
         with connection.cursor() as cursor:
             row_count = 0
             e='none'
-            sql = f"""SELECT medicos.idMedicos,nombreMedico,apellidoPMedico,apelLidoMMedico,Cedula,Telefono,turnos.nombreTurno  FROM medicos inner join turnos on medicos.idTurnos_F=turnos.idTurnos"""
+            sql = f"""select cita.idCita,cita.idPaciente_F,pacientes.nombrePaciente,pacientes.apellidoPPaciente,pacientes.apellidoMPaciente,cita.fechaCita
+             FROM cita inner join pacientes on pacientes.nombrePaciente = pacientes.nombrePaciente """
             cursor.execute(sql)
             result = cursor.fetchall()
     except Exception as e:
@@ -18,19 +16,18 @@ def get_medicos():
         connection.close()
         return result
 
-
-def insertar_medicos(medico):
+def insertar_cita(cita):
     result = {}
     connection = _connect_to_db()
 
     try:
         with connection.cursor() as cursor:
             #Read everything of <UNA TABLA>
-            sql = f"""INSERT INTO medicos(nombreMedico,apellidoPMedico,apellidoMMedico,Cedula,Telefono,id_Turnos_F) VALUES(%s,%s,%s,%s,%s,%s)"""
-            cursor.execute(sql, (medico))
+            sql = f"""INSERT INTO cita(id_Paciente_F,fechaCita) VALUES(%s,%s)"""
+            cursor.execute(sql, (cita))
         connection.commit()
         with connection.cursor() as cursor:
-            sql = f"""SELECT * FROM medicos"""
+            sql = f"""SELECT * FROM cita"""
             cursor.execute(sql)
             result = cursor.fetchall()
             return result
@@ -41,35 +38,18 @@ def insertar_medicos(medico):
         connection.close()
         return result
 
-def buscar_medicos_id():
-    result = {}
-    connection = _connect_to_db()
-    try:
-        with connection.cursor() as cursor:
-            row_count = 0
-            e='none'
-            sql = f"""SELECT * FROM medicos WHERE idMedicos = '%s'"""
-            cursor.execute(sql)
-            result = cursor.fetchall()
-    except Exception as e:
-        print(e)
-        e.ex.args[0]
-    finally:
-        connection.close()
-        return result
-
-def editar_medicos(medico):
+def editar_cita(cita):
     result = {}
     connection = _connect_to_db()
 
     try:
         with connection.cursor() as cursor:
             #Read everything of <UNA TABLA>
-            sql = f"""UPDATE medicos SET nombreMedico = '%s' WHERE apellidoPMedico = '%s' WHERE apellidoMMedico ='%s' WHERE Cedula = '%s' WHERE Telefono = '%s' WHERE idTurnos_F = '%s' """
-            cursor.execute(sql, (medico))
+            sql = f"""UPDATE cita SET fechaCita = '%s'"""
+            cursor.execute(sql, (cita))
         connection.commit()
         with connection.cursor() as cursor:
-            sql = f"""SELECT * FROM medicos"""
+            sql = f"""SELECT * FROM cita"""
             cursor.execute(sql)
             result = cursor.fetchall()
             return result
@@ -79,3 +59,28 @@ def editar_medicos(medico):
     finally:
         connection.close()
         return result
+
+
+def eliminar_cita(cita):
+    result = {}
+    connection = _connect_to_db()
+
+    try:
+        with connection.cursor() as cursor:
+            #Read everything of <UNA TABLA>
+            sql = f"""DELETE FROM cita WHERE idCita = '%s'"""
+            cursor.execute(sql, (cita))
+        connection.commit()
+        with connection.cursor() as cursor:
+            sql = f"""SELECT * FROM cita"""
+            cursor.execute(sql)
+            result = cursor.fetchall()
+            return result
+    except Exception as e:
+        print(e)
+        e.ex.args[0]
+    finally:
+        connection.close()
+        return result
+
+

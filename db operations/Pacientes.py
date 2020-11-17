@@ -8,7 +8,7 @@ def get_pacientes():
         with connection.cursor() as cursor:
             row_count = 0
             e='none'
-            sql = f"""SELECT * FROM pacientes"""
+            sql = f"""SELECT pacientes.idPaciente,nombrePaciente,apellidoPPaciente,apellidoMPaciente,sexoPaciente,pesoPaciente,estaturaPaciente,edadPaciente,telefonoPaciente,tipo_sangre.nombreSangre,pacientes.alergiasPaciente FROM pacientes inner join tipo_sangre on pacientes.idTipo_sangre_F=tipo_sangre.idTipo_sangre """
             cursor.execute(sql)
             result = cursor.fetchall()
     except Exception as e:

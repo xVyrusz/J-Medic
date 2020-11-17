@@ -5,15 +5,16 @@ import ctypes
 from PyQt5 import uic, QtCore, QtWidgets
 
 
-class WindowTwo(QtWidgets.QMainWindow):
+class WindowTree(QtWidgets.QMainWindow):
 
     switch_window = QtCore.pyqtSignal()
 
     def __init__(self):
         QtWidgets.QMainWindow.__init__(self)
-        uic.loadUi("interfaces/agendar_cita.ui", self)
-        self.setWindowTitle("J-Medic: Registrar Cita")
-        self.boton_agendar_cita.clicked.connect(self.switch)
+        uic.loadUi("interfaces/Eliminar Consultas.ui", self)
+        self.setWindowTitle("J-Medic: Eliminar Consulta")
+        self.boton_Buscar.clicked.connect(self.switch)
+        self.boton_Guardar.clicked.connect(self.switch)
         self.actionRegresar.setShortcut("Ctrl+R")
         self.actionRegresar.triggered.connect(self.switch)
 

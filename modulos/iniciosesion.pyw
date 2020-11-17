@@ -1,5 +1,9 @@
-import sys, os, re, ctypes
+import sys
+import os
+import re
+import ctypes
 from PyQt5 import uic, QtCore, QtWidgets
+
 
 class Login(QtWidgets.QMainWindow):
 

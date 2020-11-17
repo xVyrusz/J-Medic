@@ -1,5 +1,9 @@
-import sys, os, re, ctypes
+import sys
+import os
+import re
+import ctypes
 from PyQt5 import uic, QtCore, QtWidgets
+
 
 class MainWindow(QtWidgets.QMainWindow):
 
@@ -27,21 +31,18 @@ class MainWindow(QtWidgets.QMainWindow):
         self.boton_BuscarCita.clicked.connect(self.switch8)
         self.boton_MasOpciones.clicked.connect(self.switch9)
 
-
-
-
     def switch(self):
         self.switch_window.emit()
 
     def switch2(self):
         self.switch_window2.emit()
-    
+
     def switch3(self):
         self.switch_window3.emit()
 
     def switch4(self):
         self.switch_window4.emit()
-    
+
     def switch5(self):
         self.switch_window5.emit()
 
@@ -53,6 +54,6 @@ class MainWindow(QtWidgets.QMainWindow):
 
     def switch8(self):
         self.switch_window8.emit()
-    
+
     def switch9(self):
         self.switch_window9.emit()

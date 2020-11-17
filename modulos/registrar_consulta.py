@@ -1,5 +1,9 @@
-import sys, os, re, ctypes
+import sys
+import os
+import re
+import ctypes
 from PyQt5 import uic, QtCore, QtWidgets
+
 
 class WindowTwo(QtWidgets.QMainWindow):
 
@@ -10,6 +14,7 @@ class WindowTwo(QtWidgets.QMainWindow):
         uic.loadUi("interfaces/Nueva_consulta.ui", self)
         self.setWindowTitle("J-Medic: Registrar Consulta")
         self.guardar_consulta.clicked.connect(self.switch)
+        self.generar_idc.clicked.connect(self.switch)
         self.actionRegresar.setShortcut("Ctrl+R")
         self.actionRegresar.triggered.connect(self.switch)
 

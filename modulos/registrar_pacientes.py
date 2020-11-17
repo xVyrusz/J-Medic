@@ -1,5 +1,9 @@
-import sys, os, re, ctypes
+import sys
+import os
+import re
+import ctypes
 from PyQt5 import uic, QtCore, QtWidgets
+
 
 class WindowTwo(QtWidgets.QMainWindow):
 
@@ -13,7 +17,7 @@ class WindowTwo(QtWidgets.QMainWindow):
         self.actionRegresar.setShortcut("Ctrl+R")
         self.actionRegresar.triggered.connect(self.switch)
         self.validar()
-    
+
     def validar(self):
         self.input_Nombre.textChanged.connect(self.validar_nombre)
         self.input_ApellidoP.textChanged.connect(self.validar_apellidoP)
@@ -23,7 +27,8 @@ class WindowTwo(QtWidgets.QMainWindow):
 
     def validar_nombre(self):
         nombre = self.input_Nombre.text()
-        validar = re.match("^[\w'\-,.][^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]]{1,}$", nombre, re.I)
+        validar = re.match(
+            "^[\w'\-,.][^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]]{1,}$", nombre, re.I)
         if nombre == "":
             self.input_Nombre.setStyleSheet("border: 2px solid yellow;")
             return False
@@ -33,10 +38,11 @@ class WindowTwo(QtWidgets.QMainWindow):
         else:
             self.input_Nombre.setStyleSheet("border: 2px solid green;")
             return True
-    
+
     def validar_apellidoP(self):
         apellido = self.input_ApellidoP.text()
-        validar = re.match("^[\w'\-,.][^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]]{1,}$", apellido, re.I)
+        validar = re.match(
+            "^[\w'\-,.][^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]]{1,}$", apellido, re.I)
         if apellido == "":
             self.input_ApellidoP.setStyleSheet("border: 2px solid yellow;")
             return False
@@ -46,10 +52,11 @@ class WindowTwo(QtWidgets.QMainWindow):
         else:
             self.input_ApellidoP.setStyleSheet("border: 2px solid green;")
             return True
-    
+
     def validar_apellidoM(self):
         apellido = self.input_ApellidoM.text()
-        validar = re.match("^[\w'\-,.][^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]]{1,}$", apellido, re.I)
+        validar = re.match(
+            "^[\w'\-,.][^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]]{1,}$", apellido, re.I)
         if apellido == "":
             self.input_ApellidoM.setStyleSheet("border: 2px solid yellow;")
             return False

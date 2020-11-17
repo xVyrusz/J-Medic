@@ -7,9 +7,10 @@ class WindowTwo(QtWidgets.QMainWindow):
 
     def __init__(self):
         QtWidgets.QMainWindow.__init__(self)
-        uic.loadUi("interfaces/Registrar Medicos.ui", self)
-        self.setWindowTitle("J-Medic: Registrar Medicos")
-        self.Boton_Guardar.clicked.connect(self.switch)
+        uic.loadUi("interfaces/buscar_pacientes.ui", self)
+        self.setWindowTitle("J-Medic: Buscar Paciente")
+        self.boton_BuscarId.clicked.connect(self.switch)
+        self.boton_BuscarNombre.clicked.connect(self.switch)
         self.actionRegresar.setShortcut("Ctrl+R")
         self.actionRegresar.triggered.connect(self.switch)
 

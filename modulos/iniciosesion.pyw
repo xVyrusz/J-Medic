@@ -7,8 +7,8 @@ class Login(QtWidgets.QMainWindow):
 
     def __init__(self):
         QtWidgets.QMainWindow.__init__(self)
-        self.setWindowTitle("J-Medic: Inicio de Sesion")
         uic.loadUi("interfaces/iniciar_sesion.ui", self)
+        self.setWindowTitle("J-Medic: Inicio de Sesion")
         self.boton_iniciar.clicked.connect(self.login)
 
     def login(self):

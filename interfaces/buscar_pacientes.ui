@@ -321,10 +321,16 @@ QPushButton:hover:before {
     <property name="title">
      <string>Menu</string>
     </property>
+    <addaction name="actionRegresar"/>
    </widget>
    <addaction name="menuMenu"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionRegresar">
+   <property name="text">
+    <string>Regresar</string>
+   </property>
+  </action>
  </widget>
  <resources/>
  <connections/>

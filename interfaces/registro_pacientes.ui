@@ -459,6 +459,7 @@ QPushButton:hover:before {
     <property name="title">
      <string>Menu</string>
     </property>
+    <addaction name="actionRegresar"/>
    </widget>
    <widget class="QMenu" name="menuMostrar_pacientes">
     <property name="title">
@@ -469,6 +470,11 @@ QPushButton:hover:before {
    <addaction name="menuMostrar_pacientes"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionRegresar">
+   <property name="text">
+    <string>Regresar</string>
+   </property>
+  </action>
  </widget>
  <resources>
   <include location="../image/Imagenes.qrc"/>

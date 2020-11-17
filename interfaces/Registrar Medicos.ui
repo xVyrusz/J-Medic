@@ -17,7 +17,7 @@
    </font>
   </property>
   <property name="windowTitle">
-   <string>J-MEDIC Registro de Medicos</string>
+   <string>J-Medic: Registro de Medicos</string>
   </property>
   <property name="styleSheet">
    <string notr="true">*{
@@ -299,7 +299,7 @@ color: rgb(0, 0, 0);</string>
      <x>0</x>
      <y>0</y>
      <width>660</width>
-     <height>20</height>
+     <height>19</height>
     </rect>
    </property>
    <property name="font">

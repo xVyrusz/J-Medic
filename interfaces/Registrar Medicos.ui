@@ -323,6 +323,7 @@ color: rgb(0, 0, 0);</string>
     </property>
    </widget>
   </widget>
+  <widget class="QStatusBar" name="statusbar"/>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
@@ -350,17 +351,10 @@ color: rgb(0, 0, 0);</string>
      <string>Menu</string>
     </property>
     <addaction name="actionRegresar"/>
-   </widget>
-   <widget class="QMenu" name="menuMostrar_Medicos">
-    <property name="title">
-     <string>Lista de Médicos</string>
-    </property>
-    <addaction name="actionVer"/>
+    <addaction name="actionLista_de_M_dicos"/>
    </widget>
    <addaction name="menuMenu"/>
-   <addaction name="menuMostrar_Medicos"/>
   </widget>
-  <widget class="QStatusBar" name="statusbar"/>
   <action name="actionRegresar">
    <property name="text">
     <string>Regresar</string>
@@ -369,6 +363,11 @@ color: rgb(0, 0, 0);</string>
   <action name="actionVer">
    <property name="text">
     <string>Ver</string>
+   </property>
+  </action>
+  <action name="actionLista_de_M_dicos">
+   <property name="text">
+    <string>Lista de Médicos</string>
    </property>
   </action>
  </widget>

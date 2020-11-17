@@ -1,24 +1,15 @@
 import sys, os, re, ctypes
 from PyQt5 import uic, QtCore, QtWidgets
 
-class MainWindow(QtWidgets.QWidget):
+class MainWindow(QtWidgets.QMainWindow):
 
-    switch_window = QtCore.pyqtSignal(str)
+    switch_window = QtCore.pyqtSignal()
 
     def __init__(self):
-        QtWidgets.QWidget.__init__(self)
-        self.setWindowTitle('Main Window')
-
-        layout = QtWidgets.QGridLayout()
-
-        self.line_edit = QtWidgets.QLineEdit()
-        layout.addWidget(self.line_edit)
-
-        self.button = QtWidgets.QPushButton('Switch Window')
-        self.button.clicked.connect(self.switch)
-        layout.addWidget(self.button)
-
-        self.setLayout(layout)
+        QtWidgets.QMainWindow.__init__(self)
+        self.setWindowTitle("J-Medic: Menu 1")
+        uic.loadUi("interfaces/menu.ui", self)
+        self.boton_AgregarMedico.clicked.connect(self.switch)
 
     def switch(self):
-        self.switch_window.emit(self.line_edit.text())
+        self.switch_window.emit()

@@ -20,8 +20,8 @@ class Controller:
         self.login.close()
         self.window.show()
 
-    def show_window_two(self, text):
-        self.window_two = registrar_medicos.WindowTwo(text)
+    def show_window_two(self):
+        self.window_two = registrar_medicos.WindowTwo()
         self.window.close()
         self.window_two.show()
 

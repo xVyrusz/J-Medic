@@ -1,22 +1,15 @@
 import sys, os, re, ctypes
 from PyQt5 import uic, QtCore, QtWidgets
 
-class Login(QtWidgets.QWidget):
+class Login(QtWidgets.QMainWindow):
 
     switch_window = QtCore.pyqtSignal()
 
     def __init__(self):
-        QtWidgets.QWidget.__init__(self)
-        self.setWindowTitle('Login')
-
-        layout = QtWidgets.QGridLayout()
-
-        self.button = QtWidgets.QPushButton('Login')
-        self.button.clicked.connect(self.login)
-
-        layout.addWidget(self.button)
-
-        self.setLayout(layout)
+        QtWidgets.QMainWindow.__init__(self)
+        self.setWindowTitle("J-Medic: Inicio de Sesion")
+        uic.loadUi("interfaces/iniciar_sesion.ui", self)
+        self.boton_iniciar.clicked.connect(self.login)
 
     def login(self):
         self.switch_window.emit()

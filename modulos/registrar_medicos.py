@@ -1,20 +1,12 @@
 import sys, os, re, ctypes
 from PyQt5 import uic, QtCore, QtWidgets
 
-class WindowTwo(QtWidgets.QWidget):
+class WindowTwo(QtWidgets.QMainWindow):
 
-    def __init__(self, text):
-        QtWidgets.QWidget.__init__(self)
-        self.setWindowTitle('Window Two')
+    switch_window = QtCore.pyqtSignal()
 
-        layout = QtWidgets.QGridLayout()
-
-        self.label = QtWidgets.QLabel(text)
-        layout.addWidget(self.label)
-
-        self.button = QtWidgets.QPushButton('Close')
-        self.button.clicked.connect(self.close)
-
-        layout.addWidget(self.button)
-
-        self.setLayout(layout)
+    def __init__(self):
+        QtWidgets.QMainWindow.__init__(self)
+        self.setWindowTitle("J-Medic: Menu 1")
+        uic.loadUi("interfaces/Registrar Medicos.ui", self)
+        self.Boton_Guardar.clicked.connect(self.close)

@@ -139,24 +139,3 @@ def buscar_cita_fechacita():
         return result
 
 
-def editar_cita(medico):
-    result = {}
-    connection = _connect_to_db()
-
-    try:
-        with connection.cursor() as cursor:
-            #Read everything of <UNA TABLA>
-            sql = f"""UPDATE cita SET fechaCita = '%s' """
-            cursor.execute(sql, (medico))
-        connection.commit()
-        with connection.cursor() as cursor:
-            sql = f"""SELECT * FROM cita"""
-            cursor.execute(sql)
-            result = cursor.fetchall()
-            return result
-    except Exception as e:
-        print(e)
-        e.ex.args[0]
-    finally:
-        connection.close()
-        return result

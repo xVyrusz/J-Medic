@@ -90,7 +90,8 @@ def buscar_cita_idcita():
         with connection.cursor() as cursor:
             row_count = 0
             e='none'
-            sql = f"""SELECT * FROM cita WHERE idCita = '%s'"""
+            sql = f"""select cita.idCita,cita.idPaciente_F,pacientes.nombrePaciente,pacientes.apellidoPPaciente,pacientes.apellidoMPaciente,cita.fechaCita
+             FROM cita inner join pacientes on pacientes.nombrePaciente = pacientes.nombrePaciente  WHERE idCita = '%s'"""
             cursor.execute(sql)
             result = cursor.fetchall()
     except Exception as e:
@@ -108,7 +109,8 @@ def buscar_cita_idpaciente():
         with connection.cursor() as cursor:
             row_count = 0
             e='none'
-            sql = f"""SELECT * FROM cita WHERE idPaciente_F = '%s'"""
+            sql = f"""select cita.idCita,cita.idPaciente_F,pacientes.nombrePaciente,pacientes.apellidoPPaciente,pacientes.apellidoMPaciente,cita.fechaCita
+             FROM cita inner join pacientes on pacientes.nombrePaciente = pacientes.nombrePaciente  WHERE idPaciente_F = '%s'"""
             cursor.execute(sql)
             result = cursor.fetchall()
     except Exception as e:
@@ -125,7 +127,8 @@ def buscar_cita_fechacita():
         with connection.cursor() as cursor:
             row_count = 0
             e='none'
-            sql = f"""SELECT * FROM cita WHERE fechaCita = '%s'"""
+            sql = f"""select cita.idCita,cita.idPaciente_F,pacientes.nombrePaciente,pacientes.apellidoPPaciente,pacientes.apellidoMPaciente,cita.fechaCita
+             FROM cita inner join pacientes on pacientes.nombrePaciente = pacientes.nombrePaciente WHERE fechaCita = '%s'"""
             cursor.execute(sql)
             result = cursor.fetchall()
     except Exception as e:

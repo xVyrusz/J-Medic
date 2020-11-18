@@ -70,7 +70,8 @@ def buscar_pacientes_id():
         with connection.cursor() as cursor:
             row_count = 0
             e='none'
-            sql = f"""SELECT * FROM pacientes WHERE idPaciente = '%s'"""
+            sql = f"""SELECT pacientes.idPaciente,nombrePaciente,apellidoPPaciente,apellidoMPaciente,sexoPaciente,pesoPaciente,estaturaPaciente,edadPaciente,telefonoPaciente,tipo_sangre.nombreSangre,pacientes.alergiasPaciente 
+            FROM pacientes inner join tipo_sangre on pacientes.idTipo_sangre_F=tipo_sangre.idTipo_sangre WHERE pacientes.idPaciente = '%s'"""
             cursor.execute(sql)
             result = cursor.fetchall()
     except Exception as e:
@@ -87,7 +88,8 @@ def buscar_pacientes_nombre():
         with connection.cursor() as cursor:
             row_count = 0
             e='none'
-            sql = f"""SELECT * FROM pacientes WHERE nombrePaciente = '%s'"""
+            sql = f"""SELECT pacientes.idPaciente,nombrePaciente,apellidoPPaciente,apellidoMPaciente,sexoPaciente,pesoPaciente,estaturaPaciente,edadPaciente,telefonoPaciente,tipo_sangre.nombreSangre,pacientes.alergiasPaciente 
+            FROM pacientes inner join tipo_sangre on pacientes.idTipo_sangre_F=tipo_sangre.idTipo_sangre WHERE pacientes.nombrePaciente = '%s"""
             cursor.execute(sql)
             result = cursor.fetchall()
     except Exception as e:

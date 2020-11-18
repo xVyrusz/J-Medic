@@ -134,3 +134,113 @@ def editar_consulta(consulta):
     finally:
         connection.close()
         return result
+
+
+
+def buscar_consulta_id():
+    result = {}
+    connection = _connect_to_db()
+    try:
+        with connection.cursor() as cursor:
+            row_count = 0
+            e='none'
+            sql = f"""SELECT datos_de_consulta.idConsulta,medicos.nombreMedico,medicos.apellidoPMedico,pacientes.nombrePaciente,pacientes.apellidoPPaciente,datos_de_consulta.fechaVisita,
+            motivos_de_consulta.nombreMotivo,consulta.pruebasRealizadas,consulta.diagnostico,consulta.tratamiento FROM datos_de_consulta inner join medicos on medicos.idMedicos=datos_de_consulta.idMedicos_F
+            inner join pacientes on datos_de_consulta.idPaciente_F=pacientes.idPaciente
+            inner join motivos_de_consulta on motivos_de_consulta.idMotivos_de_Consulta=datos_de_consulta.idMotivo_F
+            inner join consulta on datos_de_consulta.idConsulta=consulta.idConsulta_F WHERE consulta.idConsulta_F = '%s'"""
+            cursor.execute(sql)
+            result = cursor.fetchall()
+    except Exception as e:
+        print(e)
+        e.ex.args[0]
+    finally:
+        connection.close()
+        return result
+
+
+def buscar_consulta_medico():
+    result = {}
+    connection = _connect_to_db()
+    try:
+        with connection.cursor() as cursor:
+            row_count = 0
+            e='none'
+            sql = f"""SELECT datos_de_consulta.idConsulta,medicos.nombreMedico,medicos.apellidoPMedico,pacientes.nombrePaciente,pacientes.apellidoPPaciente,datos_de_consulta.fechaVisita,
+            motivos_de_consulta.nombreMotivo,consulta.pruebasRealizadas,consulta.diagnostico,consulta.tratamiento FROM datos_de_consulta inner join medicos on medicos.idMedicos=datos_de_consulta.idMedicos_F
+            inner join pacientes on datos_de_consulta.idPaciente_F=pacientes.idPaciente
+            inner join motivos_de_consulta on motivos_de_consulta.idMotivos_de_Consulta=datos_de_consulta.idMotivo_F
+            inner join consulta on datos_de_consulta.idConsulta=consulta.idConsulta_F WHERE medicos.idMedicos = '%s'"""
+            cursor.execute(sql)
+            result = cursor.fetchall()
+    except Exception as e:
+        print(e)
+        e.ex.args[0]
+    finally:
+        connection.close()
+        return result
+
+def buscar_consulta_nombre():
+    result = {}
+    connection = _connect_to_db()
+    try:
+        with connection.cursor() as cursor:
+            row_count = 0
+            e='none'
+            sql = f"""SELECT datos_de_consulta.idConsulta,medicos.nombreMedico,medicos.apellidoPMedico,pacientes.nombrePaciente,pacientes.apellidoPPaciente,datos_de_consulta.fechaVisita,
+            motivos_de_consulta.nombreMotivo,consulta.pruebasRealizadas,consulta.diagnostico,consulta.tratamiento FROM datos_de_consulta inner join medicos on medicos.idMedicos=datos_de_consulta.idMedicos_F
+            inner join pacientes on datos_de_consulta.idPaciente_F=pacientes.idPaciente
+            inner join motivos_de_consulta on motivos_de_consulta.idMotivos_de_Consulta=datos_de_consulta.idMotivo_F
+            inner join consulta on datos_de_consulta.idConsulta=consulta.idConsulta_F WHERE pacientes.nombrePaciente = '%s'"""
+            cursor.execute(sql)
+            result = cursor.fetchall()
+    except Exception as e:
+        print(e)
+        e.ex.args[0]
+    finally:
+        connection.close()
+        return result
+
+
+def buscar_consulta_motivo():
+    result = {}
+    connection = _connect_to_db()
+    try:
+        with connection.cursor() as cursor:
+            row_count = 0
+            e='none'
+            sql = f"""SELECT datos_de_consulta.idConsulta,medicos.nombreMedico,medicos.apellidoPMedico,pacientes.nombrePaciente,pacientes.apellidoPPaciente,datos_de_consulta.fechaVisita,
+            motivos_de_consulta.nombreMotivo,consulta.pruebasRealizadas,consulta.diagnostico,consulta.tratamiento FROM datos_de_consulta inner join medicos on medicos.idMedicos=datos_de_consulta.idMedicos_F
+            inner join pacientes on datos_de_consulta.idPaciente_F=pacientes.idPaciente
+            inner join motivos_de_consulta on motivos_de_consulta.idMotivos_de_Consulta=datos_de_consulta.idMotivo_F
+            inner join consulta on datos_de_consulta.idConsulta=consulta.idConsulta_F WHERE datos_de_consulta.idMotivo_F = '%s'"""
+            cursor.execute(sql)
+            result = cursor.fetchall()
+    except Exception as e:
+        print(e)
+        e.ex.args[0]
+    finally:
+        connection.close()
+        return result
+
+
+def buscar_consulta_fecha():
+    result = {}
+    connection = _connect_to_db()
+    try:
+        with connection.cursor() as cursor:
+            row_count = 0
+            e='none'
+            sql = f"""SELECT datos_de_consulta.idConsulta,medicos.nombreMedico,medicos.apellidoPMedico,pacientes.nombrePaciente,pacientes.apellidoPPaciente,datos_de_consulta.fechaVisita,
+            motivos_de_consulta.nombreMotivo,consulta.pruebasRealizadas,consulta.diagnostico,consulta.tratamiento FROM datos_de_consulta inner join medicos on medicos.idMedicos=datos_de_consulta.idMedicos_F
+            inner join pacientes on datos_de_consulta.idPaciente_F=pacientes.idPaciente
+            inner join motivos_de_consulta on motivos_de_consulta.idMotivos_de_Consulta=datos_de_consulta.idMotivo_F
+            inner join consulta on datos_de_consulta.idConsulta=consulta.idConsulta_F WHERE datos_de_consulta.fechaVisita = '%s'"""
+            cursor.execute(sql)
+            result = cursor.fetchall()
+    except Exception as e:
+        print(e)
+        e.ex.args[0]
+    finally:
+        connection.close()
+        return result

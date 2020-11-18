@@ -24,7 +24,7 @@ def insertar_cita(idpaciente,fecha):
     try:
         with connection.cursor() as cursor:
             #Read everything of <UNA TABLA>
-            sql = f"""INSERT INTO cita(id_Paciente_F,fechaCita) VALUES(%s,%s)"""
+            sql = f"""INSERT INTO cita(idPaciente_F,fechaCita) VALUES(%s,%s)"""
             cursor.execute(sql, (idpaciente,fecha))
         connection.commit()
         with connection.cursor() as cursor:

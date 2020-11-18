@@ -4,7 +4,8 @@ import re
 import ctypes
 from PyQt5 import uic, QtCore, QtWidgets
 from PyQt5.QtWidgets import QMessageBox
-
+import modulos.db_conexion as _connect_to_db
+import modulos.db_cita as Cita
 
 class WindowTwo(QtWidgets.QMainWindow):
 
@@ -21,9 +22,8 @@ class WindowTwo(QtWidgets.QMainWindow):
 
     def validar(self):
         self.input_idp.textChanged.connect(self.validar_id_paciente)
-        self.input_fecha.textChanged.connect(self.validar_id_paciente)
+        self.input_fecha.textChanged.connect(self.validar_fecha)
         pass
-
 
     def validar_id_paciente(self):
         id_paciente = self.input_idp.text()
@@ -57,6 +57,7 @@ class WindowTwo(QtWidgets.QMainWindow):
 
     def validar_datos(self):
         if self.validar_id_paciente() and self.validar_fecha():
+            Cita.insertar_cita(self.input_idp.text(),self.input_fecha.text())
             QMessageBox.information(self, "Datos guardados", "Su informacion se ha guardado correctamente", QMessageBox.Discard)
             self.switch()
         else:

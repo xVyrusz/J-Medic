@@ -21,7 +21,7 @@ class WindowTwo(QtWidgets.QMainWindow):
 
     def validar(self):
         self.input_idp.textChanged.connect(self.validar_id_paciente)
-        self.input_fecha.textChanged.connect(self.validar_id_paciente)
+        self.input_fecha.textChanged.connect(self.validar_fecha)
         pass
 
 

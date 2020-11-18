@@ -276,20 +276,14 @@ color: rgb(0, 0, 0);</string>
      <string>Guardar</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_2">
+   <widget class="QLineEdit" name="input_turno">
     <property name="geometry">
      <rect>
-      <x>550</x>
-      <y>390</y>
-      <width>51</width>
-      <height>61</height>
+      <x>510</x>
+      <y>360</y>
+      <width>113</width>
+      <height>20</height>
      </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">image: url(:/guardar/guardar.png);</string>
-    </property>
-    <property name="text">
-     <string/>
     </property>
    </widget>
   </widget>

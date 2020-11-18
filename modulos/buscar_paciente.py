@@ -3,6 +3,7 @@ import os
 import re
 import ctypes
 from PyQt5 import uic, QtCore, QtWidgets
+from PyQt5.QtWidgets import QMessageBox
 
 
 class WindowTwo(QtWidgets.QMainWindow):
@@ -13,8 +14,8 @@ class WindowTwo(QtWidgets.QMainWindow):
         QtWidgets.QMainWindow.__init__(self)
         uic.loadUi("interfaces/buscar_pacientes.ui", self)
         self.setWindowTitle("J-Medic: Buscar Paciente")
-        self.boton_BuscarId.clicked.connect(self.switch)
-        self.boton_BuscarNombre.clicked.connect(self.switch)
+        self.boton_BuscarId.clicked.connect(self.validar_datos_id)
+        self.boton_BuscarNombre.clicked.connect(self.validar_datos_nombre)
         self.actionRegresar.setShortcut("Ctrl+R")
         self.actionRegresar.triggered.connect(self.switch)
         self.validar()
@@ -26,7 +27,7 @@ class WindowTwo(QtWidgets.QMainWindow):
 
     def validar_id(self):
         aidi = self.input_BuscarId.text()
-        validar = re.match("^\d{1,}$", telefono, re.I)
+        validar = re.match("^\d{1,}$", aidi, re.I)
         if aidi == "":
             self.input_BuscarId.setStyleSheet("border: 2px solid yellow;")
             return False
@@ -50,6 +51,18 @@ class WindowTwo(QtWidgets.QMainWindow):
         else:
             self.input_BuscarNombre.setStyleSheet("border: 2px solid green;")
             return True
+
+    def validar_datos_id(self):
+        if self.validar_id():
+            self.switch()
+        else:
+            QMessageBox.warning(self, "Error", "Ingresa los datos correctamente", QMessageBox.Discard)
+
+    def validar_datos_nombre(self):
+        if self.validar_nombre():
+            self.switch()
+        else:
+            QMessageBox.warning(self, "Error", "Ingresa los datos correctamente", QMessageBox.Discard)
 
     def switch(self):
         self.switch_window.emit()

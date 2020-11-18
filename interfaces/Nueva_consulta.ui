@@ -171,7 +171,7 @@ QPushButton:hover:before {
       <x>10</x>
       <y>90</y>
       <width>261</width>
-      <height>20</height>
+      <height>21</height>
      </rect>
     </property>
    </widget>
@@ -181,7 +181,7 @@ QPushButton:hover:before {
       <x>280</x>
       <y>90</y>
       <width>271</width>
-      <height>20</height>
+      <height>21</height>
      </rect>
     </property>
    </widget>
@@ -207,6 +207,11 @@ QPushButton:hover:before {
       <height>22</height>
      </rect>
     </property>
+    <item>
+     <property name="text">
+      <string/>
+     </property>
+    </item>
     <item>
      <property name="text">
       <string>Consulta general</string>
@@ -437,6 +442,11 @@ color: rgb(12, 12, 12);</string>
     </property>
     <item>
      <property name="text">
+      <string/>
+     </property>
+    </item>
+    <item>
+     <property name="text">
       <string>2020</string>
      </property>
     </item>
@@ -565,62 +575,67 @@ color: rgb(12, 12, 12);</string>
     </property>
     <item>
      <property name="text">
-      <string>Enero</string>
+      <string/>
      </property>
     </item>
     <item>
      <property name="text">
-      <string>Febrero</string>
+      <string>-01-</string>
      </property>
     </item>
     <item>
      <property name="text">
-      <string>Marzo</string>
+      <string>-02-</string>
      </property>
     </item>
     <item>
      <property name="text">
-      <string>Abril</string>
+      <string>-03-</string>
      </property>
     </item>
     <item>
      <property name="text">
-      <string>Mayo</string>
+      <string>-04-</string>
      </property>
     </item>
     <item>
      <property name="text">
-      <string>Junio</string>
+      <string>-05-</string>
      </property>
     </item>
     <item>
      <property name="text">
-      <string>Julio</string>
+      <string>-06-</string>
      </property>
     </item>
     <item>
      <property name="text">
-      <string>Agosto</string>
+      <string>-07-</string>
      </property>
     </item>
     <item>
      <property name="text">
-      <string>Septiembre</string>
+      <string>-08-</string>
      </property>
     </item>
     <item>
      <property name="text">
-      <string>Octubre</string>
+      <string>-09-</string>
      </property>
     </item>
     <item>
      <property name="text">
-      <string>Noviembre</string>
+      <string>-10-</string>
      </property>
     </item>
     <item>
      <property name="text">
-      <string>Diciembre</string>
+      <string>-11-</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>-12-</string>
      </property>
     </item>
    </widget>
@@ -646,6 +661,11 @@ color: rgb(12, 12, 12);</string>
       <height>22</height>
      </rect>
     </property>
+    <item>
+     <property name="text">
+      <string/>
+     </property>
+    </item>
     <item>
      <property name="text">
       <string>1</string>

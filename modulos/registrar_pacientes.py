@@ -3,7 +3,7 @@ import os
 import re
 import ctypes
 from PyQt5 import uic, QtCore, QtWidgets
-
+from PyQt5.QtWidgets import QMessageBox
 
 class WindowTwo(QtWidgets.QMainWindow):
 
@@ -13,7 +13,7 @@ class WindowTwo(QtWidgets.QMainWindow):
         QtWidgets.QMainWindow.__init__(self)
         uic.loadUi("interfaces/registro_pacientes.ui", self)
         self.setWindowTitle("J-Medic: Menu 1")
-        self.boton_Guardar.clicked.connect(self.seleccionar_sexo)
+        self.boton_Guardar.clicked.connect(self.validar_datos)
         self.actionRegresar.setShortcut("Ctrl+R")
         self.actionRegresar.triggered.connect(self.switch)
         self.validar()
@@ -68,67 +68,50 @@ class WindowTwo(QtWidgets.QMainWindow):
             self.input_ApellidoM.setStyleSheet("border: 2px solid green;")
             return True
 
-    def seleccionar_sexo(self):
+    def validar_sexo(self):
         sexo = self.combo_sexo.currentText()
         self.input_sexo.setText(str(sexo))
-        self.validar_sexo()
-
-
-    def validar_sexo(self):
         sexo = self.input_sexo.text()
         if sexo == "":
             self.input_sexo.setStyleSheet("border: 2px solid yellow;")
             return False
         else:
             self.input_sexo.setStyleSheet("border: 2px solid green;")
-            self.seleccionar_peso()
             return True
 
-    def seleccionar_peso(self):
+    def validar_peso(self):
         pesok = self.comboBox.currentText()
         pesog = self.comboBox_2.currentText()
         self.input_Peso.setText(str(pesok)+(pesog))
-        self.validar_peso()
-
-    def validar_peso(self):
         peso = self.input_Peso.text()
         if peso == "":
             self.input_Peso.setStyleSheet("border: 2px solid yellow;")
             return False
         else:
             self.input_Peso.setStyleSheet("border: 2px solid green;")
-            self.seleccionar_estatura()
             return True
 
-    def seleccionar_estatura(self):
+    def validar_estatura(self):
         estaturam = self.comboBox_3.currentText()
         estaturacm = self.comboBox_4.currentText()
         self.input_estatura.setText(str(estaturam)+(estaturacm))
-        self.validar_estatura()
-
-    def validar_estatura(self):
         estatura = self.input_estatura.text()
         if estatura == "":
             self.input_estatura.setStyleSheet("border: 2px solid yellow;")
             return False
         else:
             self.input_estatura.setStyleSheet("border: 2px solid green;")
-            self.seleccionar_anios()
             return True
 
-    def seleccionar_anios(self):
+    def validar_anios(self):
         anios = self.comboBox_5.currentText()
         self.input_anios.setText(str(anios))
-        self.validar_anios()
-
-    def validar_anios(self):
         anios = self.input_anios.text()
         if anios == "":
             self.input_anios.setStyleSheet("border: 2px solid yellow;")
             return False
         else:
             self.input_anios.setStyleSheet("border: 2px solid green;")
-            self.seleccionar_sangre()
             return True
 
     def validar_telefono(self):
@@ -144,19 +127,15 @@ class WindowTwo(QtWidgets.QMainWindow):
             self.input_Telefono.setStyleSheet("border: 2px solid green;")
             return True
 
-    def seleccionar_sangre(self):
+    def validar_sangre(self):
         sangre = self.input_TipoS.currentText()
         self.input_sangre.setText(str(sangre))
-        self.validar_sangre()
-
-    def validar_sangre(self):
         sangre = self.input_sangre.text()
         if sangre == "":
             self.input_sangre.setStyleSheet("border: 2px solid yellow;")
             return False
         else:
             self.input_sangre.setStyleSheet("border: 2px solid green;")
-            self.validar_datos()
             return True
 
     def validar_alergia(self):
@@ -173,12 +152,14 @@ class WindowTwo(QtWidgets.QMainWindow):
             self.input_Alergias.setStyleSheet("border: 2px solid green;")
             return True
 
+
     def validar_datos(self):
-        if self.validar_nombre and self.validar_apellidoP and self.validar_apellidoM and self.validar_sexo and self.validar_telefono and self.validar_peso and self.validar_estatura and self.validar_anios and self.validar_sangre and self.validar_alergia == False:
-            return False
-        else:
+        if self.validar_nombre() and self.validar_sexo() and self.validar_apellidoP() and self.validar_peso() and self.validar_apellidoM() and self.validar_estatura()and self.validar_telefono() and self.validar_anios() and self.validar_alergia() and self.validar_sangre():
+            QMessageBox.information(self, "Datos guardados", "Su informacion se ha guardado correctamente", QMessageBox.Discard)
             self.switch()
-            return True
+        else:
+            QMessageBox.warning(self, "Error", "Ingresa los datos correctamente", QMessageBox.Discard)
+
 
     def switch(self):
         self.switch_window.emit()

@@ -27,9 +27,30 @@ def _connect_to_db(
 if __name__ == '__main__':
     _connect_to_db()
 
+def insertar_pacientes(nombre,apellidop,apellidom,sexo,peso,estatura,edad,telefono,alergias,id_sangre):
+    result = {}
+    connection = _connect_to_db()
 
-#hola = insertar_pacientes("Jesus","carreon")
-#print(hola)
+    try:
+        with connection.cursor() as cursor:
+            #Read everything of <UNA TABLA>
+            sql = f"""INSERT INTO pacientes(nombrePaciente,apellidoPPaciente,apellidoMPaciente,sexoPaciente,pesoPaciente,estaturaPaciente,edadPaciente,telefonoPaciente,alergiasPaciente,idTipo_Sangre_F) VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)"""
+            cursor.execute(sql, (nombre,apellidop,apellidom,sexo,peso,estatura,edad,telefono,alergias,id_sangre))
+        connection.commit()
+        with connection.cursor() as cursor:
+            sql = f"""SELECT * FROM pacientes"""
+            cursor.execute(sql)
+            result = cursor.fetchall()
+            return result
+    except Exception as e:
+        print(e)
+        e.ex.args[0]
+    finally:
+        connection.close()
+        return result
+
+hola = insertar_pacientes("Pedro","Torres","Padilla","Masculino","90.5","1.70","18","1234567890","Ninguna","2")
+print(hola)
 #print("**************************************")
-#sangresita = get_blood()
+#sangresita = get_pacientes()
 #print(sangresita)

@@ -1,4 +1,4 @@
-#from  import _connect_to_db
+import db_operations.conexion as _connect_to_db
 
 
 def get_pacientes():

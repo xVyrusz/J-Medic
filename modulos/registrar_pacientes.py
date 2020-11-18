@@ -3,7 +3,8 @@ import os
 import re
 import ctypes
 from PyQt5 import uic, QtCore, QtWidgets
-
+import db_operations.conexion as _connect_to_db
+import db_operations.Pacientes as insertar_pacientes
 
 class WindowTwo(QtWidgets.QMainWindow):
 
@@ -177,6 +178,7 @@ class WindowTwo(QtWidgets.QMainWindow):
         if self.validar_nombre and self.validar_apellidoP and self.validar_apellidoM and self.validar_sexo and self.validar_telefono and self.validar_peso and self.validar_estatura and self.validar_anios and self.validar_sangre and self.validar_alergia == False:
             return False
         else:
+            self.insertar_pacientes()
             self.switch()
             return True
 

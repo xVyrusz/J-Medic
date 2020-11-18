@@ -7,6 +7,7 @@ from PyQt5.QtWidgets import QMessageBox
 import modulos.db_conexion as _connect_to_db
 import modulos.db_Consultas as consultas
 
+
 class WindowTwo(QtWidgets.QMainWindow):
 
     switch_window = QtCore.pyqtSignal()
@@ -88,6 +89,11 @@ class WindowTwo(QtWidgets.QMainWindow):
             if self.input_motivo.text()=='Consulta General':
                 motivo=1
             elif self.input_motivo.text()=='Curaciones':
+                motivo=2
+            elif self.input_motivo.text()=='Examenes':
+                motivo=3
+            else:
+                motivo=1
             consultas.insertar_datos_consulta(self.input_idm.text(),self.input_idp.text(),self.input_fecha.text(),motivo)
             QMessageBox.information(self, "Datos guardados", "Su informacion se ha guardado correctamente", QMessageBox.Discard)
             #self.switch()
@@ -153,6 +159,7 @@ class WindowTwo(QtWidgets.QMainWindow):
     def validar_datos_2(self):
         cont = 0
         if self.validar_id_consulta() and self.validar_pruebas() and self.validar_diagnostico() and self.validar_tratamiento():
+            consultas.insertar_consulta(self.pruebas_realizadas.toPlainText(),self.diagnostico.toPlainText(),self.tratamiento.toPlainText())
             QMessageBox.information(self, "Datos guardados", "Su informacion se ha guardado correctamente", QMessageBox.Discard)
             self.switch()
         else:

@@ -50,7 +50,7 @@ def insertar_consulta(pruebas,diagnostico,tratamiento):
     try:
         with connection.cursor() as cursor:
             #Read everything of <UNA TABLA>
-            sql = f"""INSERT INTO datos_de_consulta(pruebasRealizadas,diagnostico,tratamiento) VALUES(%s,%s,%s)"""
+            sql = f"""INSERT INTO consulta(pruebasRealizadas,diagnostico,tratamiento) VALUES(%s,%s,%s)"""
             cursor.execute(sql, (pruebas,diagnostico,tratamiento))
         connection.commit()
         with connection.cursor() as cursor:

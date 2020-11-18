@@ -129,7 +129,7 @@ class WindowTwo(QtWidgets.QMainWindow):
             return True
 
     def validar_datos_fecha(self):
-        if self.validar_motivo():
+        if self.seleccionar_fecha():
             QMessageBox.information(self, "Datos guardados", "Su informacion se ha guardado correctamente", QMessageBox.Discard)
             self.switch()
         else:

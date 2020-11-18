@@ -15,15 +15,15 @@ class WindowTwo(QtWidgets.QMainWindow):
         uic.loadUi("interfaces/buscar_cita.ui", self)
         self.setWindowTitle("J-Medic: Buscar Consulta")
         self.boton_buscaridc.clicked.connect(self.validar_datos_id_cita)
-        self.boton_buscaridp.clicked.connect(self.switch)
-        self.boton_buscarfv.clicked.connect(self.switch)
+        self.boton_buscaridp.clicked.connect(self.validar_datos_id_paciente)
+        self.boton_buscarfv.clicked.connect(self.validar_datos_fecha)
         self.boton_mostrarc.clicked.connect(self.switch)
         self.actionRegresar.setShortcut("Ctrl+R")
         self.actionRegresar.triggered.connect(self.switch)
         self.validar()
 
     def validar(self):
-        #self.input_idp.textChanged.connect(self.validar_id_paciente)
+        self.input_idp.textChanged.connect(self.validar_id_paciente)
         self.input_idc.textChanged.connect(self.validar_id_cita)
         pass
 
@@ -43,6 +43,48 @@ class WindowTwo(QtWidgets.QMainWindow):
 
     def validar_datos_id_cita(self):
         if self.validar_id_cita():
+            QMessageBox.information(self, "Datos guardados", "Su informacion se ha guardado correctamente", QMessageBox.Discard)
+            self.switch()
+        else:
+            QMessageBox.warning(self, "Error", "Ingresa los datos correctamente", QMessageBox.Discard)
+
+    def validar_id_paciente(self):
+        id_paciente = self.input_idp.text()
+        validar = re.match("^\d{1,}$", id_paciente, re.I)
+        if id_paciente == "":
+            self.input_idp.setStyleSheet("border: 2px solid yellow;")
+            return False
+        elif not validar:
+            self.input_idp.setStyleSheet("border: 2px solid red;")
+            return False
+        else:
+            self.input_idp.setStyleSheet("border: 2px solid green;")
+            return True
+
+
+    def validar_datos_id_paciente(self):
+        if self.validar_id_paciente():
+            QMessageBox.information(self, "Datos guardados", "Su informacion se ha guardado correctamente", QMessageBox.Discard)
+            self.switch()
+        else:
+            QMessageBox.warning(self, "Error", "Ingresa los datos correctamente", QMessageBox.Discard)
+
+
+    def validar_fecha(self):
+        anio = self.comboBox_4.currentText()
+        mes = self.comboBox_3.currentText()
+        dia = self.comboBox_2.currentText()
+        self.input_fecha.setText(str(anio)+(mes)+(dia))
+        fecha = self.input_fecha.text()
+        if fecha == "":
+            self.input_fecha.setStyleSheet("border: 2px solid yellow;")
+            return False
+        else:
+            self.input_fecha.setStyleSheet("border: 2px solid green;")
+            return True
+
+    def validar_datos_fecha(self):
+        if self.validar_fecha():
             QMessageBox.information(self, "Datos guardados", "Su informacion se ha guardado correctamente", QMessageBox.Discard)
             self.switch()
         else:

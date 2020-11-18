@@ -1,8 +1,8 @@
 
-
+import modulos.db_conexion as conexion
 def get_datos_consulta():
     result = {}
-    connection = _connect_to_db()
+    connection = conexion._connect_to_db()
     try:
         with connection.cursor() as cursor:
             row_count = 0
@@ -21,15 +21,15 @@ def get_datos_consulta():
         connection.close()
         return result
 
-def insertar_datos_consulta(consulta):
+def insertar_datos_consulta(idmedicos,idpaciente,fecha,motivo):
     result = {}
-    connection = _connect_to_db()
+    connection = conexion._connect_to_db()
 
     try:
         with connection.cursor() as cursor:
             #Read everything of <UNA TABLA>
             sql = f"""INSERT INTO datos_de_consulta(idMedicos_F,idPaciente_F,fechaVisita,idMotivo_F) VALUES(%s,%s,%s,%s)"""
-            cursor.execute(sql, (consulta))
+            cursor.execute(sql, (idmedicos,idpaciente,fecha,motivo))
         connection.commit()
         with connection.cursor() as cursor:
             sql = f"""SELECT * FROM datos_de_consulta"""
@@ -45,7 +45,7 @@ def insertar_datos_consulta(consulta):
 
 def get_consulta():
     result = {}
-    connection = _connect_to_db()
+    connection = conexion._connect_to_db()
     try:
         with connection.cursor() as cursor:
             row_count = 0
@@ -69,7 +69,7 @@ def get_consulta():
 
 def eliminar_consulta(consulta):
     result = {}
-    connection = _connect_to_db()
+    connection = conexion._connect_to_db()
 
     try:
         with connection.cursor() as cursor:
@@ -90,15 +90,15 @@ def eliminar_consulta(consulta):
         return result
 
 
-def editar_datos_consultas(consulta):
+def editar_datos_consultas(idmedicos,idpaciente,fecha,motivo):
     result = {}
-    connection = _connect_to_db()
+    connection = conexion._connect_to_db()
 
     try:
         with connection.cursor() as cursor:
             #Read everything of <UNA TABLA>
             sql = f"""UPDATE datos_de_consulta SET idMedicos_F = '%s' WHERE idPaciente_F = '%s' WHERE fechaVisita ='%s' WHERE idMotivo_F = '%s' """
-            cursor.execute(sql, (consulta))
+            cursor.execute(sql, (idmedicos,idpaciente,fecha,motivo))
         connection.commit()
         with connection.cursor() as cursor:
             sql = f"""SELECT * FROM datos_de_consulta"""
@@ -113,15 +113,15 @@ def editar_datos_consultas(consulta):
         return result
 
 
-def editar_consulta(consulta):
+def editar_consulta(idmedicos,idpaciente,fecha,motivo):
     result = {}
-    connection = _connect_to_db()
+    connection = conexion._connect_to_db()
 
     try:
         with connection.cursor() as cursor:
             #Read everything of <UNA TABLA>
             sql = f"""UPDATE consulta SET pruebasRealizadas = '%s' WHERE diagnostico = '%s' WHERE tratamiento ='%s'  """
-            cursor.execute(sql, (consulta))
+            cursor.execute(sql, (idmedicos,idpaciente,fecha,motivo))
         connection.commit()
         with connection.cursor() as cursor:
             sql = f"""SELECT * FROM consulta"""
@@ -139,7 +139,7 @@ def editar_consulta(consulta):
 
 def buscar_consulta_id():
     result = {}
-    connection = _connect_to_db()
+    connection = conexion._connect_to_db()
     try:
         with connection.cursor() as cursor:
             row_count = 0
@@ -161,7 +161,7 @@ def buscar_consulta_id():
 
 def buscar_consulta_medico():
     result = {}
-    connection = _connect_to_db()
+    connection = conexion._connect_to_db()
     try:
         with connection.cursor() as cursor:
             row_count = 0
@@ -182,7 +182,7 @@ def buscar_consulta_medico():
 
 def buscar_consulta_nombre():
     result = {}
-    connection = _connect_to_db()
+    connection = conexion._connect_to_db()
     try:
         with connection.cursor() as cursor:
             row_count = 0
@@ -204,7 +204,7 @@ def buscar_consulta_nombre():
 
 def buscar_consulta_motivo():
     result = {}
-    connection = _connect_to_db()
+    connection = conexion._connect_to_db()
     try:
         with connection.cursor() as cursor:
             row_count = 0
@@ -226,7 +226,7 @@ def buscar_consulta_motivo():
 
 def buscar_consulta_fecha():
     result = {}
-    connection = _connect_to_db()
+    connection = conexion._connect_to_db()
     try:
         with connection.cursor() as cursor:
             row_count = 0

@@ -24,8 +24,7 @@ def _connect_to_db(
         print('errror: ', e)
 
 
-if __name__ == '__main__':
-    _connect_to_db()
+
 
 def insertar_pacientes(nombre,apellidop,apellidom,sexo,peso,estatura,edad,telefono,alergias,id_sangre):
     result = {}

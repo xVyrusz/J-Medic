@@ -1,6 +1,7 @@
+import modulos.db_conexion as conexion
 def get_cita():
     result = {}
-    connection = _connect_to_db()
+    connection = conexion._connect_to_db()
     try:
         with connection.cursor() as cursor:
             row_count = 0
@@ -16,15 +17,15 @@ def get_cita():
         connection.close()
         return result
 
-def insertar_cita(cita):
+def insertar_cita(idpaciente,fecha):
     result = {}
-    connection = _connect_to_db()
+    connection = conexion._connect_to_db()
 
     try:
         with connection.cursor() as cursor:
             #Read everything of <UNA TABLA>
             sql = f"""INSERT INTO cita(id_Paciente_F,fechaCita) VALUES(%s,%s)"""
-            cursor.execute(sql, (cita))
+            cursor.execute(sql, (idpaciente,fecha))
         connection.commit()
         with connection.cursor() as cursor:
             sql = f"""SELECT * FROM cita"""
@@ -38,15 +39,15 @@ def insertar_cita(cita):
         connection.close()
         return result
 
-def editar_cita(cita):
+def editar_cita(fecha):
     result = {}
-    connection = _connect_to_db()
+    connection = conexion._connect_to_db()
 
     try:
         with connection.cursor() as cursor:
             #Read everything of <UNA TABLA>
             sql = f"""UPDATE cita SET fechaCita = '%s'"""
-            cursor.execute(sql, (cita))
+            cursor.execute(sql, (fecha))
         connection.commit()
         with connection.cursor() as cursor:
             sql = f"""SELECT * FROM cita"""
@@ -63,8 +64,7 @@ def editar_cita(cita):
 
 def eliminar_cita(cita):
     result = {}
-    connection = _connect_to_db()
-
+    connection = conexion._connect_to_db()
     try:
         with connection.cursor() as cursor:
             #Read everything of <UNA TABLA>
@@ -85,7 +85,7 @@ def eliminar_cita(cita):
 
 def buscar_cita_idcita():
     result = {}
-    connection = _connect_to_db()
+    connection = conexion._connect_to_db()
     try:
         with connection.cursor() as cursor:
             row_count = 0
@@ -104,7 +104,7 @@ def buscar_cita_idcita():
 
 def buscar_cita_idpaciente():
     result = {}
-    connection = _connect_to_db()
+    connection = conexion._connect_to_db()
     try:
         with connection.cursor() as cursor:
             row_count = 0
@@ -122,7 +122,7 @@ def buscar_cita_idpaciente():
 
 def buscar_cita_fechacita():
     result = {}
-    connection = _connect_to_db()
+    connection = conexion._connect_to_db()
     try:
         with connection.cursor() as cursor:
             row_count = 0

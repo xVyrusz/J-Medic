@@ -1,9 +1,9 @@
 
 
-
+import modulos.db_conexion as conexion
 def get_medicos():
     result = {}
-    connection = _connect_to_db()
+    connection =  conexion._connect_to_db()
     try:
         with connection.cursor() as cursor:
             row_count = 0
@@ -19,15 +19,15 @@ def get_medicos():
         return result
 
 
-def insertar_medicos(medico):
+def insertar_medicos(nombre,apellidop,apellidom,cedula,telefono,id_turnos,usuario,password):
     result = {}
-    connection = _connect_to_db()
+    connection =  conexion._connect_to_db()
 
     try:
         with connection.cursor() as cursor:
             #Read everything of <UNA TABLA>
             sql = f"""INSERT INTO medicos(nombreMedico,apellidoPMedico,apellidoMMedico,Cedula,Telefono,id_Turnos_F,usuario,password) VALUES(%s,%s,%s,%s,%s,%s,%s,%s)"""
-            cursor.execute(sql, (medico))
+            cursor.execute(sql, (nombre,apellidop,apellidom,cedula,telefono,id_turnos,usuario,password))
         connection.commit()
         with connection.cursor() as cursor:
             sql = f"""SELECT * FROM medicos"""
@@ -43,7 +43,7 @@ def insertar_medicos(medico):
 
 def buscar_medicos_id():
     result = {}
-    connection = _connect_to_db()
+    connection =  conexion._connect_to_db()
     try:
         with connection.cursor() as cursor:
             row_count = 0
@@ -58,15 +58,14 @@ def buscar_medicos_id():
         connection.close()
         return result
 
-def editar_medicos(medico):
+def editar_medicos(nombre,apellidop,apellidom,cedula,telefono,id_turnos,usuario,password):
     result = {}
-    connection = _connect_to_db()
-
+    connection =  conexion._connect_to_db()
     try:
         with connection.cursor() as cursor:
             #Read everything of <UNA TABLA>
             sql = f"""UPDATE medicos SET nombreMedico = '%s' WHERE apellidoPMedico = '%s' WHERE apellidoMMedico ='%s' WHERE Cedula = '%s' WHERE Telefono = '%s' WHERE idTurnos_F = '%s' """
-            cursor.execute(sql, (medico))
+            cursor.execute(sql, (nombre,apellidop,apellidom,cedula,telefono,id_turnos,usuario,password))
         connection.commit()
         with connection.cursor() as cursor:
             sql = f"""SELECT * FROM medicos"""

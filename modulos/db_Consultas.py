@@ -43,6 +43,28 @@ def insertar_datos_consulta(idmedicos,idpaciente,fecha,motivo):
         connection.close()
         return result
 
+def insertar_consulta(pruebas,diagnostico,tratamiento):
+    result = {}
+    connection = conexion._connect_to_db()
+
+    try:
+        with connection.cursor() as cursor:
+            #Read everything of <UNA TABLA>
+            sql = f"""INSERT INTO datos_de_consulta(pruebasRealizadas,diagnostico,tratamiento) VALUES(%s,%s,%s)"""
+            cursor.execute(sql, (pruebas,diagnostico,tratamiento))
+        connection.commit()
+        with connection.cursor() as cursor:
+            sql = f"""SELECT * FROM consulta"""
+            cursor.execute(sql)
+            result = cursor.fetchall()
+            return result
+    except Exception as e:
+        print(e)
+        e.ex.args[0]
+    finally:
+        connection.close()
+        return result
+
 def get_consulta():
     result = {}
     connection = conexion._connect_to_db()

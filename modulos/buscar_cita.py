@@ -20,5 +20,8 @@ class WindowTwo(QtWidgets.QMainWindow):
         self.actionRegresar.setShortcut("Ctrl+R")
         self.actionRegresar.triggered.connect(self.switch)
 
+
+    
+
     def switch(self):
         self.switch_window.emit()

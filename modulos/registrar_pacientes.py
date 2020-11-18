@@ -13,7 +13,7 @@ class WindowTwo(QtWidgets.QMainWindow):
         QtWidgets.QMainWindow.__init__(self)
         uic.loadUi("interfaces/registro_pacientes.ui", self)
         self.setWindowTitle("J-Medic: Menu 1")
-        self.boton_Guardar.clicked.connect(self.switch)
+        self.boton_Guardar.clicked.connect(self.validar_estatura)
         self.actionRegresar.setShortcut("Ctrl+R")
         self.actionRegresar.triggered.connect(self.switch)
         self.validar()
@@ -38,6 +38,11 @@ class WindowTwo(QtWidgets.QMainWindow):
         else:
             self.input_Nombre.setStyleSheet("border: 2px solid green;")
             return True
+
+    def validar_estatura(self):
+        estatura = self.input_Estatura.value()
+        
+        self.Estatura.setText(str(estatura))
 
     def validar_apellidoP(self):
         apellido = self.input_ApellidoP.text()

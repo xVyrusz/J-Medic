@@ -26,7 +26,7 @@ def insertar_medicos(medico):
     try:
         with connection.cursor() as cursor:
             #Read everything of <UNA TABLA>
-            sql = f"""INSERT INTO medicos(nombreMedico,apellidoPMedico,apellidoMMedico,Cedula,Telefono,id_Turnos_F) VALUES(%s,%s,%s,%s,%s,%s)"""
+            sql = f"""INSERT INTO medicos(nombreMedico,apellidoPMedico,apellidoMMedico,Cedula,Telefono,id_Turnos_F,usuario,password) VALUES(%s,%s,%s,%s,%s,%s,%s,%s)"""
             cursor.execute(sql, (medico))
         connection.commit()
         with connection.cursor() as cursor:

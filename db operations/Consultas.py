@@ -88,3 +88,49 @@ def eliminar_consulta(consulta):
     finally:
         connection.close()
         return result
+
+
+def editar_datos_consultas(consulta):
+    result = {}
+    connection = _connect_to_db()
+
+    try:
+        with connection.cursor() as cursor:
+            #Read everything of <UNA TABLA>
+            sql = f"""UPDATE datos_de_consulta SET idMedicos_F = '%s' WHERE idPaciente_F = '%s' WHERE fechaVisita ='%s' WHERE idMotivo_F = '%s' """
+            cursor.execute(sql, (consulta))
+        connection.commit()
+        with connection.cursor() as cursor:
+            sql = f"""SELECT * FROM datos_de_consulta"""
+            cursor.execute(sql)
+            result = cursor.fetchall()
+            return result
+    except Exception as e:
+        print(e)
+        e.ex.args[0]
+    finally:
+        connection.close()
+        return result
+
+
+def editar_consulta(consulta):
+    result = {}
+    connection = _connect_to_db()
+
+    try:
+        with connection.cursor() as cursor:
+            #Read everything of <UNA TABLA>
+            sql = f"""UPDATE consulta SET pruebasRealizadas = '%s' WHERE diagnostico = '%s' WHERE tratamiento ='%s'  """
+            cursor.execute(sql, (consulta))
+        connection.commit()
+        with connection.cursor() as cursor:
+            sql = f"""SELECT * FROM consulta"""
+            cursor.execute(sql)
+            result = cursor.fetchall()
+            return result
+    except Exception as e:
+        print(e)
+        e.ex.args[0]
+    finally:
+        connection.close()
+        return result

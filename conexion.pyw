@@ -28,8 +28,8 @@ if __name__ == '__main__':
     _connect_to_db()
 
 
-hola = insertar_pacientes("Jesus","carreon")
-print(hola)
-print("**************************************")
+#hola = insertar_pacientes("Jesus","carreon")
+#print(hola)
+#print("**************************************")
 #sangresita = get_blood()
 #print(sangresita)

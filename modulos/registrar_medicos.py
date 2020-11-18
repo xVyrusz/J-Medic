@@ -105,10 +105,10 @@ class WindowTwo(QtWidgets.QMainWindow):
     def validar_turno(self):
         turno = self.input_turno.text()
         if turno == "":
-            self.input_Telefono.setStyleSheet("border: 2px solid yellow;")
+            self.input_turno.setStyleSheet("border: 2px solid yellow;")
             return False
         else:
-            self.input_Telefono.setStyleSheet("border: 2px solid green;")
+            self.input_turno.setStyleSheet("border: 2px solid green;")
             self.validar_datos()
             return True
 

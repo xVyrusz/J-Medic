@@ -13,7 +13,7 @@ class WindowTwo(QtWidgets.QMainWindow):
         QtWidgets.QMainWindow.__init__(self)
         uic.loadUi("interfaces/Registrar Medicos.ui", self)
         self.setWindowTitle("J-Medic: Registrar Medicos")
-        self.Boton_Guardar.clicked.connect(self.seleccionar_turno)
+        self.boton_guardar.clicked.connect(self.seleccionar_turno)
         self.actionRegresar.setShortcut("Ctrl+R")
         self.actionRegresar.triggered.connect(self.switch)
         self.validar()
@@ -24,7 +24,7 @@ class WindowTwo(QtWidgets.QMainWindow):
         self.input_ApellidoM.textChanged.connect(self.validar_apellidoM)
         self.input_Cedula.textChanged.connect(self.validar_cedula)
         self.input_Telefono.textChanged.connect(self.validar_telefono)
-        self.input_turno.textChanged.connect(self.seleccionar_turno)
+        self.input_Turno_2.textChanged.connect(self.seleccionar_turno)
         pass
 
 
@@ -103,12 +103,12 @@ class WindowTwo(QtWidgets.QMainWindow):
 
 
     def validar_turno(self):
-        turno = self.input_turno.text()
+        turno = self.input_Turno_2.text()
         if turno == "":
-            self.input_turno.setStyleSheet("border: 2px solid yellow;")
+            self.input_Turno_2.setStyleSheet("border: 2px solid yellow;")
             return False
         else:
-            self.input_turno.setStyleSheet("border: 2px solid green;")
+            self.input_Turno_2.setStyleSheet("border: 2px solid green;")
             self.validar_datos()
             return True
 

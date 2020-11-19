@@ -63,7 +63,7 @@ class WindowTwo(QtWidgets.QMainWindow):
                     return conn
                 except Exception as e:
                     print('errror: ', e)
-                     self.table.setColumnCount (6)
+                    self.table.setColumnCount (6)
                     self.table.setHorizontalHeaderLabels(['idMedicos','nombreMedico','apellidoPMedico','apellidoMMedico','Cedula','Telefono','idTurnos_F'])
                 row =0
                 sql ="SELECT *FROM medicos"

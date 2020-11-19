@@ -2,7 +2,6 @@ import sys
 import os
 import re
 import ctypes
-import datetime
 from PyQt5 import uic, QtCore, QtWidgets
 from PyQt5.QtWidgets import QMessageBox
 
@@ -45,13 +44,6 @@ class WindowTwo(QtWidgets.QMainWindow):
         dia = self.comboBox_2.currentText()
         hora = self.comboBox.currentText()
         minutos = self.comboBox_5.currentText()
-        '''anio_ = int(anio)
-        mes_ = int(mes)
-        dia_ = int(dia)'''
-        dato = datetime.datetime.now()
-        fecha_d = dato.day
-        fecha_m = dato.month
-        fecha_y = dato.year
         cont = 0
         if anio == "":
             cont+=1
@@ -68,46 +60,20 @@ class WindowTwo(QtWidgets.QMainWindow):
         if minutos == "":
             cont+=1
 
-        '''if anio_<fecha_y:
-            cont+=1
-        else:
-            if mes_<fecha_m:
-                cont+=1
-            else:
-                if dia_<fecha_d:
-                    cont+=1
-                else:
-                    pass'''
-
-        self.input_fecha.setText(str(anio)+('-')+(mes)+('-')+(dia)+(hora)+(minutos))
+        
         if cont>0:
             self.input_fecha.setText("")
         else:
-            anio_ = int(anio)
-            mes_ = int(mes)
-            dia_ = int(dia)
-            conta = 0
-            if anio_<fecha_y:
-                conta+=1
+            self.input_fecha.setText(anio+'-'+mes+'-'+dia+hora+minutos)
+            fecha = self.input_fecha.text()
+            if fecha == "":
+                self.input_fecha.setStyleSheet("border: 2px solid yellow;")
+                return False
             else:
-                if mes_<fecha_m:
-                    conta+=1
-                else:
-                    if dia_<fecha_d:
-                        conta+=1
-                    else:
-                        pass
+                self.input_fecha.setStyleSheet("border: 2px solid green;")
+                return True
 
-        if conta>0:
-            self.input_fecha.setText("")
-
-        fecha = self.input_fecha.text()
-        if fecha == "":
-            self.input_fecha.setStyleSheet("border: 2px solid yellow;")
-            return False
-        else:
-            self.input_fecha.setStyleSheet("border: 2px solid green;")
-            return True
+        
 
 
 

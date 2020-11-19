@@ -4,8 +4,7 @@ import re
 import ctypes
 from PyQt5 import uic, QtCore, QtWidgets
 from PyQt5.QtWidgets import QMessageBox
-import modulos.db_conexion as _connect_to_db
-import modulos.db_Pacientes as pacientes
+
 
 class WindowTree(QtWidgets.QMainWindow):
 
@@ -179,26 +178,6 @@ class WindowTree(QtWidgets.QMainWindow):
 
     def validar_datos_2(self):
         if self.validar_nombre() and self.validar_sexo() and self.validar_apellidoP() and self.validar_peso() and self.validar_apellidoM() and self.validar_estatura()and self.validar_telefono() and self.validar_anios() and self.validar_alergia() and self.validar_sangre():
-              sangre=0
-            if self.input_sangre.text()=='A+':
-                sangre=1
-            elif self.input_sangre.text()=='A-':
-                sangre=2
-            elif self.input_sangre.text()=='AB+':
-                sangre=3
-            elif self.input_sangre.text()=='AB-':
-                sangre=4
-            elif self.input_sangre.text()=='B+':
-                sangre=5
-            elif self.input_sangre.text()=='B-':
-                sangre=6
-            elif self.input_sangre.text()=='O+':
-                sangre=7
-            elif self.input_sangre.text()=='O-':
-                sangre=8
-            else:
-                sangre=1
-            pacientes.editar_pacientes(self.input_Nombre.text(),self.input_ApellidoP.text(),self.input_ApellidoM.text(),self.input_sexo.text(),self.input_Peso.text(),self.input_estatura.text(),self.input_anios.text(),self.input_Telefono.text(),self.input_Alergias.text(),sangre)
             QMessageBox.information(self, "Datos guardados", "Su informacion se ha guardado correctamente", QMessageBox.Discard)
         else:
             QMessageBox.warning(self, "Error", "Ingresa los datos correctamente", QMessageBox.Discard)

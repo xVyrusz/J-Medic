@@ -63,20 +63,20 @@ class WindowTwo(QtWidgets.QMainWindow):
                     return conn
                 except Exception as e:
                     print('errror: ', e)
-                    # self.table.setColumnCount (6)
-                    #self.table.setHorizontalHeaderLabels(['idMedicos','nombreMedico','apellidoPMedico','apellidoMMedico','Cedula','Telefono','idTurnos_F'])
+                     self.table.setColumnCount (6)
+                    self.table.setHorizontalHeaderLabels(['idMedicos','nombreMedico','apellidoPMedico','apellidoMMedico','Cedula','Telefono','idTurnos_F'])
                 row =0
                 sql ="SELECT *FROM medicos"
                 query =QSqlQuery(sql)
                 while query.next():
                     self.table.insertRow(row)
-                    idMedicos=tabla_buscar_medico(str(query.value(0)))
-                    nombreMedico=tabla_buscar_medico(str(query.value(1)))
-                    apellidoPMedico=tabla_buscar_medico(str(query.value(2)))
-                    apellidoMMedico=tabla_buscar_medico(str(query.value(3)))
-                    Cedula=tabla_buscar_medico(str(query.value(4)))
-                    Telefono=tabla_buscar_medico(str(query.value(5)))
-                    idTurnos_F=tabla_buscar_medico(str(query.value(6)))
+                    idMedicos=tabla2(str(query.value(0)))
+                    nombreMedico=tabla_2(str(query.value(1)))
+                    apellidoPMedico=tabla_2(str(query.value(2)))
+                    apellidoMMedico=tabla2(str(query.value(3)))
+                    Cedula=tabla_2(str(query.value(4)))
+                    Telefono=tabla2(str(query.value(5)))
+                    idTurnos_F=tabla_2(str(query.value(6)))
                     self.table.setItem(row, 0, idMedicos)
                     self.table.setItem(row, 1, nombreMedico)
                     self.table.setItem(row, 2, apellidoPMedico)

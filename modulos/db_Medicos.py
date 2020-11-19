@@ -41,15 +41,16 @@ def insertar_medicos(nombre,apellidop,apellidom,cedula,telefono,id_turnos,usuari
         connection.close()
         return result
 
-def buscar_medicos_id():
+def buscar_medicos_id(medico):
     result = {}
     connection =  conexion._connect_to_db()
     try:
         with connection.cursor() as cursor:
             row_count = 0
             e='none'
-            sql = f"""SELECT * FROM medicos WHERE idMedicos = '%s'"""
-            cursor.execute(sql)
+            sql = f"""SELECT medicos.idMedicos,nombreMedico,apellidoPMedico,apelLidoMMedico,Cedula,Telefono,turnos.nombreTurno  
+            FROM medicos inner join turnos on medicos.idTurnos_F=turnos.idTurnos WHERE idMedicos = '%s'"""
+            cursor.execute(sql,(medico))
             result = cursor.fetchall()
     except Exception as e:
         print(e)
@@ -78,3 +79,4 @@ def editar_medicos(nombre,apellidop,apellidom,cedula,telefono,id_turnos,usuario,
     finally:
         connection.close()
         return result
+

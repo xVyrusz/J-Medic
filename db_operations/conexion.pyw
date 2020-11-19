@@ -28,6 +28,8 @@ if __name__ == '__main__':
     _connect_to_db()
 
 
+
+
 #hola = insertar_pacientes("Jesus","carreon")
 #print(hola)
 #print("**************************************")

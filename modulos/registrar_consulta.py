@@ -2,6 +2,7 @@ import sys
 import os
 import re
 import ctypes
+import datetime
 from PyQt5 import uic, QtCore, QtWidgets
 from PyQt5.QtWidgets import QMessageBox
 
@@ -16,6 +17,7 @@ class WindowTwo(QtWidgets.QMainWindow):
         self.setWindowTitle("J-Medic: Registrar Consulta")
         self.guardar_consulta.clicked.connect(self.validar_datos_2)
         self.generar_idc.clicked.connect(self.validar_datos)
+        self.generar_fecha.clicked.connect(self.seleccionar_fecha)
         self.actionRegresar.setShortcut("Ctrl+R")
         self.actionRegresar.triggered.connect(self.switch)
         self.validar()
@@ -67,22 +69,21 @@ class WindowTwo(QtWidgets.QMainWindow):
 
 
     def seleccionar_fecha(self):
-        anio = self.comboBox_4.currentText()
-        mes = self.comboBox_3.currentText()
-        dia = self.comboBox_2.currentText()
-        self.input_fecha.setText(str(anio)+(mes)+(dia))
-        fecha = self.input_fecha.text()
+        fecha_2 = datetime.date.today()
+        fecha_3 = str(fecha_2)
+        self.input_fecha.setText(str(fecha_3))
+        """fecha = self.input_fecha.text()
         if fecha == "":
             self.input_fecha.setStyleSheet("border: 2px solid yellow;")
             return False
         else:
             self.input_fecha.setStyleSheet("border: 2px solid green;")
-            return True
+            return True"""
 
 
     def validar_datos(self):
         cont = 0
-        if self.validar_id_medico() and self.validar_id_paciente() and self.seleccionar_motivo() and self.seleccionar_fecha():
+        if self.validar_id_medico() and self.validar_id_paciente() and self.seleccionar_motivo():
             QMessageBox.information(self, "Datos guardados", "Su informacion se ha guardado correctamente", QMessageBox.Discard)
             #self.switch()
         else:

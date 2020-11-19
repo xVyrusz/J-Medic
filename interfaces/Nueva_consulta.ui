@@ -434,10 +434,10 @@ color: rgb(12, 12, 12);</string>
    <widget class="QLineEdit" name="input_motivo">
     <property name="geometry">
      <rect>
-      <x>550</x>
-      <y>0</y>
-      <width>113</width>
-      <height>20</height>
+      <x>640</x>
+      <y>90</y>
+      <width>21</width>
+      <height>16</height>
      </rect>
     </property>
    </widget>
@@ -451,13 +451,15 @@ color: rgb(12, 12, 12);</string>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(255, 255, 255);</string>
+     <string notr="true">background-color: rgb(255, 255, 255);
+color: rgb(255, 255, 255);
+selection-color: rgb(255, 255, 255);</string>
     </property>
     <property name="text">
      <string/>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton">
+   <widget class="QPushButton" name="generar_fecha">
     <property name="geometry">
      <rect>
       <x>230</x>
@@ -470,6 +472,29 @@ color: rgb(12, 12, 12);</string>
      <string>Generar fecha</string>
     </property>
    </widget>
+   <zorder>input_motivo</zorder>
+   <zorder>label</zorder>
+   <zorder>tabla_consultas</zorder>
+   <zorder>label_2</zorder>
+   <zorder>label_3</zorder>
+   <zorder>input_idm</zorder>
+   <zorder>input_idp</zorder>
+   <zorder>label_4</zorder>
+   <zorder>motivo_consulta</zorder>
+   <zorder>label_5</zorder>
+   <zorder>generar_idc</zorder>
+   <zorder>tabla_idc</zorder>
+   <zorder>label_9</zorder>
+   <zorder>input_idc</zorder>
+   <zorder>guardar_consulta</zorder>
+   <zorder>label_10</zorder>
+   <zorder>label_11</zorder>
+   <zorder>label_12</zorder>
+   <zorder>pruebas_realizadas</zorder>
+   <zorder>diagnostico</zorder>
+   <zorder>tratamiento</zorder>
+   <zorder>input_fecha</zorder>
+   <zorder>generar_fecha</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">

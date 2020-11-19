@@ -72,13 +72,13 @@ class WindowTwo(QtWidgets.QMainWindow):
         fecha_2 = datetime.date.today()
         fecha_3 = str(fecha_2)
         self.input_fecha.setText(str(fecha_3))
-        """fecha = self.input_fecha.text()
+        fecha = self.input_fecha.text()
         if fecha == "":
             self.input_fecha.setStyleSheet("border: 2px solid yellow;")
             return False
         else:
             self.input_fecha.setStyleSheet("border: 2px solid green;")
-            return True"""
+            return True
 
 
     def validar_datos(self):

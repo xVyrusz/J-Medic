@@ -161,7 +161,7 @@ QPushButton:hover:before {
      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Apellido Materno&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="input_ApeliidoM">
+   <widget class="QLineEdit" name="input_ApellidoM">
     <property name="geometry">
      <rect>
       <x>610</x>

@@ -4,7 +4,8 @@ import re
 import ctypes
 from PyQt5 import uic, QtCore, QtWidgets
 from PyQt5.QtWidgets import QMessageBox
-
+import modulos.db_conexion as _connect_to_db
+import modulos.db_Pacientes as pacientes
 
 class WindowTree(QtWidgets.QMainWindow):
 
@@ -43,6 +44,7 @@ class WindowTree(QtWidgets.QMainWindow):
 
     def validar_datos(self):
         if self.validar_id_paciente():
+            pacientes.buscar_pacientes_id(self.input_ID_Paciente.text(),self.input_Nombre.text(),self.input_ApellidoP.text(),self.input_ApellidoM.text(),self.input_sexo.text(),self.input_Peso.text(),self.input_estatura.text(),self.input_anios.text(),self.input_Telefono.text(),self.input_Alergias.toPlainText(),self.input_sangre.text())
             QMessageBox.information(self, "Datos guardados", "Su informacion se ha guardado correctamente", QMessageBox.Discard)
             #self.switch()
         else:

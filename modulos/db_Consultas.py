@@ -159,7 +159,7 @@ def editar_consulta(idmedicos,idpaciente,fecha,motivo):
 
 
 
-def buscar_consulta_id():
+def buscar_consulta_id(idc):
     result = {}
     connection = conexion._connect_to_db()
     try:
@@ -171,7 +171,7 @@ def buscar_consulta_id():
             inner join pacientes on datos_de_consulta.idPaciente_F=pacientes.idPaciente
             inner join motivos_de_consulta on motivos_de_consulta.idMotivos_de_Consulta=datos_de_consulta.idMotivo_F
             inner join consulta on datos_de_consulta.idConsulta=consulta.idConsulta_F WHERE consulta.idConsulta_F = '%s'"""
-            cursor.execute(sql)
+            cursor.execute(sql,(idc))
             result = cursor.fetchall()
     except Exception as e:
         print(e)
@@ -181,7 +181,7 @@ def buscar_consulta_id():
         return result
 
 
-def buscar_consulta_medico():
+def buscar_consulta_medico(nombre):
     result = {}
     connection = conexion._connect_to_db()
     try:
@@ -192,8 +192,8 @@ def buscar_consulta_medico():
             motivos_de_consulta.nombreMotivo,consulta.pruebasRealizadas,consulta.diagnostico,consulta.tratamiento FROM datos_de_consulta inner join medicos on medicos.idMedicos=datos_de_consulta.idMedicos_F
             inner join pacientes on datos_de_consulta.idPaciente_F=pacientes.idPaciente
             inner join motivos_de_consulta on motivos_de_consulta.idMotivos_de_Consulta=datos_de_consulta.idMotivo_F
-            inner join consulta on datos_de_consulta.idConsulta=consulta.idConsulta_F WHERE medicos.idMedicos = '%s'"""
-            cursor.execute(sql)
+            inner join consulta on datos_de_consulta.idConsulta=consulta.idConsulta_F WHERE medicos.nombreMedico = '%s' """
+            cursor.execute(sql,(nombre))
             result = cursor.fetchall()
     except Exception as e:
         print(e)
@@ -213,7 +213,7 @@ def buscar_consulta_nombre():
             motivos_de_consulta.nombreMotivo,consulta.pruebasRealizadas,consulta.diagnostico,consulta.tratamiento FROM datos_de_consulta inner join medicos on medicos.idMedicos=datos_de_consulta.idMedicos_F
             inner join pacientes on datos_de_consulta.idPaciente_F=pacientes.idPaciente
             inner join motivos_de_consulta on motivos_de_consulta.idMotivos_de_Consulta=datos_de_consulta.idMotivo_F
-            inner join consulta on datos_de_consulta.idConsulta=consulta.idConsulta_F WHERE pacientes.nombrePaciente = '%s'"""
+            inner join consulta on datos_de_consulta.idConsulta=consulta.idConsulta_F WHERE pacientes.nombrePaciente = '%s' """
             cursor.execute(sql)
             result = cursor.fetchall()
     except Exception as e:

@@ -313,6 +313,30 @@ QPushButton:hover:before {
       <height>131</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">
+</string>
+    </property>
+    <row>
+     <property name="text">
+      <string/>
+     </property>
+    </row>
+    <row>
+     <property name="text">
+      <string/>
+     </property>
+    </row>
+    <row>
+     <property name="text">
+      <string/>
+     </property>
+    </row>
+    <row>
+     <property name="text">
+      <string/>
+     </property>
+    </row>
     <column>
      <property name="text">
       <string>ID consulta</string>

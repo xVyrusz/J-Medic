@@ -6,6 +6,7 @@ from PyQt5 import uic, QtCore, QtWidgets,QtGui
 from PyQt5.QtWidgets import QMessageBox, QTableWidgetItem, QTableWidget
 import modulos.db_conexion as _connect_to_db
 import modulos.db_Consultas as Consulta
+import modulos.db_Medicos as medicos
 
 class WindowTwo(QtWidgets.QMainWindow):
 
@@ -47,18 +48,20 @@ class WindowTwo(QtWidgets.QMainWindow):
 
     def validar_datos_idc(self):
         if self.validar_id_consulta():
-            tabla=Consulta.buscar_consulta_id(int(self.input_idc.text()))
-            llamar= tabla[0]
+            tabla=  Consulta.buscar_consulta_id(int(self.input_idc.text()))
+            llamar = tabla[0]
+ 
             self.tabla_consultas.setItem(0 , 0, QTableWidgetItem(str(llamar["idConsulta"])))
             self.tabla_consultas.setItem(0 , 1, QTableWidgetItem(llamar["nombreMedico"]))
             self.tabla_consultas.setItem(0 , 2, QTableWidgetItem(llamar["apellidoPMedico"]))
             self.tabla_consultas.setItem(0 , 3, QTableWidgetItem(llamar["nombrePaciente"]))
             self.tabla_consultas.setItem(0 , 4, QTableWidgetItem(llamar["apellidoPPaciente"]))
-            self.tabla_consultas.setItem(0 , 5, QTableWidgetItem(llamar["fechaVisita"]))
+            self.tabla_consultas.setItem(0 , 5, QTableWidgetItem(str(llamar["fechaVisita"])))
             self.tabla_consultas.setItem(0 , 6, QTableWidgetItem(llamar["nombreMotivo"]))
             self.tabla_consultas.setItem(0 , 7, QTableWidgetItem(llamar["pruebasRealizadas"]))
             self.tabla_consultas.setItem(0 , 8, QTableWidgetItem(llamar["diagnostico"]))
             self.tabla_consultas.setItem(0 , 9, QTableWidgetItem(llamar["tratamiento"]))
+            #print (tabla)
             #QMessageBox.information(self, "Datos guardados", "Su informacion se ha guardado correctamente", QMessageBox.Discard)
             #self.switch()
         else:
@@ -80,8 +83,24 @@ class WindowTwo(QtWidgets.QMainWindow):
 
     def validar_datos_nombre_medico(self):
         if self.validar_nombre_medico():
-            QMessageBox.information(self, "Datos guardados", "Su informacion se ha guardado correctamente", QMessageBox.Discard)
-            self.switch()
+            tabla = Consulta.buscar_consulta_medico(str(self.input_medico.text()))
+            #rowPosition = self.tabla_buscar_medico.rowCount()
+            #self.tabla_buscar_medico.insertRow(rowPosition)
+            llamar = tabla[0]
+
+            self.tabla_consultas.setItem(0 , 0, QTableWidgetItem(str(llamar["idConsulta"])))
+            self.tabla_consultas.setItem(0 , 1, QTableWidgetItem(llamar["nombreMedico"]))
+            self.tabla_consultas.setItem(0 , 2, QTableWidgetItem(llamar["apellidoPMedico"]))
+            self.tabla_consultas.setItem(0 , 3, QTableWidgetItem(llamar["nombrePaciente"]))
+            self.tabla_consultas.setItem(0 , 4, QTableWidgetItem(llamar["apellidoPPaciente"]))
+            self.tabla_consultas.setItem(0 , 5, QTableWidgetItem(str(llamar["fechaVisita"])))
+            self.tabla_consultas.setItem(0 , 6, QTableWidgetItem(llamar["nombreMotivo"]))
+            self.tabla_consultas.setItem(0 , 7, QTableWidgetItem(llamar["pruebasRealizadas"]))
+            self.tabla_consultas.setItem(0 , 8, QTableWidgetItem(llamar["diagnostico"]))
+            self.tabla_consultas.setItem(0 , 9, QTableWidgetItem(llamar["tratamiento"]))
+            print(tabla)
+            #QMessageBox.information(self, "Datos guardados", "Su informacion se ha guardado correctamente", QMessageBox.Discard)
+            #self.switch()
         else:
             QMessageBox.warning(self, "Error", "Ingresa los datos correctamente", QMessageBox.Discard)
 

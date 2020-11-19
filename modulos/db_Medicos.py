@@ -1,6 +1,7 @@
 
 
 import modulos.db_conexion as conexion
+import modulos.db_conexion as _connect_to_db
 def get_medicos():
     result = {}
     connection =  conexion._connect_to_db()

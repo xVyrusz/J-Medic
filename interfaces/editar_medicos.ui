@@ -167,7 +167,7 @@ QPushButton:hover:before {
      <string>Cédula</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="input_idm">
+   <widget class="QLineEdit" name="input_id_medico">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -177,7 +177,7 @@ QPushButton:hover:before {
      </rect>
     </property>
    </widget>
-   <widget class="QLineEdit" name="input_nombre">
+   <widget class="QLineEdit" name="input_Nombre">
     <property name="geometry">
      <rect>
       <x>430</x>
@@ -187,7 +187,7 @@ QPushButton:hover:before {
      </rect>
     </property>
    </widget>
-   <widget class="QLineEdit" name="input_apellidop">
+   <widget class="QLineEdit" name="input_ApellidoP">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -197,7 +197,7 @@ QPushButton:hover:before {
      </rect>
     </property>
    </widget>
-   <widget class="QLineEdit" name="input_apellidom">
+   <widget class="QLineEdit" name="input_ApellidoM">
     <property name="geometry">
      <rect>
       <x>260</x>
@@ -207,7 +207,7 @@ QPushButton:hover:before {
      </rect>
     </property>
    </widget>
-   <widget class="QLineEdit" name="input_cedula">
+   <widget class="QLineEdit" name="input_Cedula">
     <property name="geometry">
      <rect>
       <x>540</x>
@@ -217,7 +217,7 @@ QPushButton:hover:before {
      </rect>
     </property>
    </widget>
-   <widget class="QLineEdit" name="input_telefono">
+   <widget class="QLineEdit" name="input_Telefono">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -227,7 +227,7 @@ QPushButton:hover:before {
      </rect>
     </property>
    </widget>
-   <widget class="QComboBox" name="turno">
+   <widget class="QComboBox" name="input_Turno_2">
     <property name="geometry">
      <rect>
       <x>510</x>
@@ -236,6 +236,11 @@ QPushButton:hover:before {
       <height>22</height>
      </rect>
     </property>
+    <item>
+     <property name="text">
+      <string/>
+     </property>
+    </item>
     <item>
      <property name="text">
       <string>Matutino</string>
@@ -321,16 +326,46 @@ QPushButton:hover:before {
    <widget class="QLineEdit" name="input_turno">
     <property name="geometry">
      <rect>
-      <x>600</x>
-      <y>230</y>
-      <width>41</width>
-      <height>21</height>
+      <x>610</x>
+      <y>270</y>
+      <width>16</width>
+      <height>16</height>
      </rect>
     </property>
     <property name="styleSheet">
      <string notr="true">background-color: rgb(0, 0, 0);</string>
     </property>
    </widget>
+   <widget class="QLineEdit" name="input_turno_2">
+    <property name="geometry">
+     <rect>
+      <x>530</x>
+      <y>270</y>
+      <width>16</width>
+      <height>16</height>
+     </rect>
+    </property>
+   </widget>
+   <zorder>input_turno_2</zorder>
+   <zorder>input_turno</zorder>
+   <zorder>label</zorder>
+   <zorder>label_2</zorder>
+   <zorder>label_3</zorder>
+   <zorder>label_4</zorder>
+   <zorder>label_5</zorder>
+   <zorder>label_6</zorder>
+   <zorder>label_7</zorder>
+   <zorder>label_8</zorder>
+   <zorder>input_id_medico</zorder>
+   <zorder>input_Nombre</zorder>
+   <zorder>input_ApellidoP</zorder>
+   <zorder>input_ApellidoM</zorder>
+   <zorder>input_Cedula</zorder>
+   <zorder>input_Telefono</zorder>
+   <zorder>input_Turno_2</zorder>
+   <zorder>boton_buscar</zorder>
+   <zorder>boton_editar</zorder>
+   <zorder>tabla_medicos</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">

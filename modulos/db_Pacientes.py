@@ -1,7 +1,7 @@
 
 import modulos.db_conexion as conexion
 
-def get_pacientes():
+def get_pacientes(id,nombre,apellidop,apellidom,sexo,peso,estatura,edad,telefono,alergias,sangre):
     result = {}
     connection = conexion._connect_to_db()
     try:
@@ -9,7 +9,7 @@ def get_pacientes():
             row_count = 0
             e='none'
             sql = f"""SELECT pacientes.idPaciente,nombrePaciente,apellidoPPaciente,apellidoMPaciente,sexoPaciente,pesoPaciente,estaturaPaciente,edadPaciente,telefonoPaciente,tipo_sangre.nombreSangre,pacientes.alergiasPaciente FROM pacientes inner join tipo_sangre on pacientes.idTipo_sangre_F=tipo_sangre.idTipo_sangre """
-            cursor.execute(sql)
+            cursor.execute(sql, (id,nombre,apellidop,apellidom,sexo,peso,estatura,edad,telefono,alergias,sangre))
             result = cursor.fetchall()
     except Exception as e:
         print(e)

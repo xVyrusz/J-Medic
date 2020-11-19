@@ -409,22 +409,6 @@ QPushButton:hover:before {
      <string>Guardar</string>
     </property>
    </widget>
-   <widget class="QLabel" name="imagen_Guardar">
-    <property name="geometry">
-     <rect>
-      <x>610</x>
-      <y>470</y>
-      <width>51</width>
-      <height>61</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">image: url(:/Guardar/guardar.png);</string>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-   </widget>
    <widget class="QComboBox" name="comboBox">
     <property name="geometry">
      <rect>
@@ -1533,10 +1517,10 @@ QPushButton:hover:before {
    <widget class="QLineEdit" name="input_Peso">
     <property name="geometry">
      <rect>
-      <x>485</x>
-      <y>10</y>
-      <width>201</width>
-      <height>20</height>
+      <x>280</x>
+      <y>240</y>
+      <width>16</width>
+      <height>16</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -2117,10 +2101,10 @@ QPushButton:hover:before {
    <widget class="QLineEdit" name="input_estatura">
     <property name="geometry">
      <rect>
-      <x>560</x>
-      <y>60</y>
-      <width>113</width>
-      <height>20</height>
+      <x>360</x>
+      <y>280</y>
+      <width>16</width>
+      <height>16</height>
      </rect>
     </property>
    </widget>
@@ -2747,33 +2731,67 @@ QPushButton:hover:before {
    <widget class="QLineEdit" name="input_anios">
     <property name="geometry">
      <rect>
-      <x>550</x>
-      <y>140</y>
-      <width>113</width>
-      <height>20</height>
+      <x>340</x>
+      <y>320</y>
+      <width>16</width>
+      <height>16</height>
      </rect>
     </property>
    </widget>
    <widget class="QLineEdit" name="input_sangre">
     <property name="geometry">
      <rect>
-      <x>550</x>
-      <y>220</y>
-      <width>113</width>
-      <height>20</height>
+      <x>320</x>
+      <y>400</y>
+      <width>16</width>
+      <height>16</height>
      </rect>
     </property>
    </widget>
    <widget class="QLineEdit" name="input_sexo">
     <property name="geometry">
      <rect>
-      <x>520</x>
-      <y>290</y>
-      <width>113</width>
-      <height>20</height>
+      <x>300</x>
+      <y>200</y>
+      <width>16</width>
+      <height>16</height>
      </rect>
     </property>
    </widget>
+   <zorder>input_sexo</zorder>
+   <zorder>input_sangre</zorder>
+   <zorder>input_anios</zorder>
+   <zorder>input_Peso</zorder>
+   <zorder>input_estatura</zorder>
+   <zorder>label</zorder>
+   <zorder>label_2</zorder>
+   <zorder>input_Nombre</zorder>
+   <zorder>label_3</zorder>
+   <zorder>input_ApellidoP</zorder>
+   <zorder>label_4</zorder>
+   <zorder>input_ApellidoM</zorder>
+   <zorder>label_5</zorder>
+   <zorder>combo_sexo</zorder>
+   <zorder>label_6</zorder>
+   <zorder>label_7</zorder>
+   <zorder>label_8</zorder>
+   <zorder>label_9</zorder>
+   <zorder>label_10</zorder>
+   <zorder>label_11</zorder>
+   <zorder>label_12</zorder>
+   <zorder>input_Telefono</zorder>
+   <zorder>label_13</zorder>
+   <zorder>input_TipoS</zorder>
+   <zorder>label_14</zorder>
+   <zorder>input_Alergias</zorder>
+   <zorder>boton_Guardar</zorder>
+   <zorder>comboBox</zorder>
+   <zorder>comboBox_2</zorder>
+   <zorder>label_15</zorder>
+   <zorder>comboBox_3</zorder>
+   <zorder>label_16</zorder>
+   <zorder>comboBox_4</zorder>
+   <zorder>comboBox_5</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">

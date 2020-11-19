@@ -28,7 +28,7 @@ def _connect_to_db(
 
 def get_pacientes():
     result = {}
-    connection = conexion._connect_to_db()
+    connection = _connect_to_db()
     try:
         with connection.cursor() as cursor:
             row_count = 0
@@ -36,6 +36,24 @@ def get_pacientes():
             sql = f"""SELECT pacientes.idPaciente,nombrePaciente,apellidoPPaciente,apellidoMPaciente,sexoPaciente,pesoPaciente,estaturaPaciente,edadPaciente,telefonoPaciente,tipo_sangre.nombreSangre,pacientes.alergiasPaciente FROM pacientes inner join tipo_sangre on pacientes.idTipo_sangre_F=tipo_sangre.idTipo_sangre """
             cursor.execute(sql)
             result = cursor.fetchall()
+            print("Total rows are:  ", len(result))
+            print("Printing each row")
+            for row in result:
+                print("Id: ", setRowCount[0])
+                print("Name: ", row[1])
+                print("Email: ", row[2])
+                print("Salary: ", row[3])
+                print("Id: ", row[4])
+                print("Name: ", row[5])
+                print("Email: ", row[6])
+                print("Salary: ", row[7])
+                print("Id: ", row[8])
+                print("Name: ", row[9])
+                print("Email: ", row[10])
+                print("\n")
+
+
+            cursor.close()
     except Exception as e:
         print(e)
         e.ex.args[0]
@@ -47,5 +65,5 @@ def get_pacientes():
 #print(hola)
 #print("**************************************")
 sangresita = get_pacientes()
-print(sangresita)
+#print(sangresita)
 

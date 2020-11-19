@@ -3,6 +3,7 @@ import os
 import re
 import ctypes
 from PyQt5 import uic, QtCore, QtWidgets
+from PyQt5.QtWidgets import QMessageBox
 
 
 class WindowTwo(QtWidgets.QMainWindow):
@@ -13,7 +14,7 @@ class WindowTwo(QtWidgets.QMainWindow):
         QtWidgets.QMainWindow.__init__(self)
         uic.loadUi("interfaces/Registrar_medicos.ui", self)
         self.setWindowTitle("J-Medic: Registrar Medicos")
-        self.Boton_Guardar.clicked.connect(self.switch)
+        self.boton_guardar.clicked.connect(self.validar_datos)
         self.actionRegresar.setShortcut("Ctrl+R")
         self.actionRegresar.triggered.connect(self.switch)
         self.validar()
@@ -22,9 +23,9 @@ class WindowTwo(QtWidgets.QMainWindow):
         self.input_Nombre.textChanged.connect(self.validar_nombre)
         self.input_ApellidoP.textChanged.connect(self.validar_apellidoP)
         self.input_ApellidoM.textChanged.connect(self.validar_apellidoM)
-        self.input_Cedula.textChanged.connect(self.validar_cedula)
         self.input_Telefono.textChanged.connect(self.validar_telefono)
-        self.input_turno.textChanged.connect(self.seleccionar_turno)
+        self.input_Cedula.textChanged.connect(self.validar_cedula)
+        self.input_user.textChanged.connect(self.validar_usuario)
         pass
 
 
@@ -96,28 +97,48 @@ class WindowTwo(QtWidgets.QMainWindow):
             self.input_Telefono.setStyleSheet("border: 2px solid green;")
             return True
 
-    def seleccionar_turno(self):
+    def validar_turno(self):
         turno = self.input_Turno_2.currentText()
         self.input_turno.setText(str(turno))
-        self.validar_turno()
-
-
-    def validar_turno(self):
         turno = self.input_turno.text()
         if turno == "":
             self.input_turno.setStyleSheet("border: 2px solid yellow;")
             return False
         else:
             self.input_turno.setStyleSheet("border: 2px solid green;")
-            self.validar_datos()
+            return True
+
+    def validar_usuario(self):
+        user = self.input_user.text()
+        validar = re.match(
+            "^[\w'\-,.][^!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]]{1,}$", user, re.I)
+        if user == "":
+            self.input_user.setStyleSheet("border: 2px solid yellow;")
+            return False
+        elif not validar:
+            self.input_user.setStyleSheet("border: 2px solid red;")
+            return False
+        else:
+            self.input_user.setStyleSheet("border: 2px solid green;")
+            return True
+
+    def validar_password(self):
+        contra = self.input_contra.text()
+        if contra == "":
+            self.input_contra.setStyleSheet("border: 2px solid yellow;")
+            return False
+        else:
+            self.input_contra.setStyleSheet("border: 2px solid green;")
             return True
 
     def validar_datos(self):
-        if self.validar_nombre and self.validar_apellidoP and self.validar_apellidoM and self.validar_cedula and self.validar_telefono and self.validar_turno == False:
-            return False
-        else:
+        if self.validar_nombre() and self.validar_cedula() and self.validar_apellidoP() and self.validar_turno() and self.validar_apellidoM() and self.validar_telefono() and self.validar_usuario() and self.validar_password():
+            hashed = bcrypt.hashpw(self.input_contra.text().encode(), bcrypt.gensalt(10))
+            hashed = hashed.decode()
+            QMessageBox.information(self, "Datos guardados", "Su informacion se ha guardado correctamente", QMessageBox.Discard)
             self.switch()
-            return True
+        else:
+            QMessageBox.warning(self, "Error", "Ingresa los datos correctamente", QMessageBox.Discard)
 
 
     def switch(self):

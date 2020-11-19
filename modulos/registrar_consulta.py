@@ -83,7 +83,7 @@ class WindowTwo(QtWidgets.QMainWindow):
 
     def validar_datos(self):
         cont = 0
-        if self.validar_id_medico() and self.validar_id_paciente() and self.seleccionar_motivo():
+        if self.validar_id_medico() and self.validar_id_paciente() and self.seleccionar_motivo() and self.seleccionar_fecha():
             QMessageBox.information(self, "Datos guardados", "Su informacion se ha guardado correctamente", QMessageBox.Discard)
             #self.switch()
         else:

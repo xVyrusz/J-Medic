@@ -472,6 +472,17 @@ selection-color: rgb(255, 255, 255);</string>
      <string>Generar fecha</string>
     </property>
    </widget>
+   <widget class="QLineEdit" name="input_fechas">
+    <property name="geometry">
+     <rect>
+      <x>270</x>
+      <y>150</y>
+      <width>16</width>
+      <height>16</height>
+     </rect>
+    </property>
+   </widget>
+   <zorder>input_fechas</zorder>
    <zorder>input_motivo</zorder>
    <zorder>label</zorder>
    <zorder>tabla_consultas</zorder>

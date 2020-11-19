@@ -82,7 +82,17 @@ class WindowTwo(QtWidgets.QMainWindow):
     def validar_peso(self):
         pesok = self.comboBox.currentText()
         pesog = self.comboBox_2.currentText()
+        cont = 0
+        if pesog == "":
+            cont+=1
+
+        if pesok == "":
+            cont+=1
+
         self.input_Peso.setText(str(pesok)+(pesog))
+        if cont>0:
+            self.input_Peso.setText("")
+
         peso = self.input_Peso.text()
         if peso == "":
             self.input_Peso.setStyleSheet("border: 2px solid yellow;")
@@ -94,7 +104,17 @@ class WindowTwo(QtWidgets.QMainWindow):
     def validar_estatura(self):
         estaturam = self.comboBox_3.currentText()
         estaturacm = self.comboBox_4.currentText()
+        cont = 0
+        if estaturacm == "":
+            cont+=1
+
+        if estaturam == "":
+            cont+=1
+
         self.input_estatura.setText(str(estaturam)+(estaturacm))
+        if cont>0:
+            self.input_estatura.setText("")
+
         estatura = self.input_estatura.text()
         if estatura == "":
             self.input_estatura.setStyleSheet("border: 2px solid yellow;")

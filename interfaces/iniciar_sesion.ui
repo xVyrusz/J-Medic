@@ -60,7 +60,7 @@ QPushButton:hover:before {
 }</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QLineEdit" name="input_Usuario">
+   <widget class="QLineEdit" name="input_user">
     <property name="geometry">
      <rect>
       <x>200</x>

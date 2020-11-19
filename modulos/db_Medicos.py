@@ -1,7 +1,7 @@
 
 
 import modulos.db_conexion as conexion
-
+from PyQt5.QtSql import QSqlDatabase, QSqlQuery
 def get_medicos():
     result = {}
     connection =  conexion._connect_to_db()
@@ -66,7 +66,7 @@ def editar_medicos(nombre,apellidop,apellidom,cedula,telefono,id_turnos,usuario,
     try:
         with connection.cursor() as cursor:
             #Read everything of <UNA TABLA>
-            sql = f"""UPDATE medicos SET nombreMedico = '%s' WHERE apellidoPMedico = '%s' WHERE apellidoMMedico ='%s' WHERE Cedula = '%s' WHERE Telefono = '%s' WHERE idTurnos_F = '%s' """
+            sql = f"""UPDATE medicos SET nombreMedico = '%s',apellidoPMedico = '%s',apellidoMMedico ='%s',Cedula = '%s', Telefono = '%s', idTurnos_F = '%s'WHERE idMedicos 0 '%s'"""
             cursor.execute(sql, (nombre,apellidop,apellidom,cedula,telefono,id_turnos,usuario,password))
         connection.commit()
         with connection.cursor() as cursor:
@@ -81,3 +81,44 @@ def editar_medicos(nombre,apellidop,apellidom,cedula,telefono,id_turnos,usuario,
         connection.close()
         return result
 
+def editar_passw(passw):
+    result = {}
+    connection =  conexion._connect_to_db()
+    try:
+        with connection.cursor() as cursor:
+            #Read everything of <UNA TABLA>
+            sql = f"""UPDATE medicos SET password = '%s' WHERE idMedicos ='%s' """
+            cursor.execute(sql, (passw))
+        connection.commit()
+        with connection.cursor() as cursor:
+            sql = f"""SELECT * FROM medicos"""
+            cursor.execute(sql)
+            result = cursor.fetchall()
+            return result
+    except Exception as e:
+        print(e)
+        e.ex.args[0]
+    finally:
+        connection.close()
+        return result
+"""def tabla (tabla):
+    
+    #self.table=self.tabla_buscar_medico
+    rowPosition = self.tabla_buscar_medico.rowCount()
+    while query.next():
+        self.table.insertRow(row)
+        idMedicos=self.tabla_buscar_medico(str(query.value(0)))
+        nombreMedico=self.tabla_buscar_medico(str(query.value(1)))
+        apellidoPMedico=self.tabla_buscar_medico(str(query.value(2)))
+        apellidoMMedico=self.tabla_buscar_medico(str(query.value(3)))
+        Cedula=self.tabla_buscar_medico(str(query.value(4)))
+        Telefono=self.tabla_buscar_medico(str(query.value(5)))
+        idTurnos_F=self.tabla_buscar_medico(str(query.value(6)))
+        self.table.setItem(row, 0, idMedicos)
+        self.table.setItem(row, 1, nombreMedico)
+        self.table.setItem(row, 2, apellidoPMedico)
+        self.table.setItem(row, 3, apellidoMMedico)
+        self.table.setItem(row, 4, Cedula)
+        self.table.setItem(row, 5, Telefono)
+        self.table.setItem(row, 6, idTurnos_F)
+        row = row+1"""

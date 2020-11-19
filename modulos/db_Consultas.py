@@ -119,7 +119,7 @@ def editar_datos_consultas(idmedicos,idpaciente,fecha,motivo):
     try:
         with connection.cursor() as cursor:
             #Read everything of <UNA TABLA>
-            sql = f"""UPDATE datos_de_consulta SET idMedicos_F = '%s' WHERE idPaciente_F = '%s' WHERE fechaVisita ='%s' WHERE idMotivo_F = '%s' """
+            sql = f"""UPDATE datos_de_consulta SET idMedicos_F = '%s',idPaciente_F = '%s' ,fechaVisita ='%s' , idMotivo_F = '%s' WHERE idConsulta='%s' """
             cursor.execute(sql, (idmedicos,idpaciente,fecha,motivo))
         connection.commit()
         with connection.cursor() as cursor:
@@ -142,7 +142,7 @@ def editar_consulta(idmedicos,idpaciente,fecha,motivo):
     try:
         with connection.cursor() as cursor:
             #Read everything of <UNA TABLA>
-            sql = f"""UPDATE consulta SET pruebasRealizadas = '%s' WHERE diagnostico = '%s' WHERE tratamiento ='%s'  """
+            sql = f"""UPDATE consulta SET pruebasRealizadas = '%s' ,diagnostico = '%s' ,tratamiento ='%s' WHERE idConsulta_F """
             cursor.execute(sql, (idmedicos,idpaciente,fecha,motivo))
         connection.commit()
         with connection.cursor() as cursor:

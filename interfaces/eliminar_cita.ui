@@ -6,18 +6,12 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>697</width>
-    <height>465</height>
+    <width>800</width>
+    <height>600</height>
    </rect>
   </property>
-  <property name="sizeIncrement">
-   <size>
-    <width>0</width>
-    <height>0</height>
-   </size>
-  </property>
   <property name="windowTitle">
-   <string>J-MEDIC Buscar Médico</string>
+   <string>MainWindow</string>
   </property>
   <property name="styleSheet">
    <string notr="true">*{
@@ -66,42 +60,93 @@ QPushButton:hover:before {
 }</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QTableWidget" name="tabla_buscar_medico">
+   <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>50</x>
-      <y>260</y>
-      <width>611</width>
-      <height>141</height>
+      <x>340</x>
+      <y>0</y>
+      <width>131</width>
+      <height>51</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">color: rgb(0, 0, 0);
-background-color: rgb(255, 255, 255);</string>
+     <string notr="true">font: 75 18pt &quot;Arial&quot;;</string>
     </property>
-    <row>
-     <property name="text">
-      <string/>
-     </property>
-    </row>
-    <row>
-     <property name="text">
-      <string/>
-     </property>
-    </row>
-    <row>
-     <property name="text">
-      <string/>
-     </property>
-    </row>
+    <property name="text">
+     <string>Eliminar cita</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>130</y>
+      <width>161</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>ID del paciente</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_3">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>180</y>
+      <width>161</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Fecha de cita</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="input_idp">
+    <property name="geometry">
+     <rect>
+      <x>180</x>
+      <y>130</y>
+      <width>291</width>
+      <height>31</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="boton_eliminar">
+    <property name="geometry">
+     <rect>
+      <x>630</x>
+      <y>250</y>
+      <width>141</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Eliminar cita</string>
+    </property>
+   </widget>
+   <widget class="QTableWidget" name="tabla_citas">
+    <property name="geometry">
+     <rect>
+      <x>90</x>
+      <y>330</y>
+      <width>611</width>
+      <height>211</height>
+     </rect>
+    </property>
     <column>
      <property name="text">
-      <string>ID Médico</string>
+      <string>ID cita</string>
      </property>
     </column>
     <column>
      <property name="text">
-      <string>Nombre</string>
+      <string>ID paciente</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Nombre </string>
      </property>
     </column>
     <column>
@@ -116,67 +161,57 @@ background-color: rgb(255, 255, 255);</string>
     </column>
     <column>
      <property name="text">
-      <string>Cedula</string>
+      <string>Fecha de cita</string>
      </property>
     </column>
-    <column>
-     <property name="text">
-      <string>Telefono</string>
-     </property>
-    </column>
-    <column>
-     <property name="text">
-      <string>Turno</string>
-     </property>
-    </column>
-   </widget>
-   <widget class="QLabel" name="label">
-    <property name="geometry">
-     <rect>
-      <x>250</x>
-      <y>40</y>
-      <width>201</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Buscar Médicos&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-    </property>
-   </widget>
-   <widget class="QLineEdit" name="input_id_medico">
-    <property name="geometry">
-     <rect>
-      <x>270</x>
-      <y>130</y>
-      <width>151</width>
-      <height>20</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_2">
-    <property name="geometry">
-     <rect>
-      <x>220</x>
-      <y>100</y>
-      <width>261</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Ingresa el ID del Médico&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-    </property>
    </widget>
    <widget class="QPushButton" name="boton_buscar">
     <property name="geometry">
      <rect>
-      <x>290</x>
-      <y>180</y>
-      <width>111</width>
+      <x>480</x>
+      <y>250</y>
+      <width>141</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Buscar cita</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_4">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>80</y>
+      <width>161</width>
       <height>31</height>
      </rect>
     </property>
     <property name="text">
-     <string>Buscar</string>
+     <string>ID de cita</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="input_idcita">
+    <property name="geometry">
+     <rect>
+      <x>180</x>
+      <y>80</y>
+      <width>291</width>
+      <height>31</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QDateTimeEdit" name="dateTimeEdit">
+    <property name="geometry">
+     <rect>
+      <x>180</x>
+      <y>180</y>
+      <width>291</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 18pt &quot;Arial&quot;;</string>
     </property>
    </widget>
   </widget>
@@ -185,7 +220,7 @@ background-color: rgb(255, 255, 255);</string>
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>697</width>
+     <width>800</width>
      <height>20</height>
     </rect>
    </property>

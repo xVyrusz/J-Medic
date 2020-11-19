@@ -198,6 +198,7 @@ class WindowTwo(QtWidgets.QMainWindow):
             else:
                 sangre=1
             pacientes.insertar_pacientes(self.input_Nombre.text(),self.input_ApellidoP.text(),self.input_ApellidoM.text(),self.input_sexo.text(),self.input_Peso.text(),self.input_estatura.text(),self.input_anios.text(),self.input_Telefono.text(),self.input_Alergias.text(),sangre)
+
             self.switch()
             return True
 

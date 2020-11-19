@@ -6,18 +6,12 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>697</width>
-    <height>465</height>
+    <width>1131</width>
+    <height>574</height>
    </rect>
   </property>
-  <property name="sizeIncrement">
-   <size>
-    <width>0</width>
-    <height>0</height>
-   </size>
-  </property>
   <property name="windowTitle">
-   <string>J-MEDIC Buscar Médico</string>
+   <string>Pacientes</string>
   </property>
   <property name="styleSheet">
    <string notr="true">*{
@@ -66,37 +60,31 @@ QPushButton:hover:before {
 }</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QTableWidget" name="tabla_buscar_medico">
+   <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>50</x>
-      <y>260</y>
-      <width>611</width>
-      <height>141</height>
+      <x>490</x>
+      <y>10</y>
+      <width>131</width>
+      <height>71</height>
      </rect>
     </property>
-    <property name="styleSheet">
-     <string notr="true">color: rgb(0, 0, 0);
-background-color: rgb(255, 255, 255);</string>
+    <property name="text">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600; color:#ffffff;&quot;&gt;Pacientes&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
-    <row>
-     <property name="text">
-      <string/>
-     </property>
-    </row>
-    <row>
-     <property name="text">
-      <string/>
-     </property>
-    </row>
-    <row>
-     <property name="text">
-      <string/>
-     </property>
-    </row>
+   </widget>
+   <widget class="QTableWidget" name="tableWidget">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>120</y>
+      <width>1111</width>
+      <height>391</height>
+     </rect>
+    </property>
     <column>
      <property name="text">
-      <string>ID Médico</string>
+      <string>Id Alumnos</string>
      </property>
     </column>
     <column>
@@ -116,7 +104,22 @@ background-color: rgb(255, 255, 255);</string>
     </column>
     <column>
      <property name="text">
-      <string>Cedula</string>
+      <string>Sexo</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Peso KG</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Estatura</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Edad</string>
      </property>
     </column>
     <column>
@@ -126,58 +129,14 @@ background-color: rgb(255, 255, 255);</string>
     </column>
     <column>
      <property name="text">
-      <string>Turno</string>
+      <string>Tipo de Sangre</string>
      </property>
     </column>
-   </widget>
-   <widget class="QLabel" name="label">
-    <property name="geometry">
-     <rect>
-      <x>250</x>
-      <y>40</y>
-      <width>201</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Buscar Médicos&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-    </property>
-   </widget>
-   <widget class="QLineEdit" name="input_id_medico">
-    <property name="geometry">
-     <rect>
-      <x>270</x>
-      <y>130</y>
-      <width>151</width>
-      <height>20</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_2">
-    <property name="geometry">
-     <rect>
-      <x>220</x>
-      <y>100</y>
-      <width>261</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Ingresa el ID del Médico&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="boton_buscar">
-    <property name="geometry">
-     <rect>
-      <x>290</x>
-      <y>180</y>
-      <width>111</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Buscar</string>
-    </property>
+    <column>
+     <property name="text">
+      <string>Alergias</string>
+     </property>
+    </column>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
@@ -185,7 +144,7 @@ background-color: rgb(255, 255, 255);</string>
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>697</width>
+     <width>1131</width>
      <height>20</height>
     </rect>
    </property>
@@ -193,16 +152,10 @@ background-color: rgb(255, 255, 255);</string>
     <property name="title">
      <string>Menu</string>
     </property>
-    <addaction name="actionRegresar"/>
    </widget>
    <addaction name="menuMenu"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
-  <action name="actionRegresar">
-   <property name="text">
-    <string>Regresar</string>
-   </property>
-  </action>
  </widget>
  <resources/>
  <connections/>

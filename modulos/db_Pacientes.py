@@ -48,7 +48,7 @@ def editar_pacientes(nombre,apellidop,apellidom,sexo,peso,estatura,edad,telefono
     try:
         with connection.cursor() as cursor:
             #Read everything of <UNA TABLA>
-            sql = f"""UPDATE pacientes SET nombrePaciente = '%s' WHERE apellidoPPaciente = '%s' WHERE apellidoMPaciente ='%s' WHERE sexoPaciente = '%s' WHERE estaturaPaciente = '%s' WHERE edadPaciente = '%s' WHERE telefonoPaciente = '%s' WHERE alergiasPaciente = '%s' WHERE idTipo_Sangre = '%s'"""
+            sql = f"""UPDATE pacientes SET nombrePaciente = '%s', apellidoPPaciente = '%s',apellidoMPaciente ='%s',sexoPaciente = '%s',estaturaPaciente = '%s',edadPaciente = '%s',telefonoPaciente = '%s' ,alergiasPaciente = '%s',idTipo_Sangre = '%s' WHERE idPaciente ='%s'"""
             cursor.execute(sql, (nombre,apellidop,apellidom,sexo,peso,estatura,edad,telefono,alergias,sangre))
         connection.commit()
         with connection.cursor() as cursor:

@@ -64,7 +64,28 @@ class WindowTree(QtWidgets.QMainWindow):
         anio = self.comboBox_4.currentText()
         mes = self.comboBox_3.currentText()
         dia = self.comboBox_2.currentText()
-        self.input_fecha.setText(str(anio)+(mes)+(dia))
+        hora = self.comboBox.currentText()
+        minutos = self.comboBox_5.currentText()
+        cont = 0
+        if anio == "":
+            cont+=1
+
+        if mes == "":
+            cont+=1
+
+        if dia == "":
+            cont+=1
+
+        if hora == "":
+            cont+=1
+
+        if minutos == "":
+            cont+=1
+
+        self.input_fecha.setText(str(anio)+(mes)+(dia)+(hora)+(minutos))
+        if cont>0:
+            self.input_fecha.setText("")
+
         fecha = self.input_fecha.text()
         if fecha == "":
             self.input_fecha.setStyleSheet("border: 2px solid yellow;")

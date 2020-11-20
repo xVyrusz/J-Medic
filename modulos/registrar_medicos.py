@@ -133,9 +133,10 @@ class WindowTwo(QtWidgets.QMainWindow):
 
     def validar_datos(self):
         if self.validar_nombre() and self.validar_cedula() and self.validar_apellidoP() and self.validar_turno() and self.validar_apellidoM() and self.validar_telefono() and self.validar_usuario() and self.validar_password():
-            medicos.insertar_medicos(self.input_Nombre.text(),self.input_ApellidoP.text(),self.input_ApellidoM.text(),self.input_Telefono.text(),self.input_Cedula.text(),self.input_user.text(),self.input_contra.text())
-            QMessageBox.information(self, "Datos guardados", "Su informacion se ha guardado correctamente", QMessageBox.Discard)
-            self.switch()
+            result =medicos.insertar_medicos(self.input_Nombre.text(),self.input_ApellidoP.text(),self.input_ApellidoM.text(),self.input_Cedula.text(),self.input_Telefono.text(),self.input_turno.text(),self.input_user.text(),self.input_contra.text())
+            if result == 1:
+                QMessageBox.information(self, "Datos guardados", "Su informacion se ha guardado correctamente", QMessageBox.Discard)
+                self.switch()
         else:
             QMessageBox.warning(self, "Error", "Ingresa los datos correctamente", QMessageBox.Discard)
 

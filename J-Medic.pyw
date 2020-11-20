@@ -37,7 +37,6 @@ class Controller:
         self.login.switch_window.connect(self.show_main)
         self.login.show()
 
-
     def show_main(self):
         self.window = menu.MainWindow()
         self.window.switch_window.connect(self.show_registrar_medicos)
@@ -57,31 +56,31 @@ class Controller:
         self.window_two.switch_window.connect(self.close)
         self.window.close()
         self.window_two.show()
-    
+
     def show_registrar_pacientes(self):
         self.window_two = registrar_pacientes.WindowTwo()
         self.window_two.switch_window.connect(self.close)
         self.window.close()
         self.window_two.show()
-    
+
     def show_registrar_consulta(self):
         self.window_two = registrar_consulta.WindowTwo()
         self.window_two.switch_window.connect(self.close)
         self.window.close()
         self.window_two.show()
-    
+
     def show_registrar_cita(self):
         self.window_two = registrar_cita.WindowTwo()
         self.window_two.switch_window.connect(self.close)
         self.window.close()
         self.window_two.show()
-    
+
     def show_buscar_medico(self):
         self.window_two = buscar_medico.WindowTwo()
         self.window_two.switch_window.connect(self.close)
         self.window.close()
         self.window_two.show()
-    
+
     def show_buscar_paciente(self):
         self.window_two = buscar_paciente.WindowTwo()
         self.window_two.switch_window.connect(self.close)
@@ -100,13 +99,13 @@ class Controller:
         self.window.switch_window7.connect(self.show_buscar_consulta)
         self.window.close()
         self.window_two.show()
-    
+
     def show_buscar_cita(self):
         self.window_two = buscar_cita.WindowTwo()
         self.window_two.switch_window.connect(self.close)
         self.window.close()
         self.window_two.show()
-    
+
     def show_main2(self):
         self.window_two = menu2.WindowTwo()
         self.window_two.switch_window.connect(self.show_editar_paciente)
@@ -130,13 +129,13 @@ class Controller:
         self.window_tree.switch_window.connect(self.close2)
         self.window_two.close()
         self.window_tree.show()
-    
+
     def show_editar_consulta(self):
         self.window_tree = editar_consulta.WindowTree()
         self.window_tree.switch_window.connect(self.close2)
         self.window_two.close()
         self.window_tree.show()
-    
+
     def show_editar_cita(self):
         self.window_tree = editar_cita.WindowTree()
         self.window_tree.switch_window.connect(self.close2)
@@ -154,6 +153,7 @@ class Controller:
         self.window_tree.switch_window.connect(self.close2)
         self.window_two.close()
         self.window_tree.show()
+
 
 def main():
     app = QtWidgets.QApplication(sys.argv)

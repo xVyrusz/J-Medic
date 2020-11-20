@@ -1,268 +1,172 @@
-
+import mysql.connector
 import modulos.db_conexion as conexion
-def get_datos_consulta():
-    result = {}
-    connection = conexion._connect_to_db()
+
+def insertar_datos_de_consulta(idmedicos,idpaciente,fecha,motivo):
     try:
-        with connection.cursor() as cursor:
-            row_count = 0
-            e='none'
-            sql = f""" SELECT datos_de_consulta.idConsulta,medicos.nombreMedico,medicos.apellidoPMedico,pacientes.nombrePaciente,pacientes.apellidoPPaciente,datos_de_consulta.fechaVisita,
-            motivos_de_consulta.nombreMotivo,consulta.pruebasRealizadas,consulta.diagnostico,consulta.tratamiento FROM datos_de_consulta inner join medicos on medicos.idMedicos=datos_de_consulta.idMedicos_F
-            inner join pacientes on datos_de_consulta.idPaciente_F=pacientes.idPaciente
-            inner join motivos_de_consulta on motivos_de_consulta.idMotivos_de_Consulta=datos_de_consulta.idMotivo_F
-            inner join consulta on datos_de_consulta.idConsulta=consulta.idConsulta_F"""
-            cursor.execute(sql)
-            result = cursor.fetchall()
-    except Exception as e:
-        print(e)
-        e.ex.args[0]
-    finally:
-        connection.close()
+        mydb = conexion.conexion()
+        mycursor = mydb.cursor()
+        sql = "INSERT INTO datos_de_consulta(idMedicos_F,idPaciente_F,fechaVisita,idMotivo_F) VALUES(%s,%s,%s,%s)"
+        val = (idmedicos,idpaciente,fecha,motivo)
+        mycursor.execute(sql, val)
+        mydb.commit()
+        mycursor.execute("SELECT * FROM datos_de_consulta")
+        result = mycursor.fetchall()
         return result
-
-def insertar_datos_consulta(idmedicos,idpaciente,fecha,motivo):
-    result = {}
-    connection = conexion._connect_to_db()
-
-    try:
-        with connection.cursor() as cursor:
-            #Read everything of <UNA TABLA>
-            sql = f"""INSERT INTO datos_de_consulta(idMedicos_F,idPaciente_F,fechaVisita,idMotivo_F) VALUES(%s,%s,%s,%s)"""
-            cursor.execute(sql, (idmedicos,idpaciente,fecha,motivo))
-        connection.commit()
-        with connection.cursor() as cursor:
-            sql = f"""SELECT * FROM datos_de_consulta"""
-            cursor.execute(sql)
-            result = cursor.fetchall()
-            return result
-    except Exception as e:
-        print(e)
-        e.ex.args[0]
+    except:
+        print('Something wrong happend 😡😡😡😠😡😡😡')
     finally:
-        connection.close()
-        return result
-
+        mydb.close()
+        mycursor.close()
 def insertar_consulta(pruebas,diagnostico,tratamiento):
-    result = {}
-    connection = conexion._connect_to_db()
-
     try:
-        with connection.cursor() as cursor:
-            #Read everything of <UNA TABLA>
-            sql = f"""INSERT INTO consulta(pruebasRealizadas,diagnostico,tratamiento) VALUES(%s,%s,%s)"""
-            cursor.execute(sql, (pruebas,diagnostico,tratamiento))
-        connection.commit()
-        with connection.cursor() as cursor:
-            sql = f"""SELECT * FROM consulta"""
-            cursor.execute(sql)
-            result = cursor.fetchall()
-            return result
-    except Exception as e:
-        print(e)
-        e.ex.args[0]
-    finally:
-        connection.close()
+        mydb = conexion.conexion()
+        mycursor = mydb.cursor()
+        sql = "INSERT INTO consulta(pruebasRealizadas,diagnostico,tratamiento) VALUES(%s,%s,%s)"
+        val = (pruebas,diagnostico,tratamiento)
+        mycursor.execute(sql, val)
+        mydb.commit()
+        mycursor.execute("SELECT * FROM consulta")
+        result = mycursor.fetchall()
         return result
-
-def get_consulta():
-    result = {}
-    connection = conexion._connect_to_db()
+    except:
+        print('Something wrong happend 😡😡😡😠😡😡😡')
+    finally:
+        mydb.close()
+        mycursor.close()
+def eliminar_consulta(pruebas):
     try:
-        with connection.cursor() as cursor:
-            row_count = 0
-            e='none'
-            sql = f""" SELECT datos_de_consulta.idConsulta,medicos.nombreMedico,medicos.apellidoPMedico,pacientes.nombrePaciente,pacientes.apellidoPPaciente,datos_de_consulta.fechaVista,motivos_de_consulta.nombreMotivo
-            consulta.pruebasRealizadas,consulta.diagnostico,consulta.tratamiento
-            FROM datos_de_consulta inner join medicos on medicos.idMedicos=datos_de_consulta.idMedicos_F
-            inner join pacientes on datos_de_consulta.idPaciente_F=pacientes.idPacientes_F
-            inner join motivos_de_consulta on motivos_de_consulta.idMotivos_de_Consulta=datos_de_consulta.idMotivo_F
-            inner join consulta on datos_de_consulta.idConsulta=consulta.idConsulta_F
-            WHERE datos_de_consulta.idPaciente_F=datos_de_consulta.idConsulta """
-            cursor.execute(sql)
-            result = cursor.fetchall()
-    except Exception as e:
-        print(e)
-        e.ex.args[0]
-    finally:
-        connection.close()
+        mydb = conexion.conexion()
+        mycursor = mydb.cursor()
+        sql = "DELETE FROM datos_de_consulta WHERE idConsulta  = %s"
+        val = (pruebas)
+        mycursor.execute(sql, val)
+        mydb.commit()
+        mycursor.execute("SELECT * FROM datos_de_consulta")
+        result = mycursor.fetchall()
         return result
+    except:
+        print('Something wrong happend 😡😡😡😠😡😡😡')
+    finally:
+        mydb.close()
+        mycursor.close()
 
-
-def eliminar_consulta(consulta):
-    result = {}
-    connection = conexion._connect_to_db()
-
+def editar_datos_de_consulta(idmedicos,idpaciente,fecha,motivo):
     try:
-        with connection.cursor() as cursor:
-            #Read everything of <UNA TABLA>
-            sql = f"""DELETE FROM datos_de_consulta WHERE idConsulta  = '%s'"""
-            cursor.execute(sql, (consulta))
-        connection.commit()
-        with connection.cursor() as cursor:
-            sql = f"""SELECT * FROM datos_de_consulta"""
-            cursor.execute(sql)
-            result = cursor.fetchall()
-            return result
-    except Exception as e:
-        print(e)
-        e.ex.args[0]
-    finally:
-        connection.close()
+        mydb = conexion.conexion()
+        mycursor = mydb.cursor()
+        sql = "UPDATE datos_de_consulta SET idMedicos_F = %s , idPaciente_F = %s ,fechaVisita =%s  ,idMotivo_F = %s WHERE idConsulta=%s"
+        val = (idmedicos,idpaciente,fecha,motivo)
+        mycursor.execute(sql, val)
+        mydb.commit()
+        mycursor.execute("SELECT * FROM datos_de_consulta")
+        result = mycursor.fetchall()
         return result
+    except:
+        print('Something wrong happend 😡😡😡😠😡😡😡')
+    finally:
+        mydb.close()
+        mycursor.close()
 
 
-def editar_datos_consultas(idmedicos,idpaciente,fecha,motivo):
-    result = {}
-    connection = conexion._connect_to_db()
-
+def editar_consulta(pruebas,diagnostico,tratamiento):
     try:
-        with connection.cursor() as cursor:
-            #Read everything of <UNA TABLA>
-            sql = f"""UPDATE datos_de_consulta SET idMedicos_F = '%s' WHERE idPaciente_F = '%s' WHERE fechaVisita ='%s' WHERE idMotivo_F = '%s' """
-            cursor.execute(sql, (idmedicos,idpaciente,fecha,motivo))
-        connection.commit()
-        with connection.cursor() as cursor:
-            sql = f"""SELECT * FROM datos_de_consulta"""
-            cursor.execute(sql)
-            result = cursor.fetchall()
-            return result
-    except Exception as e:
-        print(e)
-        e.ex.args[0]
-    finally:
-        connection.close()
+        mydb = conexion.conexion()
+        mycursor = mydb.cursor()
+        sql = "UPDATE datos_de_consulta SET idMedicos_F = %s , idPaciente_F = %s ,fechaVisita =%s  ,idMotivo_F = %s WHERE idConsulta=%s"
+        val = (pruebas,diagnostico,tratamiento)
+        mycursor.execute(sql, val)
+        mydb.commit()
+        mycursor.execute("SELECT * FROM consulta")
+        result = mycursor.fetchall()
         return result
+    except:
+        print('Something wrong happend 😡😡😡😠😡😡😡')
+    finally:
+        mydb.close()
+        mycursor.close()
 
-
-def editar_consulta(idmedicos,idpaciente,fecha,motivo):
-    result = {}
-    connection = conexion._connect_to_db()
-
+def buscar_consulta_id(pruebas):
     try:
-        with connection.cursor() as cursor:
-            #Read everything of <UNA TABLA>
-            sql = f"""UPDATE consulta SET pruebasRealizadas = '%s' WHERE diagnostico = '%s' WHERE tratamiento ='%s'  """
-            cursor.execute(sql, (idmedicos,idpaciente,fecha,motivo))
-        connection.commit()
-        with connection.cursor() as cursor:
-            sql = f"""SELECT * FROM consulta"""
-            cursor.execute(sql)
-            result = cursor.fetchall()
-            return result
-    except Exception as e:
-        print(e)
-        e.ex.args[0]
-    finally:
-        connection.close()
+        mydb = conexion.conexion()
+        mycursor = mydb.cursor()
+        sql = "SELECT datos_de_consulta.idConsulta,medicos.nombreMedico,medicos.apellidoPMedico,pacientes.nombrePaciente,pacientes.apellidoPPaciente,datos_de_consulta.fechaVisita,motivos_de_consulta.nombreMotivo,consulta.pruebasRealizadas,consulta.diagnostico,consulta.tratamiento FROM datos_de_consulta inner join medicos on medicos.idMedicos=datos_de_consulta.idMedicos_Finner join pacientes on datos_de_consulta.idPaciente_F=pacientes.idPacienteinner join motivos_de_consulta on motivos_de_consulta.idMotivos_de_Consulta=datos_de_consulta.idMotivo_Finner join consulta on datos_de_consulta.idConsulta=consulta.idConsulta_F WHERE consulta.idConsulta_F = %s"
+        val = (pruebas)
+        mycursor.execute(sql, val)
+        mydb.commit()
+        mycursor.execute("SELECT * FROM datos_de_consulta")
+        result = mycursor.fetchall()
         return result
+    except:
+        print('Something wrong happend 😡😡😡😠😡😡😡')
+    finally:
+        mydb.close()
+        mycursor.close()
 
 
-
-def buscar_consulta_id():
-    result = {}
-    connection = conexion._connect_to_db()
+def buscar_consulta_medicos(pruebas):
     try:
-        with connection.cursor() as cursor:
-            row_count = 0
-            e='none'
-            sql = f"""SELECT datos_de_consulta.idConsulta,medicos.nombreMedico,medicos.apellidoPMedico,pacientes.nombrePaciente,pacientes.apellidoPPaciente,datos_de_consulta.fechaVisita,
-            motivos_de_consulta.nombreMotivo,consulta.pruebasRealizadas,consulta.diagnostico,consulta.tratamiento FROM datos_de_consulta inner join medicos on medicos.idMedicos=datos_de_consulta.idMedicos_F
-            inner join pacientes on datos_de_consulta.idPaciente_F=pacientes.idPaciente
-            inner join motivos_de_consulta on motivos_de_consulta.idMotivos_de_Consulta=datos_de_consulta.idMotivo_F
-            inner join consulta on datos_de_consulta.idConsulta=consulta.idConsulta_F WHERE consulta.idConsulta_F = '%s'"""
-            cursor.execute(sql)
-            result = cursor.fetchall()
-    except Exception as e:
-        print(e)
-        e.ex.args[0]
-    finally:
-        connection.close()
+        mydb = conexion.conexion()
+        mycursor = mydb.cursor()
+        sql = "SELECT datos_de_consulta.idConsulta,medicos.nombreMedico,medicos.apellidoPMedico,pacientes.nombrePaciente,pacientes.apellidoPPaciente,datos_de_consulta.fechaVisita, motivos_de_consulta.nombreMotivo,consulta.pruebasRealizadas,consulta.diagnostico,consulta.tratamiento FROM datos_de_consulta inner join medicos on medicos.idMedicos=datos_de_consulta.idMedicos_Finner join pacientes on datos_de_consulta.idPaciente_F=pacientes.idPacienteinner join motivos_de_consulta on motivos_de_consulta.idMotivos_de_Consulta=datos_de_consulta.idMotivo_Finner join consulta on datos_de_consulta.idConsulta=consulta.idConsulta_F WHERE medicos.nombreMedico = %s"
+        val = (pruebas)
+        mycursor.execute(sql, val)
+        mydb.commit()
+        mycursor.execute("SELECT * FROM datos_de_consulta")
+        result = mycursor.fetchall()
         return result
+    except:
+        print('Something wrong happend 😡😡😡😠😡😡😡')
+    finally:
+        mydb.close()
+        mycursor.close()
 
-
-def buscar_consulta_medico():
-    result = {}
-    connection = conexion._connect_to_db()
+def buscar_consulta_nombre_paciente(pruebas):
     try:
-        with connection.cursor() as cursor:
-            row_count = 0
-            e='none'
-            sql = f"""SELECT datos_de_consulta.idConsulta,medicos.nombreMedico,medicos.apellidoPMedico,pacientes.nombrePaciente,pacientes.apellidoPPaciente,datos_de_consulta.fechaVisita,
-            motivos_de_consulta.nombreMotivo,consulta.pruebasRealizadas,consulta.diagnostico,consulta.tratamiento FROM datos_de_consulta inner join medicos on medicos.idMedicos=datos_de_consulta.idMedicos_F
-            inner join pacientes on datos_de_consulta.idPaciente_F=pacientes.idPaciente
-            inner join motivos_de_consulta on motivos_de_consulta.idMotivos_de_Consulta=datos_de_consulta.idMotivo_F
-            inner join consulta on datos_de_consulta.idConsulta=consulta.idConsulta_F WHERE medicos.idMedicos = '%s'"""
-            cursor.execute(sql)
-            result = cursor.fetchall()
-    except Exception as e:
-        print(e)
-        e.ex.args[0]
-    finally:
-        connection.close()
+        mydb = conexion.conexion()
+        mycursor = mydb.cursor()
+        sql = "SELECT datos_de_consulta.idConsulta,medicos.nombreMedico,medicos.apellidoPMedico,pacientes.nombrePaciente,pacientes.apellidoPPaciente,datos_de_consulta.fechaVisita, motivos_de_consulta.nombreMotivo,consulta.pruebasRealizadas,consulta.diagnostico,consulta.tratamiento FROM datos_de_consulta inner join medicos on medicos.idMedicos=datos_de_consulta.idMedicos_Finner join pacientes on datos_de_consulta.idPaciente_F=pacientes.idPacienteinner join motivos_de_consulta on motivos_de_consulta.idMotivos_de_Consulta=datos_de_consulta.idMotivo_F inner join consulta on datos_de_consulta.idConsulta=consulta.idConsulta_F WHERE pacientes.nombrePaciente = %s"
+        val = (pruebas)
+        mycursor.execute(sql, val)
+        mydb.commit()
+        mycursor.execute("SELECT * FROM datos_de_consulta")
+        result = mycursor.fetchall()
         return result
+    except:
+        print('Something wrong happend 😡😡😡😠😡😡😡')
+    finally:
+        mydb.close()
+        mycursor.close()
 
-def buscar_consulta_nombre():
-    result = {}
-    connection = conexion._connect_to_db()
+def buscar_consulta_motivo(pruebas):
     try:
-        with connection.cursor() as cursor:
-            row_count = 0
-            e='none'
-            sql = f"""SELECT datos_de_consulta.idConsulta,medicos.nombreMedico,medicos.apellidoPMedico,pacientes.nombrePaciente,pacientes.apellidoPPaciente,datos_de_consulta.fechaVisita,
-            motivos_de_consulta.nombreMotivo,consulta.pruebasRealizadas,consulta.diagnostico,consulta.tratamiento FROM datos_de_consulta inner join medicos on medicos.idMedicos=datos_de_consulta.idMedicos_F
-            inner join pacientes on datos_de_consulta.idPaciente_F=pacientes.idPaciente
-            inner join motivos_de_consulta on motivos_de_consulta.idMotivos_de_Consulta=datos_de_consulta.idMotivo_F
-            inner join consulta on datos_de_consulta.idConsulta=consulta.idConsulta_F WHERE pacientes.nombrePaciente = '%s'"""
-            cursor.execute(sql)
-            result = cursor.fetchall()
-    except Exception as e:
-        print(e)
-        e.ex.args[0]
-    finally:
-        connection.close()
+        mydb = conexion.conexion()
+        mycursor = mydb.cursor()
+        sql = "SELECT datos_de_consulta.idConsulta,medicos.nombreMedico,medicos.apellidoPMedico,pacientes.nombrePaciente,pacientes.apellidoPPaciente,datos_de_consulta.fechaVisita,motivos_de_consulta.nombreMotivo,consulta.pruebasRealizadas,consulta.diagnostico,consulta.tratamiento FROM datos_de_consulta inner join medicos on medicos.idMedicos=datos_de_consulta.idMedicos_Finner join pacientes on datos_de_consulta.idPaciente_F=pacientes.idPacienteinner join motivos_de_consulta on motivos_de_consulta.idMotivos_de_Consulta=datos_de_consulta.idMotivo_Finner join consulta on datos_de_consulta.idConsulta=consulta.idConsulta_F WHERE datos_de_consulta.idMotivo_F = %s"
+        val = (pruebas)
+        mycursor.execute(sql, val)
+        mydb.commit()
+        mycursor.execute("SELECT * FROM datos_de_consulta")
+        result = mycursor.fetchall()
         return result
+    except:
+        print('Something wrong happend 😡😡😡😠😡😡😡')
+    finally:
+        mydb.close()
+        mycursor.close()
 
-
-def buscar_consulta_motivo():
-    result = {}
-    connection = conexion._connect_to_db()
+def buscar_consulta_fecha(pruebas):
     try:
-        with connection.cursor() as cursor:
-            row_count = 0
-            e='none'
-            sql = f"""SELECT datos_de_consulta.idConsulta,medicos.nombreMedico,medicos.apellidoPMedico,pacientes.nombrePaciente,pacientes.apellidoPPaciente,datos_de_consulta.fechaVisita,
-            motivos_de_consulta.nombreMotivo,consulta.pruebasRealizadas,consulta.diagnostico,consulta.tratamiento FROM datos_de_consulta inner join medicos on medicos.idMedicos=datos_de_consulta.idMedicos_F
-            inner join pacientes on datos_de_consulta.idPaciente_F=pacientes.idPaciente
-            inner join motivos_de_consulta on motivos_de_consulta.idMotivos_de_Consulta=datos_de_consulta.idMotivo_F
-            inner join consulta on datos_de_consulta.idConsulta=consulta.idConsulta_F WHERE datos_de_consulta.idMotivo_F = '%s'"""
-            cursor.execute(sql)
-            result = cursor.fetchall()
-    except Exception as e:
-        print(e)
-        e.ex.args[0]
-    finally:
-        connection.close()
+        mydb = conexion.conexion()
+        mycursor = mydb.cursor()
+        sql = "SELECT datos_de_consulta.idConsulta,medicos.nombreMedico,medicos.apellidoPMedico,pacientes.nombrePaciente,pacientes.apellidoPPaciente,datos_de_consulta.fechaVisita,motivos_de_consulta.nombreMotivo,consulta.pruebasRealizadas,consulta.diagnostico,consulta.tratamiento FROM datos_de_consulta inner join medicos on medicos.idMedicos=datos_de_consulta.idMedicos_Finner join pacientes on datos_de_consulta.idPaciente_F=pacientes.idPacienteinner join motivos_de_consulta on motivos_de_consulta.idMotivos_de_Consulta=datos_de_consulta.idMotivo_Finner join consulta on datos_de_consulta.idConsulta=consulta.idConsulta_F WHERE datos_de_consulta.fechaVisita = %s"
+        val = (pruebas)
+        mycursor.execute(sql, val)
+        mydb.commit()
+        mycursor.execute("SELECT * FROM datos_de_consulta")
+        result = mycursor.fetchall()
         return result
-
-
-def buscar_consulta_fecha():
-    result = {}
-    connection = conexion._connect_to_db()
-    try:
-        with connection.cursor() as cursor:
-            row_count = 0
-            e='none'
-            sql = f"""SELECT datos_de_consulta.idConsulta,medicos.nombreMedico,medicos.apellidoPMedico,pacientes.nombrePaciente,pacientes.apellidoPPaciente,datos_de_consulta.fechaVisita,
-            motivos_de_consulta.nombreMotivo,consulta.pruebasRealizadas,consulta.diagnostico,consulta.tratamiento FROM datos_de_consulta inner join medicos on medicos.idMedicos=datos_de_consulta.idMedicos_F
-            inner join pacientes on datos_de_consulta.idPaciente_F=pacientes.idPaciente
-            inner join motivos_de_consulta on motivos_de_consulta.idMotivos_de_Consulta=datos_de_consulta.idMotivo_F
-            inner join consulta on datos_de_consulta.idConsulta=consulta.idConsulta_F WHERE datos_de_consulta.fechaVisita = '%s'"""
-            cursor.execute(sql)
-            result = cursor.fetchall()
-    except Exception as e:
-        print(e)
-        e.ex.args[0]
+    except:
+        print('Something wrong happend 😡😡😡😠😡😡😡')
     finally:
-        connection.close()
-        return result
+        mydb.close()
+        mycursor.close()

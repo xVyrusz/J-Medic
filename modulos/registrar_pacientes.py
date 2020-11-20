@@ -5,7 +5,8 @@ import ctypes
 from PyQt5 import uic, QtCore, QtWidgets
 from PyQt5.QtWidgets import QMessageBox
 import modulos.db_Pacientes as pacientes
-import modulos.db_conexion as _connect_to_db_
+
+
 class WindowTwo(QtWidgets.QMainWindow):
 
     switch_window = QtCore.pyqtSignal()
@@ -85,13 +86,13 @@ class WindowTwo(QtWidgets.QMainWindow):
         pesog = self.comboBox_2.currentText()
         cont = 0
         if pesog == "":
-            cont+=1
+            cont += 1
 
         if pesok == "":
-            cont+=1
+            cont += 1
 
         self.input_Peso.setText(str(pesok)+(pesog))
-        if cont>0:
+        if cont > 0:
             self.input_Peso.setText("")
 
         peso = self.input_Peso.text()
@@ -107,13 +108,13 @@ class WindowTwo(QtWidgets.QMainWindow):
         estaturacm = self.comboBox_4.currentText()
         cont = 0
         if estaturacm == "":
-            cont+=1
+            cont += 1
 
         if estaturam == "":
-            cont+=1
+            cont += 1
 
         self.input_estatura.setText(str(estaturam)+(estaturacm))
-        if cont>0:
+        if cont > 0:
             self.input_estatura.setText("")
 
         estatura = self.input_estatura.text()
@@ -173,34 +174,35 @@ class WindowTwo(QtWidgets.QMainWindow):
             self.input_Alergias.setStyleSheet("border: 2px solid green;")
             return True
 
-
     def validar_datos(self):
-        if self.validar_nombre() and self.validar_sexo() and self.validar_apellidoP() and self.validar_peso() and self.validar_apellidoM() and self.validar_estatura()and self.validar_telefono() and self.validar_anios() and self.validar_alergia() and self.validar_sangre():
-            sangre=0
-            if self.input_sangre.text()=='A+':
-                sangre=1
-            elif self.input_sangre.text()=='A-':
-                sangre=2
-            elif self.input_sangre.text()=='AB+':
-                sangre=3
-            elif self.input_sangre.text()=='AB-':
-                sangre=4
-            elif self.input_sangre.text()=='B+':
-                sangre=5
-            elif self.input_sangre.text()=='B-':
-                sangre=6
-            elif self.input_sangre.text()=='O+':
-                sangre=7
-            elif self.input_sangre.text()=='O-':
-                sangre=8
+        if self.validar_nombre() and self.validar_sexo() and self.validar_apellidoP() and self.validar_peso() and self.validar_apellidoM() and self.validar_estatura() and self.validar_telefono() and self.validar_anios() and self.validar_alergia() and self.validar_sangre():
+            sangre = 0
+            if self.input_sangre.text() == 'A+':
+                sangre = 1
+            elif self.input_sangre.text() == 'A-':
+                sangre = 2
+            elif self.input_sangre.text() == 'AB+':
+                sangre = 3
+            elif self.input_sangre.text() == 'AB-':
+                sangre = 4
+            elif self.input_sangre.text() == 'B+':
+                sangre = 5
+            elif self.input_sangre.text() == 'B-':
+                sangre = 6
+            elif self.input_sangre.text() == 'O+':
+                sangre = 7
+            elif self.input_sangre.text() == 'O-':
+                sangre = 8
             else:
-                sangre=1
-            pacientes.insertar_pacientes(self.input_Nombre.text(),self.input_ApellidoP.text(),self.input_ApellidoM.text(),self.input_sexo.text(),self.input_Peso.text(),self.input_estatura.text(),self.input_anios.text(),self.input_Telefono.text(),self.input_Alergias.text(),sangre)
-            QMessageBox.information(self, "Datos guardados", "Su informacion se ha guardado correctamente", QMessageBox.Discard)
+                sangre = 1
+
+            pacientes.insertar_pacientes(self.input_Nombre.text(), self.input_ApellidoP.text(), self.input_ApellidoM.text(), self.input_sexo.text(),self.input_Peso.text(), self.input_estatura.text(), self.input_anios.text(), self.input_Telefono.text(), self.input_Alergias.text(), sangre)
+            QMessageBox.information(
+                self, "Datos guardados", "Su informacion se ha guardado correctamente", QMessageBox.Discard)
             self.switch()
         else:
-            QMessageBox.warning(self, "Error", "Ingresa los datos correctamente", QMessageBox.Discard)
-
+            QMessageBox.warning(
+                self, "Error", "Ingresa los datos correctamente", QMessageBox.Discard)
 
     def switch(self):
         self.switch_window.emit()

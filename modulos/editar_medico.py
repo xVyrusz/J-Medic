@@ -2,9 +2,9 @@ import sys
 import os
 import re
 import ctypes
-from PyQt5 import uic, QtCore, QtWidgets
-from PyQt5.QtWidgets import QMessageBox
-
+from PyQt5 import uic, QtCore, QtWidgets, QtGui
+from PyQt5.QtWidgets import QMessageBox, QTableWidgetItem, QTableWidget
+import modulos.db_Medicos as medicos
 
 class WindowTree(QtWidgets.QMainWindow):
 

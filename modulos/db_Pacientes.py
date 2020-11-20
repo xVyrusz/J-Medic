@@ -16,13 +16,13 @@ def insertar_pacientes(nombre,apellidop,apellidom,sexo,peso,estatura,edad,telefo
     finally:
         mydb.close()
         mycursor.close()
-def editar_pacientes(nombre,apellidop,apellidom,sexo,peso,estatura,edad,telefono,alergias,sangre):
+
+def editar_pacientes(nombre,apellidop,apellidom,sexo,peso,estatura,edad,telefono,alergias,sangre,idn):
     try:
         mydb = conexion.conexion()
         mycursor = mydb.cursor()
-        sql = "UPDATE pacientes SET nombrePaciente = %s, apellidoPPaciente = %s,apellidoMPaciente =%s,sexoPaciente = %s,estaturaPaciente = %s,edadPaciente = %s,telefonoPaciente = %s ,alergiasPaciente = %s,idTipo_Sangre = %s WHERE idPaciente =%s"
-        val = (nombre,apellidop,apellidom,sexo,peso,estatura,edad,telefono,alergias,sangre)
-        mycursor.execute(sql, val)
+        sql = "UPDATE pacientes SET nombrePaciente = '{}', apellidoPPaciente = '{}',apellidoMPaciente ='{}',sexoPaciente = '{}'pesoPaciente ='{}',estaturaPaciente = '{}',edadPaciente = '{}',telefonoPaciente = '{}',alergiasPaciente = '{}',idTipo_Sangre_F = '{}' WHERE idPaciente ={}".format(nombre,apellidop,apellidom,sexo,peso,estatura,edad,telefono,alergias,sangre,idn)
+        mycursor.execute(sql)
         mydb.commit()
         result =1
         return result

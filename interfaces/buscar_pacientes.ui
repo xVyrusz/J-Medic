@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1147</width>
-    <height>594</height>
+    <height>592</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -15,33 +15,20 @@
   </property>
   <property name="styleSheet">
    <string notr="true">*{
+    background-color: rgb(0, 0, 0);
     font-family: Arial;
+    color: rgb(255, 255, 255);
 }
 
-QMainWindow{
-	background-color: rgb(0, 0, 0);
-	color: rgb(255, 255, 255);
-}
-
-QWidget{
-background-color: rgb(0, 0, 0);
-	color: rgb(0, 0, 0);
-}
 QMenuBar{
     text-decoration: underline rgb(255, 255, 255);
-	background-color: rgb(0, 0, 0);
-	color: rgb(255, 255, 255);
 }
 
 QLabel{
     font: 75 18pt;
-background-color: rgb(0, 0, 0);
-	color: rgb(255, 255, 255);
 }
 
 QLineEdit,QComboBox,QDoubleSpinBox,QSpinBox{
-background-color: rgb(0, 0, 0);
-	color: rgb(255, 255, 255);
     color: rgb(0, 0, 0);
     background-color: rgb(255, 255, 255);
     font: 75 14pt &quot;Arial&quot;;
@@ -186,6 +173,35 @@ QPushButton:hover:before {
       <height>131</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(255, 255, 255);
+color: rgb(0, 0, 0);</string>
+    </property>
+    <row>
+     <property name="text">
+      <string/>
+     </property>
+    </row>
+    <row>
+     <property name="text">
+      <string/>
+     </property>
+    </row>
+    <row>
+     <property name="text">
+      <string/>
+     </property>
+    </row>
+    <row>
+     <property name="text">
+      <string/>
+     </property>
+    </row>
+    <row>
+     <property name="text">
+      <string/>
+     </property>
+    </row>
     <column>
      <property name="text">
       <string>Id Paciente</string>
@@ -241,6 +257,11 @@ QPushButton:hover:before {
       <string>Alergias</string>
      </property>
     </column>
+    <item row="0" column="1">
+     <property name="text">
+      <string/>
+     </property>
+    </item>
    </widget>
    <widget class="QLabel" name="label_5">
     <property name="geometry">
@@ -265,8 +286,39 @@ QPushButton:hover:before {
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true"/>
+     <string notr="true">background-color: rgb(255, 255, 255);
+color: rgb(0, 0, 0);</string>
     </property>
+    <row>
+     <property name="text">
+      <string/>
+     </property>
+    </row>
+    <row>
+     <property name="text">
+      <string/>
+     </property>
+    </row>
+    <row>
+     <property name="text">
+      <string/>
+     </property>
+    </row>
+    <row>
+     <property name="text">
+      <string/>
+     </property>
+    </row>
+    <row>
+     <property name="text">
+      <string/>
+     </property>
+    </row>
+    <row>
+     <property name="text">
+      <string/>
+     </property>
+    </row>
     <column>
      <property name="text">
       <string>Id Paciente</string>

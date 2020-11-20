@@ -1,16 +1,17 @@
 import mysql.connector
 import modulos.db_conexion as conexion
 
-def insertar_cita(idpaciente,fecha):
+
+def insertar_cita(idpaciente, fecha):
+
     try:
         mydb = conexion.conexion()
         mycursor = mydb.cursor()
         sql = "INSERT INTO cita(idPaciente_F,fechaCita) VALUES(%s,%s)"
-        val = (idpaciente,fecha)
+        val = (idpaciente, fecha)
         mycursor.execute(sql, val)
         mydb.commit()
-        mycursor.execute("SELECT * FROM cita")
-        result = mycursor.fetchall()
+        result = 1
         return result
     except:
         print('Something wrong happend 😡😡😡😠😡😡😡')
@@ -18,15 +19,16 @@ def insertar_cita(idpaciente,fecha):
         mydb.close()
         mycursor.close()
 
+
 def editar_cita(fecha):
+
     try:
         mydb = conexion.conexion()
         mycursor = mydb.cursor()
         sql = "UPDATE cita SET fechaCita = %s WHERE idCita = %s"
         val = (fecha)
         mycursor.execute(sql, val)
-        mydb.commit()
-        mycursor.execute("SELECT * FROM cita")
+        result = 1
         result = mycursor.fetchall()
         return result
     except:
@@ -35,7 +37,9 @@ def editar_cita(fecha):
         mydb.close()
         mycursor.close()
 
+
 def eliminar_cita(fecha):
+
     try:
         mydb = conexion.conexion()
         mycursor = mydb.cursor()
@@ -43,8 +47,7 @@ def eliminar_cita(fecha):
         val = (fecha)
         mycursor.execute(sql, val)
         mydb.commit()
-        mycursor.execute("SELECT * FROM cita")
-        result = mycursor.fetchall()
+        result = 1
         return result
     except:
         print('Something wrong happend 😡😡😡😠😡😡😡')
@@ -52,16 +55,21 @@ def eliminar_cita(fecha):
         mydb.close()
         mycursor.close()
 
-def buscar_cita_idcita(fecha):
+
+def buscar_cita_idcita(id):
+
     try:
         mydb = conexion.conexion()
         mycursor = mydb.cursor()
-        sql = "select cita.idCita,cita.idPaciente_F,pacientes.nombrePaciente,pacientes.apellidoPPaciente,pacientes.apellidoMPaciente,cita.fechaCita FROM cita inner join pacientes on pacientes.nombrePaciente = pacientes.nombrePaciente  WHERE idCita = %s"
-        val = (fecha)
-        mycursor.execute(sql, val)
-        mydb.commit()
-        mycursor.execute("SELECT * FROM cita")
-        result = mycursor.fetchall()
+        if id:
+            consult = """
+            SELECT cita.idCita, pacientes.idPaciente, pacientes.nombrePaciente, pacientes.apellidoPPaciente, pacientes.apellidoMPaciente, cita.fechaCita 
+            FROM cita,  pacientes
+            WHERE cita.idPaciente_F = pacientes.idPaciente AND cita.idCita= {}""".format(id)
+        else:
+            raise Exception('Id is needed')
+        mycursor.execute(consult)
+        result = mycursor.fetchone()
         return result
     except:
         print('Something wrong happend 😡😡😡😠😡😡😡')
@@ -69,15 +77,16 @@ def buscar_cita_idcita(fecha):
         mydb.close()
         mycursor.close()
 
-def buscar_cita_idpaciente(fecha):
+
+def buscar_cita_idpaciente(id):
+
     try:
         mydb = conexion.conexion()
         mycursor = mydb.cursor()
-        sql = "select cita.idCita,cita.idPaciente_F,pacientes.nombrePaciente,pacientes.apellidoPPaciente,pacientes.apellidoMPaciente,cita.fechaCita FROM cita inner join pacientes on pacientes.nombrePaciente = pacientes.nombrePaciente  WHERE idPaciente_F = %s"
-        val = (fecha)
-        mycursor.execute(sql, val)
-        mydb.commit()
-        mycursor.execute("SELECT * FROM cita")
+        sql = """SELECT cita.idCita, pacientes.idPaciente, pacientes.nombrePaciente, pacientes.apellidoPPaciente, pacientes.apellidoMPaciente, cita.fechaCita 
+            FROM cita,  pacientes
+            WHERE cita.idPaciente_F = pacientes.idPaciente AND cita.fechaCita= '{}' """.format(id)
+        mycursor.execute(sql)
         result = mycursor.fetchall()
         return result
     except:
@@ -88,20 +97,18 @@ def buscar_cita_idpaciente(fecha):
 
 
 def buscar_cita_fechacita(fecha):
+
     try:
         mydb = conexion.conexion()
         mycursor = mydb.cursor()
-        sql = "select cita.idCita,cita.idPaciente_F,pacientes.nombrePaciente,pacientes.apellidoPPaciente,pacientes.apellidoMPaciente,cita.fechaCita FROM cita inner join pacientes on pacientes.nombrePaciente = pacientes.nombrePaciente WHERE fechaCita = %s"
+        sql = "select cita.idCita,cita.idPaciente_F,pacientes.nombrePaciente,pacientes.apellidoPPaciente,pacientes.apellidoMPaciente,cita.fechaCita FROM cita inner join pacientes on pacientes.nombrePaciente = pacientes.nombrePaciente WHERE fechaCita = %"
         val = (fecha)
         mycursor.execute(sql, val)
         mydb.commit()
-        mycursor.execute("SELECT * FROM cita")
-        result = mycursor.fetchall()
+        result = 1
         return result
     except:
         print('Something wrong happend 😡😡😡😠😡😡😡')
     finally:
         mydb.close()
         mycursor.close()
-
-

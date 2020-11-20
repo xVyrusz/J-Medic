@@ -291,19 +291,6 @@ QPushButton:hover:before {
      <string>Buscar por fecha</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="boton_mostrartodo">
-    <property name="geometry">
-     <rect>
-      <x>500</x>
-      <y>360</y>
-      <width>281</width>
-      <height>61</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Mostrar todas las consultas</string>
-    </property>
-   </widget>
    <widget class="QTableWidget" name="tabla_consultas">
     <property name="geometry">
      <rect>
@@ -313,6 +300,50 @@ QPushButton:hover:before {
       <height>131</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(255, 255, 255);
+color: rgb(0, 0, 0);</string>
+    </property>
+    <row>
+     <property name="text">
+      <string/>
+     </property>
+    </row>
+    <row>
+     <property name="text">
+      <string/>
+     </property>
+    </row>
+    <row>
+     <property name="text">
+      <string/>
+     </property>
+    </row>
+    <row>
+     <property name="text">
+      <string/>
+     </property>
+    </row>
+    <row>
+     <property name="text">
+      <string/>
+     </property>
+    </row>
+    <row>
+     <property name="text">
+      <string/>
+     </property>
+    </row>
+    <row>
+     <property name="text">
+      <string/>
+     </property>
+    </row>
+    <row>
+     <property name="text">
+      <string/>
+     </property>
+    </row>
     <column>
      <property name="text">
       <string>ID consulta</string>

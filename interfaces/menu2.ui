@@ -403,7 +403,6 @@ QPushButton:hover:before {
     <property name="title">
      <string>Menu</string>
     </property>
-    <addaction name="actionNuevo_usuario"/>
     <addaction name="actionCerrar_sesion"/>
    </widget>
    <addaction name="menuMenu"/>

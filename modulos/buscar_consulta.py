@@ -2,9 +2,9 @@ import sys
 import os
 import re
 import ctypes
-from PyQt5 import uic, QtCore, QtWidgets
-from PyQt5.QtWidgets import QMessageBox
-
+from PyQt5 import uic, QtCore, QtWidgets, QtGui
+from PyQt5.QtWidgets import QMessageBox, QTableWidgetItem, QTableWidget
+import modulos.db_Consultas as consultas
 
 class WindowTwo(QtWidgets.QMainWindow):
 
@@ -19,7 +19,6 @@ class WindowTwo(QtWidgets.QMainWindow):
         self.boton_buscarpac.clicked.connect(self.validar_datos_nombre_paciente)
         self.boton_buscarmotivo.clicked.connect(self.validar_datos_motivo)
         self.boton_buscarfecha.clicked.connect(self.validar_datos_fecha)
-        self.boton_mostrartodo.clicked.connect(self.switch)
         self.actionRegresar.setShortcut("Ctrl+R")
         self.actionRegresar.triggered.connect(self.switch)
         self.validar()
@@ -46,8 +45,27 @@ class WindowTwo(QtWidgets.QMainWindow):
 
     def validar_datos_idc(self):
         if self.validar_id_consulta():
-            QMessageBox.information(self, "Datos guardados", "Su informacion se ha guardado correctamente", QMessageBox.Discard)
-            self.switch()
+            result=consultas.buscar_consulta_id(int(self.input_idc.text()))
+            print (result)
+            #rowPosition = self.tabla_buscar_medico.rowCount()
+            #self.tabla_buscar_medico.insertRow(rowPosition)
+            ayuda = result
+
+            try:
+                self.tabla_consultas.setItem(0 , 0, QTableWidgetItem(str(ayuda[0])))
+                self.tabla_consultas.setItem(0 , 1, QTableWidgetItem(ayuda[1]))
+                self.tabla_consultas.setItem(0 , 2, QTableWidgetItem(str(ayuda[2])))
+                self.tabla_consultas.setItem(0 , 3, QTableWidgetItem(ayuda[3]))
+                self.tabla_consultas.setItem(0 , 4, QTableWidgetItem(ayuda[4]))
+                self.tabla_consultas.setItem(0 , 5, QTableWidgetItem(str(ayuda[5])))
+                self.tabla_consultas.setItem(0 , 6, QTableWidgetItem(str(ayuda[6])))
+                self.tabla_consultas.setItem(0 , 7, QTableWidgetItem(str(ayuda[7])))
+                self.tabla_consultas.setItem(0 , 8, QTableWidgetItem(ayuda[8]))
+                self.tabla_consultas.setItem(0 , 9, QTableWidgetItem(ayuda[9]))
+            except:
+                QMessageBox.warning(self, "Error", "No se ha encontrado nada", QMessageBox.Discard)
+            #QMessageBox.information(self, "Datos guardados", "Su informacion se ha guardado correctamente", QMessageBox.Discard)
+            #s¿self.switch()
         else:
             QMessageBox.warning(self, "Error", "Ingresa los datos correctamente", QMessageBox.Discard)
 
@@ -67,8 +85,31 @@ class WindowTwo(QtWidgets.QMainWindow):
 
     def validar_datos_nombre_medico(self):
         if self.validar_nombre_medico():
-            QMessageBox.information(self, "Datos guardados", "Su informacion se ha guardado correctamente", QMessageBox.Discard)
-            self.switch()
+            result=consultas.buscar_consulta_medicos(self.input_medico.text())
+            print (result)
+            #rowPosition = self.tabla_buscar_medico.rowCount()
+            #self.tabla_buscar_medico.insertRow(rowPosition)
+            ayuda = result
+
+            try:
+                if ayuda:
+                    contador = 0
+                    for elements in ayuda:
+                        self.tabla_consultas.setItem(contador , 0, QTableWidgetItem(str(ayuda[contador][0])))
+                        self.tabla_consultas.setItem(contador , 1, QTableWidgetItem(ayuda[contador][1]))
+                        self.tabla_consultas.setItem(contador , 2, QTableWidgetItem(str(ayuda[contador][2])))
+                        self.tabla_consultas.setItem(contador , 3, QTableWidgetItem(ayuda[contador][3]))
+                        self.tabla_consultas.setItem(contador , 4, QTableWidgetItem(ayuda[contador][4]))
+                        self.tabla_consultas.setItem(contador , 5, QTableWidgetItem(str(ayuda[contador][5])))
+                        self.tabla_consultas.setItem(contador , 6, QTableWidgetItem(str(ayuda[contador][6])))
+                        self.tabla_consultas.setItem(contador , 7, QTableWidgetItem(str(ayuda[contador][7])))
+                        self.tabla_consultas.setItem(contador , 8, QTableWidgetItem(ayuda[contador][8]))
+                        self.tabla_consultas.setItem(contador , 9, QTableWidgetItem(ayuda[contador][9]))
+                        contador+=1
+                else:
+                    QMessageBox.warning(self, "Error", "No se ha encontrado nada", QMessageBox.Discard)
+            except:
+                QMessageBox.warning(self, "Error", "No se ha encontrado nada", QMessageBox.Discard)
         else:
             QMessageBox.warning(self, "Error", "Ingresa los datos correctamente", QMessageBox.Discard)
 
@@ -89,8 +130,29 @@ class WindowTwo(QtWidgets.QMainWindow):
 
     def validar_datos_nombre_paciente(self):
         if self.validar_nombre_paciente():
-            QMessageBox.information(self, "Datos guardados", "Su informacion se ha guardado correctamente", QMessageBox.Discard)
-            self.switch()
+            result=consultas.buscar_consulta_nombre_paciente(self.input_paciente.text())
+            print (result)
+            ayuda = result
+
+            try:
+                if ayuda:
+                    contador = 0
+                    for elements in ayuda:
+                        self.tabla_consultas.setItem(contador , 0, QTableWidgetItem(str(ayuda[contador][0])))
+                        self.tabla_consultas.setItem(contador , 1, QTableWidgetItem(ayuda[contador][1]))
+                        self.tabla_consultas.setItem(contador , 2, QTableWidgetItem(str(ayuda[contador][2])))
+                        self.tabla_consultas.setItem(contador , 3, QTableWidgetItem(ayuda[contador][3]))
+                        self.tabla_consultas.setItem(contador , 4, QTableWidgetItem(ayuda[contador][4]))
+                        self.tabla_consultas.setItem(contador , 5, QTableWidgetItem(str(ayuda[contador][5])))
+                        self.tabla_consultas.setItem(contador , 6, QTableWidgetItem(str(ayuda[contador][6])))
+                        self.tabla_consultas.setItem(contador , 7, QTableWidgetItem(str(ayuda[contador][7])))
+                        self.tabla_consultas.setItem(contador , 8, QTableWidgetItem(ayuda[contador][8]))
+                        self.tabla_consultas.setItem(contador , 9, QTableWidgetItem(ayuda[contador][9]))
+                        contador+=1
+                else:
+                    QMessageBox.warning(self, "Error", "No se ha encontrado nada", QMessageBox.Discard)
+            except:
+                QMessageBox.warning(self, "Error", "No se ha encontrado nada", QMessageBox.Discard)
         else:
             QMessageBox.warning(self, "Error", "Ingresa los datos correctamente", QMessageBox.Discard)
 
@@ -109,8 +171,37 @@ class WindowTwo(QtWidgets.QMainWindow):
 
     def validar_datos_motivo(self):
         if self.validar_motivo():
-            QMessageBox.information(self, "Datos guardados", "Su informacion se ha guardado correctamente", QMessageBox.Discard)
-            self.switch()
+            moti = 0
+            if self.input_motivo.text() == 'Consulta general':
+                moti = 1
+            elif self.input_motivo.text() == 'Exámenes':
+                moti = 2
+            elif self.input_motivo.text() == 'Curaciones':
+                moti = 3
+            else:
+                moti = 1
+            result=consultas.buscar_consulta_motivo(moti)
+            print (result)
+            ayuda = result
+            try:
+                if ayuda:
+                    contador = 0
+                    for elements in ayuda:
+                        self.tabla_consultas.setItem(contador , 0, QTableWidgetItem(str(ayuda[contador][0])))
+                        self.tabla_consultas.setItem(contador , 1, QTableWidgetItem(ayuda[contador][1]))
+                        self.tabla_consultas.setItem(contador , 2, QTableWidgetItem(str(ayuda[contador][2])))
+                        self.tabla_consultas.setItem(contador , 3, QTableWidgetItem(ayuda[contador][3]))
+                        self.tabla_consultas.setItem(contador , 4, QTableWidgetItem(ayuda[contador][4]))
+                        self.tabla_consultas.setItem(contador , 5, QTableWidgetItem(str(ayuda[contador][5])))
+                        self.tabla_consultas.setItem(contador , 6, QTableWidgetItem(str(ayuda[contador][6])))
+                        self.tabla_consultas.setItem(contador , 7, QTableWidgetItem(str(ayuda[contador][7])))
+                        self.tabla_consultas.setItem(contador , 8, QTableWidgetItem(ayuda[contador][8]))
+                        self.tabla_consultas.setItem(contador , 9, QTableWidgetItem(ayuda[contador][9]))
+                        contador+=1
+                else:
+                    QMessageBox.warning(self, "Error", "No se ha encontrado nada", QMessageBox.Discard)
+            except:
+                QMessageBox.warning(self, "Error", "No se ha encontrado nada", QMessageBox.Discard)
         else:
             QMessageBox.warning(self, "Error", "Ingresa los datos correctamente", QMessageBox.Discard)
 
@@ -143,8 +234,29 @@ class WindowTwo(QtWidgets.QMainWindow):
 
     def validar_datos_fecha(self):
         if self.seleccionar_fecha():
-            QMessageBox.information(self, "Datos guardados", "Su informacion se ha guardado correctamente", QMessageBox.Discard)
-            self.switch()
+            result=consultas.buscar_consulta_fecha(str(self.input_fecha.text()))
+            print (result)
+            ayuda = result
+
+            try:
+                if ayuda:
+                    contador = 0
+                    for elements in ayuda:
+                        self.tabla_consultas.setItem(contador , 0, QTableWidgetItem(str(ayuda[contador][0])))
+                        self.tabla_consultas.setItem(contador , 1, QTableWidgetItem(ayuda[contador][1]))
+                        self.tabla_consultas.setItem(contador , 2, QTableWidgetItem(str(ayuda[contador][2])))
+                        self.tabla_consultas.setItem(contador , 3, QTableWidgetItem(ayuda[contador][3]))
+                        self.tabla_consultas.setItem(contador , 4, QTableWidgetItem(ayuda[contador][4]))
+                        self.tabla_consultas.setItem(contador , 5, QTableWidgetItem(str(ayuda[contador][5])))
+                        self.tabla_consultas.setItem(contador , 6, QTableWidgetItem(str(ayuda[contador][6])))
+                        self.tabla_consultas.setItem(contador , 7, QTableWidgetItem(str(ayuda[contador][7])))
+                        self.tabla_consultas.setItem(contador , 8, QTableWidgetItem(ayuda[contador][8]))
+                        self.tabla_consultas.setItem(contador , 9, QTableWidgetItem(ayuda[contador][9]))
+                        contador+=1
+                else:
+                    QMessageBox.warning(self, "Error", "No se ha encontrado nada", QMessageBox.Discard)
+            except:
+                QMessageBox.warning(self, "Error", "No se ha encontrado nada", QMessageBox.Discard)
         else:
             QMessageBox.warning(self, "Error", "Ingresa los datos correctamente", QMessageBox.Discard)
 

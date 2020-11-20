@@ -336,8 +336,20 @@ QPushButton:hover:before {
      <height>20</height>
     </rect>
    </property>
+   <widget class="QMenu" name="menuCerrar_Sesi_n">
+    <property name="title">
+     <string>Menu</string>
+    </property>
+    <addaction name="actionCerrar_Sesi_n"/>
+   </widget>
+   <addaction name="menuCerrar_Sesi_n"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionCerrar_Sesi_n">
+   <property name="text">
+    <string>Cerrar Sesión</string>
+   </property>
+  </action>
  </widget>
  <resources/>
  <connections/>

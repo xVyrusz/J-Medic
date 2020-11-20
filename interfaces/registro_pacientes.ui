@@ -2808,13 +2808,7 @@ QPushButton:hover:before {
     </property>
     <addaction name="actionRegresar"/>
    </widget>
-   <widget class="QMenu" name="menuMostrar_pacientes">
-    <property name="title">
-     <string>Mostrar pacientes</string>
-    </property>
-   </widget>
    <addaction name="menuMenu"/>
-   <addaction name="menuMostrar_pacientes"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
   <action name="actionRegresar">

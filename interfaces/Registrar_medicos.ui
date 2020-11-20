@@ -385,7 +385,6 @@ color: rgb(0, 0, 0);</string>
      <string>Menu</string>
     </property>
     <addaction name="actionRegresar"/>
-    <addaction name="actionLista_de_M_dicos"/>
    </widget>
    <addaction name="menuMenu"/>
   </widget>

@@ -112,7 +112,7 @@ QPushButton:hover:before {
    <widget class="QPushButton" name="boton_iniciar">
     <property name="geometry">
      <rect>
-      <x>180</x>
+      <x>190</x>
       <y>180</y>
       <width>141</width>
       <height>23</height>

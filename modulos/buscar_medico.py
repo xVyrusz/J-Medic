@@ -2,9 +2,9 @@ import sys
 import os
 import re
 import ctypes
-from PyQt5 import uic, QtCore, QtWidgets
-from PyQt5.QtWidgets import QMessageBox
-
+from PyQt5 import uic, QtCore, QtWidgets, QtGui
+from PyQt5.QtWidgets import QMessageBox, QTableWidgetItem, QTableWidget
+import modulos.db_Medicos as medicos
 
 class WindowTwo(QtWidgets.QMainWindow):
 
@@ -38,7 +38,21 @@ class WindowTwo(QtWidgets.QMainWindow):
 
     def validar_datos_id(self):
         if self.validar_id_medico():
-            self.switch()
+            result= medicos.buscar_medicos_id(int(self.input_id_medico.text()))
+            print (result)
+            #rowPosition = self.tabla_buscar_medico.rowCount()
+            #self.tabla_buscar_medico.insertRow(rowPosition)
+            ayuda = result
+            try:
+                self.tabla_buscar_medico.setItem(0 , 0, QTableWidgetItem(str(ayuda[0])))
+                self.tabla_buscar_medico.setItem(0 , 1, QTableWidgetItem(ayuda[1]))
+                self.tabla_buscar_medico.setItem(0 , 2, QTableWidgetItem(ayuda[2]))
+                self.tabla_buscar_medico.setItem(0 , 3, QTableWidgetItem(ayuda[3]))
+                self.tabla_buscar_medico.setItem(0 , 4, QTableWidgetItem(ayuda[4]))
+                self.tabla_buscar_medico.setItem(0 , 5, QTableWidgetItem(ayuda[5]))
+                self.tabla_buscar_medico.setItem(0 , 6, QTableWidgetItem(ayuda[6]))
+            except:
+                QMessageBox.warning(self, "Error", "No se ha encontrado nada", QMessageBox.Discard)
         else:
             QMessageBox.warning(self, "Error", "Ingresa los datos correctamente", QMessageBox.Discard)
 

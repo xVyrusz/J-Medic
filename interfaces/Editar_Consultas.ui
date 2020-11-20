@@ -278,11 +278,45 @@ color: rgb(0, 0, 0);</string>
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>390</y>
+      <y>380</y>
       <width>1021</width>
       <height>192</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(255, 255, 255);
+color: rgb(0, 0, 0);</string>
+    </property>
+    <row>
+     <property name="text">
+      <string/>
+     </property>
+    </row>
+    <row>
+     <property name="text">
+      <string/>
+     </property>
+    </row>
+    <row>
+     <property name="text">
+      <string/>
+     </property>
+    </row>
+    <row>
+     <property name="text">
+      <string> </string>
+     </property>
+    </row>
+    <row>
+     <property name="text">
+      <string/>
+     </property>
+    </row>
+    <row>
+     <property name="text">
+      <string/>
+     </property>
+    </row>
     <column>
      <property name="text">
       <string>Id Consulta</string>

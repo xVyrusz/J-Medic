@@ -230,29 +230,31 @@ class WindowTree(QtWidgets.QMainWindow):
 
     def validar_datos_2(self):
         if self.validar_nombre() and self.validar_sexo() and self.validar_apellidoP() and self.validar_peso() and self.validar_apellidoM() and self.validar_estatura()and self.validar_telefono() and self.validar_anios() and self.validar_alergia() and self.validar_sangre():
-            sangre = 0
+            sangre = ''
             if self.input_sangre.text() == 'A+':
-                sangre = 1
+                sangre = '1'
             elif self.input_sangre.text() == 'A-':
-                sangre = 2
+                sangre = '2'
             elif self.input_sangre.text() == 'AB+':
-                sangre = 3
+                sangre = '3'
             elif self.input_sangre.text() == 'AB-':
-                sangre = 4
+                sangre = '4'
             elif self.input_sangre.text() == 'B+':
-                sangre = 5
+                sangre = '5'
             elif self.input_sangre.text() == 'B-':
-                sangre = 6
+                sangre = '6'
             elif self.input_sangre.text() == 'O+':
-                sangre = 7
+                sangre = '7'
             elif self.input_sangre.text() == 'O-':
-                sangre = 8
+                sangre = '8'
             else:
-                sangre = 1
+                sangre = '1'
             #result=pacientes.buscar_pacientes_id(int(self.input_ID_Paciente.text()))
-            result2=pacientes.editar_pacientes(self.input_Nombre.text(),self.input_ApellidoP.text(),self.input_ApellidoM.text(),self.input_sexo.text(),self.input_Peso.text(),self.input_estatura.text(),self.input_anios.text(),self.input_Telefono.text(),self.input_Alergias.toPlainText(),sangre,self.input_ID_Paciente.text())
+            result=pacientes.editar_pacientes(self.input_Nombre.text(),self.input_ApellidoP.text(),self.input_ApellidoM.text(),self.input_sexo.text(),self.input_Peso.text(),self.input_estatura.text(),self.input_anios.text(),self.input_Telefono.text(),self.input_Alergias.toPlainText(),sangre,self.input_ID_Paciente.text())
+                                                                      #self.input_ApellidoP.text(),self.input_ApellidoM.text(),self.input_sexo.text(),self.input_Peso.text(),self.input_estatura.text(),self.input_anios.text(),self.input_Telefono.text(),self.input_Alergias.toPlainText(),sangre,
+            #result=pacientes.editar_pacientes(sangre,self.input_ID_Paciente.text())
             #result2=pacientes.editar_pacientes(result[0],result[1],result[2],result[3],result[4],result[5],result[6],result[7],result[8],result[10],sangre)
-            print(result2)
+            print(result)
             QMessageBox.information(self, "Datos guardados", "Su informacion se ha guardado correctamente", QMessageBox.Discard)
         else:
             QMessageBox.warning(self, "Error", "Ingresa los datos correctamente", QMessageBox.Discard)

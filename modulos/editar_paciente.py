@@ -1,11 +1,7 @@
-import sys
-import os
 import re
-import ctypes
-from PyQt5 import uic, QtCore, QtWidgets, QtGui
-from PyQt5.QtWidgets import QMessageBox, QTableWidgetItem, QTableWidget
+from PyQt5 import uic, QtCore, QtWidgets
+from PyQt5.QtWidgets import QMessageBox, QTableWidgetItem
 import modulos.db_Pacientes as pacientes
-
 
 
 class WindowTree(QtWidgets.QMainWindow):
@@ -45,24 +41,30 @@ class WindowTree(QtWidgets.QMainWindow):
 
     def validar_datos(self):
         if self.validar_id_paciente():
-            result= pacientes.buscar_pacientes_id(int(self.input_ID_Paciente.text()))
-            print (result)
+            result = pacientes.buscar_pacientes_id(
+                int(self.input_ID_Paciente.text()))
+            print(result)
             #rowPosition = self.tabla_buscar_medico.rowCount()
-            #self.tabla_buscar_medico.insertRow(rowPosition)
+            # self.tabla_buscar_medico.insertRow(rowPosition)
             ayuda = result
             try:
-                self.tabla_pacientes.setItem(0 , 0, QTableWidgetItem(str(ayuda[0])))
-                self.tabla_pacientes.setItem(0 , 1, QTableWidgetItem(ayuda[1]))
-                self.tabla_pacientes.setItem(0 , 2, QTableWidgetItem(ayuda[2]))
-                self.tabla_pacientes.setItem(0 , 3, QTableWidgetItem(ayuda[3]))
-                self.tabla_pacientes.setItem(0 , 4, QTableWidgetItem(ayuda[4]))
-                self.tabla_pacientes.setItem(0 , 5, QTableWidgetItem(str(ayuda[5])))
-                self.tabla_pacientes.setItem(0 , 6, QTableWidgetItem(str(ayuda[6])))
-                self.tabla_pacientes.setItem(0 , 7, QTableWidgetItem(str(ayuda[7])))
-                self.tabla_pacientes.setItem(0 , 8, QTableWidgetItem(ayuda[8]))
-                self.tabla_pacientes.setItem(0 , 9, QTableWidgetItem(ayuda[9]))
-                self.tabla_pacientes.setItem(0 , 10, QTableWidgetItem(ayuda[10]))
-                self.input_Nombre.setText(str(ayuda[1])) 
+                self.tabla_pacientes.setItem(
+                    0, 0, QTableWidgetItem(str(ayuda[0])))
+                self.tabla_pacientes.setItem(0, 1, QTableWidgetItem(ayuda[1]))
+                self.tabla_pacientes.setItem(0, 2, QTableWidgetItem(ayuda[2]))
+                self.tabla_pacientes.setItem(0, 3, QTableWidgetItem(ayuda[3]))
+                self.tabla_pacientes.setItem(0, 4, QTableWidgetItem(ayuda[4]))
+                self.tabla_pacientes.setItem(
+                    0, 5, QTableWidgetItem(str(ayuda[5])))
+                self.tabla_pacientes.setItem(
+                    0, 6, QTableWidgetItem(str(ayuda[6])))
+                self.tabla_pacientes.setItem(
+                    0, 7, QTableWidgetItem(str(ayuda[7])))
+                self.tabla_pacientes.setItem(0, 8, QTableWidgetItem(ayuda[8]))
+                self.tabla_pacientes.setItem(0, 9, QTableWidgetItem(ayuda[9]))
+                self.tabla_pacientes.setItem(
+                    0, 10, QTableWidgetItem(ayuda[10]))
+                self.input_Nombre.setText(str(ayuda[1]))
                 self.input_ApellidoP.setText(str(ayuda[2]))
                 self.input_ApellidoM.setText(str(ayuda[3]))
                 self.input_sexo.setText(str(ayuda[4]))
@@ -73,13 +75,14 @@ class WindowTree(QtWidgets.QMainWindow):
                 self.input_sangre.setText(str(ayuda[9]))
                 self.input_Alergias.setText(str(ayuda[10]))
             except:
-                QMessageBox.warning(self, "Error", "No se ha encontrado nada", QMessageBox.Discard)
+                QMessageBox.warning(
+                    self, "Error", "No se ha encontrado nada", QMessageBox.Discard)
 
             #QMessageBox.information(self, "Datos guardados", "Su informacion se ha guardado correctamente", QMessageBox.Discard)
-            #self.switch()
+            # self.switch()
         else:
-            QMessageBox.warning(self, "Error", "Ingresa los datos correctamente", QMessageBox.Discard)
-
+            QMessageBox.warning(
+                self, "Error", "Ingresa los datos correctamente", QMessageBox.Discard)
 
     def validar_nombre(self):
         nombre = self.input_Nombre.text()
@@ -139,13 +142,13 @@ class WindowTree(QtWidgets.QMainWindow):
         pesog = self.comboBox_2.currentText()
         cont = 0
         if pesog == "":
-            cont+=1
+            cont += 1
 
         if pesok == "":
-            cont+=1
+            cont += 1
 
         self.input_Peso.setText(str(pesok)+(pesog))
-        if cont>0:
+        if cont > 0:
             self.input_Peso.setText("")
 
         peso = self.input_Peso.text()
@@ -161,13 +164,13 @@ class WindowTree(QtWidgets.QMainWindow):
         estaturacm = self.comboBox_4.currentText()
         cont = 0
         if estaturacm == "":
-            cont+=1
+            cont += 1
 
         if estaturam == "":
-            cont+=1
+            cont += 1
 
         self.input_estatura.setText(str(estaturam)+(estaturacm))
-        if cont>0:
+        if cont > 0:
             self.input_estatura.setText("")
 
         estatura = self.input_estatura.text()
@@ -227,9 +230,8 @@ class WindowTree(QtWidgets.QMainWindow):
             self.input_Alergias.setStyleSheet("border: 2px solid green;")
             return True
 
-
     def validar_datos_2(self):
-        if self.validar_nombre() and self.validar_sexo() and self.validar_apellidoP() and self.validar_peso() and self.validar_apellidoM() and self.validar_estatura()and self.validar_telefono() and self.validar_anios() and self.validar_alergia() and self.validar_sangre():
+        if self.validar_nombre() and self.validar_sexo() and self.validar_apellidoP() and self.validar_peso() and self.validar_apellidoM() and self.validar_estatura() and self.validar_telefono() and self.validar_anios() and self.validar_alergia() and self.validar_sangre():
             sangre = ''
             if self.input_sangre.text() == 'A+':
                 sangre = '1'
@@ -249,16 +251,18 @@ class WindowTree(QtWidgets.QMainWindow):
                 sangre = '8'
             else:
                 sangre = '1'
-            #result=pacientes.buscar_pacientes_id(int(self.input_ID_Paciente.text()))
-            result=pacientes.editar_pacientes(self.input_Nombre.text(),self.input_ApellidoP.text(),self.input_ApellidoM.text(),self.input_sexo.text(),self.input_Peso.text(),self.input_estatura.text(),self.input_anios.text(),self.input_Telefono.text(),self.input_Alergias.toPlainText(),sangre,self.input_ID_Paciente.text())
-                                                                      #self.input_ApellidoP.text(),self.input_ApellidoM.text(),self.input_sexo.text(),self.input_Peso.text(),self.input_estatura.text(),self.input_anios.text(),self.input_Telefono.text(),self.input_Alergias.toPlainText(),sangre,
-            #result=pacientes.editar_pacientes(sangre,self.input_ID_Paciente.text())
-            #result2=pacientes.editar_pacientes(result[0],result[1],result[2],result[3],result[4],result[5],result[6],result[7],result[8],result[10],sangre)
+            # result=pacientes.buscar_pacientes_id(int(self.input_ID_Paciente.text()))
+            result = pacientes.editar_pacientes(self.input_Nombre.text(), self.input_ApellidoP.text(), self.input_ApellidoM.text(), self.input_sexo.text(), self.input_Peso.text(
+            ), self.input_estatura.text(), self.input_anios.text(), self.input_Telefono.text(), self.input_Alergias.toPlainText(), sangre, self.input_ID_Paciente.text())
+            # self.input_ApellidoP.text(),self.input_ApellidoM.text(),self.input_sexo.text(),self.input_Peso.text(),self.input_estatura.text(),self.input_anios.text(),self.input_Telefono.text(),self.input_Alergias.toPlainText(),sangre,
+            # result=pacientes.editar_pacientes(sangre,self.input_ID_Paciente.text())
+            # result2=pacientes.editar_pacientes(result[0],result[1],result[2],result[3],result[4],result[5],result[6],result[7],result[8],result[10],sangre)
             print(result)
-            QMessageBox.information(self, "Datos guardados", "Su informacion se ha guardado correctamente", QMessageBox.Discard)
+            QMessageBox.information(
+                self, "Datos guardados", "Su informacion se ha guardado correctamente", QMessageBox.Discard)
         else:
-            QMessageBox.warning(self, "Error", "Ingresa los datos correctamente", QMessageBox.Discard)
-
+            QMessageBox.warning(
+                self, "Error", "Ingresa los datos correctamente", QMessageBox.Discard)
 
     def switch(self):
         self.switch_window.emit()

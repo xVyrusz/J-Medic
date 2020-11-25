@@ -1,7 +1,4 @@
-import sys
-import os
 import re
-import ctypes
 from PyQt5 import uic, QtCore, QtWidgets
 from PyQt5.QtWidgets import QMessageBox
 import modulos.db_Pacientes as pacientes
@@ -196,9 +193,11 @@ class WindowTwo(QtWidgets.QMainWindow):
             else:
                 sangre = 1
 
-            result =pacientes.insertar_pacientes(self.input_Nombre.text(), self.input_ApellidoP.text(), self.input_ApellidoM.text(), self.input_sexo.text(),self.input_Peso.text(), self.input_estatura.text(), self.input_anios.text(), self.input_Telefono.text(), self.input_Alergias.text(), sangre)
+            result = pacientes.insertar_pacientes(self.input_Nombre.text(), self.input_ApellidoP.text(), self.input_ApellidoM.text(), self.input_sexo.text(
+            ), self.input_Peso.text(), self.input_estatura.text(), self.input_anios.text(), self.input_Telefono.text(), self.input_Alergias.text(), sangre)
             if result == 1:
-                QMessageBox.information(self, "Datos guardados", "Su informacion se ha guardado correctamente", QMessageBox.Discard)
+                QMessageBox.information(
+                    self, "Datos guardados", "Su informacion se ha guardado correctamente", QMessageBox.Discard)
                 self.switch()
             else:
                 QMessageBox.warning(

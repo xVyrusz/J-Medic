@@ -1,5 +1,5 @@
-import sys, os, re, ctypes
-from PyQt5 import uic, QtCore, QtWidgets
+import sys
+from PyQt5 import QtWidgets
 import modulos.iniciosesion as iniciosesion
 import modulos.menu as menu
 import modulos.menu2 as menu2

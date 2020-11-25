@@ -1,15 +1,16 @@
-import mysql.connector
 import modulos.db_conexion as conexion
 
-def insertar_pacientes(nombre,apellidop,apellidom,sexo,peso,estatura,edad,telefono,alergias,sangre):
+
+def insertar_pacientes(nombre, apellidop, apellidom, sexo, peso, estatura, edad, telefono, alergias, sangre):
     try:
         mydb = conexion.conexion()
         mycursor = mydb.cursor()
         sql = "INSERT INTO pacientes (nombrePaciente,apellidoPPaciente,apellidoMPaciente,sexoPaciente,pesoPaciente,estaturaPaciente,edadPaciente,telefonoPaciente,alergiasPaciente,idTipo_Sangre_F) VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)"
-        val = (nombre,apellidop,apellidom,sexo,peso,estatura,edad,telefono,alergias,sangre)
+        val = (nombre, apellidop, apellidom, sexo, peso,
+               estatura, edad, telefono, alergias, sangre)
         mycursor.execute(sql, val)
         mydb.commit()
-        result =1
+        result = 1
         return result
     except:
         print('Something wrong happend 😡😡😡😠😡😡😡')
@@ -17,17 +18,19 @@ def insertar_pacientes(nombre,apellidop,apellidom,sexo,peso,estatura,edad,telefo
         mydb.close()
         mycursor.close()
 
-def editar_pacientes(nombre,apellidop,apellidom,sexo,peso,estatura,edad,telefono,alergias,sangre,idn):
+
+def editar_pacientes(nombre, apellidop, apellidom, sexo, peso, estatura, edad, telefono, alergias, sangre, idn):
     try:
         mydb = conexion.conexion()
         mycursor = mydb.cursor()
         #sql = """UPDATE pacientes SET idTipo_Sangre_F = %s WHERE idPaciente = %s"""
         sql = """UPDATE pacientes SET nombrePaciente = %s, apellidoPPaciente = %s,apellidoMPaciente =%s,sexoPaciente = %s, pesoPaciente =%s, estaturaPaciente = %s, edadPaciente = %s, telefonoPaciente = %s, alergiasPaciente = %s, idTipo_Sangre_F = %s WHERE idPaciente = %s """
-        val = (nombre,apellidop,apellidom,sexo,peso,estatura,edad,telefono,alergias,sangre,idn)
+        val = (nombre, apellidop, apellidom, sexo, peso,
+               estatura, edad, telefono, alergias, sangre, idn)
         #val = (sangre,idn)
-        mycursor.execute(sql,val)
+        mycursor.execute(sql, val)
         mydb.commit()
-        result =1
+        result = 1
         return result
     except:
         print('Something wrong happend 😡😡😡😠😡😡😡')
@@ -37,9 +40,9 @@ def editar_pacientes(nombre,apellidop,apellidom,sexo,peso,estatura,edad,telefono
 
 
 def buscar_pacientes_id(id):
-    mydb = conexion.conexion()
-    mycursor = mydb.cursor()
     try:
+        mydb = conexion.conexion()
+        mycursor = mydb.cursor()
         if id:
             consult = """
             SELECT pacientes.idPaciente,nombrePaciente,apellidoPPaciente,apellidoMPaciente,sexoPaciente,pesoPaciente,estaturaPaciente,edadPaciente,telefonoPaciente,tipo_sangre.nombreSangre,pacientes.alergiasPaciente 
@@ -56,10 +59,11 @@ def buscar_pacientes_id(id):
         mydb.close()
         mycursor.close()
 
+
 def buscar_pacientes_id_consulta(id):
-    mydb = conexion.conexion()
-    mycursor = mydb.cursor()
     try:
+        mydb = conexion.conexion()
+        mycursor = mydb.cursor()
         if id:
             consult = """SELECT pacientes.idPaciente , datos_de_consulta.idConsulta,medicos.nombreMedico,medicos.apellidoPMedico,pacientes.nombrePaciente,pacientes.apellidoPPaciente,datos_de_consulta.fechaVisita,
             motivos_de_consulta.nombreMotivo,consulta.pruebasRealizadas,consulta.diagnostico,consulta.tratamiento FROM datos_de_consulta inner join medicos on medicos.idMedicos=datos_de_consulta.idMedicos_F
@@ -77,10 +81,11 @@ def buscar_pacientes_id_consulta(id):
         mydb.close()
         mycursor.close()
 
+
 def buscar_pacientes_nombre(id):
-    mydb = conexion.conexion()
-    mycursor = mydb.cursor()
     try:
+        mydb = conexion.conexion()
+        mycursor = mydb.cursor()
         if id:
             consult = """
             SELECT pacientes.idPaciente,nombrePaciente,apellidoPPaciente,apellidoMPaciente,sexoPaciente,pesoPaciente,estaturaPaciente,edadPaciente,telefonoPaciente,tipo_sangre.nombreSangre,pacientes.alergiasPaciente 
@@ -97,12 +102,13 @@ def buscar_pacientes_nombre(id):
         mydb.close()
         mycursor.close()
 
+
 def buscar_pacientes_nombre_consulta(id):
-    mydb = conexion.conexion()
-    mycursor = mydb.cursor()
     try:
+        mydb = conexion.conexion()
+        mycursor = mydb.cursor()
         if id:
-            consult ="""SELECT pacientes.idPaciente , datos_de_consulta.idConsulta,medicos.nombreMedico,medicos.apellidoPMedico,pacientes.nombrePaciente,pacientes.apellidoPPaciente,datos_de_consulta.fechaVisita,
+            consult = """SELECT pacientes.idPaciente , datos_de_consulta.idConsulta,medicos.nombreMedico,medicos.apellidoPMedico,pacientes.nombrePaciente,pacientes.apellidoPPaciente,datos_de_consulta.fechaVisita,
             motivos_de_consulta.nombreMotivo,consulta.pruebasRealizadas,consulta.diagnostico,consulta.tratamiento FROM datos_de_consulta inner join medicos on medicos.idMedicos=datos_de_consulta.idMedicos_F
             inner join pacientes on datos_de_consulta.idPaciente_F=pacientes.idPaciente
             inner join motivos_de_consulta on motivos_de_consulta.idMotivos_de_Consulta=datos_de_consulta.idMotivo_F

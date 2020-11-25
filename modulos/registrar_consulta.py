@@ -1,11 +1,9 @@
-import sys
-import os
 import re
-import ctypes
 import datetime
 from PyQt5 import uic, QtCore, QtWidgets
-from PyQt5.QtWidgets import QMessageBox, QTableWidgetItem, QTableWidget
+from PyQt5.QtWidgets import QMessageBox, QTableWidgetItem
 import modulos.db_Consultas as consultas
+
 
 class WindowTwo(QtWidgets.QMainWindow):
 
@@ -41,7 +39,6 @@ class WindowTwo(QtWidgets.QMainWindow):
             self.input_idm.setStyleSheet("border: 2px solid green;")
             return True
 
-
     def validar_id_paciente(self):
         id_paciente = self.input_idp.text()
         validar = re.match("^\d{1,}$", id_paciente, re.I)
@@ -55,7 +52,6 @@ class WindowTwo(QtWidgets.QMainWindow):
             self.input_idp.setStyleSheet("border: 2px solid green;")
             return True
 
-
     def seleccionar_motivo(self):
         motivos = self.motivo_consulta.currentText()
         self.input_motivo.setText(str(motivos))
@@ -66,7 +62,6 @@ class WindowTwo(QtWidgets.QMainWindow):
         else:
             self.input_motivo.setStyleSheet("border: 2px solid green;")
             return True
-
 
     def seleccionar_fecha(self):
         fecha_2 = datetime.date.today()
@@ -80,22 +75,22 @@ class WindowTwo(QtWidgets.QMainWindow):
             self.input_fecha.setStyleSheet("border: 2px solid green;")
             return True
 
-
     def validar_datos(self):
         cont = 0
         if self.validar_id_medico() and self.validar_id_paciente() and self.seleccionar_motivo() and self.seleccionar_fecha():
-            motivo=0
-            if self.input_motivo.text()=='Consulta General':
-                motivo=1
-            elif self.input_motivo.text()=='Curaciones':
-                motivo=2
-            elif self.input_motivo.text()=='Examenes':
-                motivo=3
+            motivo = 0
+            if self.input_motivo.text() == 'Consulta General':
+                motivo = 1
+            elif self.input_motivo.text() == 'Curaciones':
+                motivo = 2
+            elif self.input_motivo.text() == 'Examenes':
+                motivo = 3
             else:
-                motivo=1
-            result =consultas.insertar_datos_de_consulta(self.input_idm.text(),self.input_idp.text(),self.input_fecha.text(),motivo)
+                motivo = 1
+            result = consultas.insertar_datos_de_consulta(
+                self.input_idm.text(), self.input_idp.text(), self.input_fecha.text(), motivo)
             if result == 1:
-                result2 =consultas.mostrar_datos_consulta()
+                result2 = consultas.mostrar_datos_consulta()
                 print(result2)
 
                 ayuda = result2
@@ -104,24 +99,33 @@ class WindowTwo(QtWidgets.QMainWindow):
                     if ayuda:
                         contador = 0
                         for elements in ayuda:
-                            self.tabla_idc.setItem(contador , 0, QTableWidgetItem(str(ayuda[contador][0])))
-                            self.tabla_idc.setItem(contador , 1, QTableWidgetItem(ayuda[contador][1]))
-                            self.tabla_idc.setItem(contador , 2, QTableWidgetItem(str(ayuda[contador][2])))
-                            self.tabla_idc.setItem(contador , 3, QTableWidgetItem(ayuda[contador][3]))
-                            self.tabla_idc.setItem(contador , 4, QTableWidgetItem(ayuda[contador][4]))
-                            self.tabla_idc.setItem(contador , 5, QTableWidgetItem(str(ayuda[contador][5])))
-                            self.tabla_idc.setItem(contador , 6, QTableWidgetItem(str(ayuda[contador][6])))
-                            contador+=1
+                            self.tabla_idc.setItem(
+                                contador, 0, QTableWidgetItem(str(ayuda[contador][0])))
+                            self.tabla_idc.setItem(
+                                contador, 1, QTableWidgetItem(ayuda[contador][1]))
+                            self.tabla_idc.setItem(
+                                contador, 2, QTableWidgetItem(str(ayuda[contador][2])))
+                            self.tabla_idc.setItem(
+                                contador, 3, QTableWidgetItem(ayuda[contador][3]))
+                            self.tabla_idc.setItem(
+                                contador, 4, QTableWidgetItem(ayuda[contador][4]))
+                            self.tabla_idc.setItem(
+                                contador, 5, QTableWidgetItem(str(ayuda[contador][5])))
+                            self.tabla_idc.setItem(
+                                contador, 6, QTableWidgetItem(str(ayuda[contador][6])))
+                            contador += 1
                     else:
-                        QMessageBox.warning(self, "Error", "No se ha encontrado nada", QMessageBox.Discard)
+                        QMessageBox.warning(
+                            self, "Error", "No se ha encontrado nada", QMessageBox.Discard)
                 except:
-                    QMessageBox.warning(self, "Error", "No se ha encontrado nada", QMessageBox.Discard)
+                    QMessageBox.warning(
+                        self, "Error", "No se ha encontrado nada", QMessageBox.Discard)
 
                 #QMessageBox.information(self, "Datos guardados", "Su informacion se ha guardado correctamente", QMessageBox.Discard)
-                #self.switch()
+                # self.switch()
         else:
-            QMessageBox.warning(self, "Error", "Ingresa los datos correctamente", QMessageBox.Discard)
-
+            QMessageBox.warning(
+                self, "Error", "Ingresa los datos correctamente", QMessageBox.Discard)
 
     def validar_id_consulta(self):
         id_consulta = self.input_idc.text()
@@ -181,9 +185,10 @@ class WindowTwo(QtWidgets.QMainWindow):
     def validar_datos_2(self):
         cont = 0
         if self.validar_id_consulta() and self.validar_pruebas() and self.validar_diagnostico() and self.validar_tratamiento():
-            result =consultas.insertar_consulta(self.input_idc.text(),self.pruebas_realizadas.toPlainText(),self.diagnostico.toPlainText(),self.tratamiento.toPlainText())
+            result = consultas.insertar_consulta(self.input_idc.text(), self.pruebas_realizadas.toPlainText(
+            ), self.diagnostico.toPlainText(), self.tratamiento.toPlainText())
             if result == 1:
-                result3 =consultas.mostrar_datos_consulta_completa()
+                result3 = consultas.mostrar_datos_consulta_completa()
                 print(result3)
 
                 ayuda = result3
@@ -192,26 +197,38 @@ class WindowTwo(QtWidgets.QMainWindow):
                     if ayuda:
                         contador = 0
                         for elements in ayuda:
-                            self.tabla_consultas.setItem(contador , 0, QTableWidgetItem(str(ayuda[contador][0])))
-                            self.tabla_consultas.setItem(contador , 1, QTableWidgetItem(ayuda[contador][1]))
-                            self.tabla_consultas.setItem(contador , 2, QTableWidgetItem(str(ayuda[contador][2])))
-                            self.tabla_consultas.setItem(contador , 3, QTableWidgetItem(ayuda[contador][3]))
-                            self.tabla_consultas.setItem(contador , 4, QTableWidgetItem(ayuda[contador][4]))
-                            self.tabla_consultas.setItem(contador , 5, QTableWidgetItem(str(ayuda[contador][5])))
-                            self.tabla_consultas.setItem(contador , 6, QTableWidgetItem(str(ayuda[contador][6])))
-                            self.tabla_consultas.setItem(contador , 7, QTableWidgetItem(str(ayuda[contador][7])))
-                            self.tabla_consultas.setItem(contador , 8, QTableWidgetItem(str(ayuda[contador][8])))
-                            self.tabla_consultas.setItem(contador , 9, QTableWidgetItem(str(ayuda[contador][9])))
-                            contador+=1
+                            self.tabla_consultas.setItem(
+                                contador, 0, QTableWidgetItem(str(ayuda[contador][0])))
+                            self.tabla_consultas.setItem(
+                                contador, 1, QTableWidgetItem(ayuda[contador][1]))
+                            self.tabla_consultas.setItem(
+                                contador, 2, QTableWidgetItem(str(ayuda[contador][2])))
+                            self.tabla_consultas.setItem(
+                                contador, 3, QTableWidgetItem(ayuda[contador][3]))
+                            self.tabla_consultas.setItem(
+                                contador, 4, QTableWidgetItem(ayuda[contador][4]))
+                            self.tabla_consultas.setItem(
+                                contador, 5, QTableWidgetItem(str(ayuda[contador][5])))
+                            self.tabla_consultas.setItem(
+                                contador, 6, QTableWidgetItem(str(ayuda[contador][6])))
+                            self.tabla_consultas.setItem(
+                                contador, 7, QTableWidgetItem(str(ayuda[contador][7])))
+                            self.tabla_consultas.setItem(
+                                contador, 8, QTableWidgetItem(str(ayuda[contador][8])))
+                            self.tabla_consultas.setItem(
+                                contador, 9, QTableWidgetItem(str(ayuda[contador][9])))
+                            contador += 1
                     else:
-                        QMessageBox.warning(self, "Error", "No se ha encontrado nada", QMessageBox.Discard)
+                        QMessageBox.warning(
+                            self, "Error", "No se ha encontrado nada", QMessageBox.Discard)
                 except:
-                    QMessageBox.warning(self, "Error", "No se ha encontrado nada", QMessageBox.Discard)
+                    QMessageBox.warning(
+                        self, "Error", "No se ha encontrado nada", QMessageBox.Discard)
                     #QMessageBox.information(self, "Datos guardados", "Su informacion se ha guardado correctamente", QMessageBox.Discard)
-                    #self.switch()
+                    # self.switch()
         else:
-            QMessageBox.warning(self, "Error", "Ingresa los datos correctamente", QMessageBox.Discard)
-
+            QMessageBox.warning(
+                self, "Error", "Ingresa los datos correctamente", QMessageBox.Discard)
 
     def switch(self):
         self.switch_window.emit()

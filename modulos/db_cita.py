@@ -1,9 +1,7 @@
-import mysql.connector
 import modulos.db_conexion as conexion
 
 
 def insertar_cita(idpaciente, fecha):
-
     try:
         mydb = conexion.conexion()
         mycursor = mydb.cursor()
@@ -21,7 +19,6 @@ def insertar_cita(idpaciente, fecha):
 
 
 def editar_cita(paciente,fecha,idcita):
-
     try:
         mydb = conexion.conexion()
         mycursor = mydb.cursor()
@@ -39,7 +36,6 @@ def editar_cita(paciente,fecha,idcita):
 
 
 def eliminar_cita(fecha):
-
     try:
         mydb = conexion.conexion()
         mycursor = mydb.cursor()
@@ -57,7 +53,6 @@ def eliminar_cita(fecha):
 
 
 def buscar_cita_idcita(id):
-
     try:
         mydb = conexion.conexion()
         mycursor = mydb.cursor()
@@ -79,7 +74,6 @@ def buscar_cita_idcita(id):
 
 
 def buscar_cita_idpaciente(id):
-
     try:
         mydb = conexion.conexion()
         mycursor = mydb.cursor()
@@ -97,7 +91,6 @@ def buscar_cita_idpaciente(id):
 
 
 def buscar_cita_fechacita(fecha):
-
     try:
         mydb = conexion.conexion()
         mycursor = mydb.cursor()
@@ -115,7 +108,6 @@ def buscar_cita_fechacita(fecha):
 
 
 def mostrar_citas():
-
     try:
         mydb = conexion.conexion()
         mycursor = mydb.cursor()

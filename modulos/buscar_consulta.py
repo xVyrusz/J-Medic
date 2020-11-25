@@ -1,9 +1,6 @@
-import sys
-import os
 import re
-import ctypes
-from PyQt5 import uic, QtCore, QtWidgets, QtGui
-from PyQt5.QtWidgets import QMessageBox, QTableWidgetItem, QTableWidget
+from PyQt5 import uic, QtCore, QtWidgets
+from PyQt5.QtWidgets import QMessageBox, QTableWidgetItem
 import modulos.db_Consultas as consultas
 
 class WindowTwo(QtWidgets.QMainWindow):

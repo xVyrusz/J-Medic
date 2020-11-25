@@ -1,10 +1,8 @@
-import sys
-import os
 import re
-import ctypes
 from PyQt5 import uic, QtCore, QtWidgets
 from PyQt5.QtWidgets import QMessageBox
 import modulos.db_Medicos as medicos
+
 
 class WindowTwo(QtWidgets.QMainWindow):
 
@@ -27,7 +25,6 @@ class WindowTwo(QtWidgets.QMainWindow):
         self.input_Cedula.textChanged.connect(self.validar_cedula)
         self.input_user.textChanged.connect(self.validar_usuario)
         pass
-
 
     def validar_nombre(self):
         nombre = self.input_Nombre.text()
@@ -133,13 +130,15 @@ class WindowTwo(QtWidgets.QMainWindow):
 
     def validar_datos(self):
         if self.validar_nombre() and self.validar_cedula() and self.validar_apellidoP() and self.validar_turno() and self.validar_apellidoM() and self.validar_telefono() and self.validar_usuario() and self.validar_password():
-            result = medicos.insertar_medicos(self.input_Nombre.text(),self.input_ApellidoP.text(),self.input_ApellidoM.text(),self.input_Cedula.text(),self.input_Telefono.text(),self.input_turno.text(),self.input_user.text(),self.input_contra.text())
+            result = medicos.insertar_medicos(self.input_Nombre.text(), self.input_ApellidoP.text(), self.input_ApellidoM.text(
+            ), self.input_Cedula.text(), self.input_Telefono.text(), self.input_turno.text(), self.input_user.text(), self.input_contra.text())
             if result == 1:
-                QMessageBox.information(self, "Datos guardados", "Su informacion se ha guardado correctamente", QMessageBox.Discard)
+                QMessageBox.information(
+                    self, "Datos guardados", "Su informacion se ha guardado correctamente", QMessageBox.Discard)
                 self.switch()
         else:
-            QMessageBox.warning(self, "Error", "Ingresa los datos correctamente", QMessageBox.Discard)
-
+            QMessageBox.warning(
+                self, "Error", "Ingresa los datos correctamente", QMessageBox.Discard)
 
     def switch(self):
         self.switch_window.emit()

@@ -48,7 +48,7 @@ def buscar_medicos_id(id):
         mycursor.execute(consult)
         result = mycursor.fetchone()
         return result
-    except expression as identifier:
+    except:
         print('Something wrong happend 😡😡😡😠😡😡😡')
     finally:
         mydb.close()

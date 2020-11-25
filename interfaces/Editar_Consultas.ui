@@ -171,48 +171,6 @@ QPushButton:hover:before {
      <string>Fecha de Visita:</string>
     </property>
    </widget>
-   <widget class="QPlainTextEdit" name="input_Pruebas">
-    <property name="geometry">
-     <rect>
-      <x>550</x>
-      <y>150</y>
-      <width>141</width>
-      <height>221</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: rgb(255, 255, 255);
-color: rgb(0, 0, 0);</string>
-    </property>
-   </widget>
-   <widget class="QPlainTextEdit" name="input_Diagnostico">
-    <property name="geometry">
-     <rect>
-      <x>710</x>
-      <y>150</y>
-      <width>131</width>
-      <height>221</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: rgb(255, 255, 255);
-color: rgb(0, 0, 0);</string>
-    </property>
-   </widget>
-   <widget class="QPlainTextEdit" name="input_Tratamiento">
-    <property name="geometry">
-     <rect>
-      <x>860</x>
-      <y>150</y>
-      <width>131</width>
-      <height>221</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: rgb(255, 255, 255);
-color: rgb(0, 0, 0);</string>
-    </property>
-   </widget>
    <widget class="QLabel" name="label_7">
     <property name="geometry">
      <rect>
@@ -274,7 +232,7 @@ color: rgb(0, 0, 0);</string>
      <string>Buscar</string>
     </property>
    </widget>
-   <widget class="QTableWidget" name="tabla_Consultas">
+   <widget class="QTableWidget" name="tabla_consultas">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -304,7 +262,7 @@ color: rgb(0, 0, 0);</string>
     </row>
     <row>
      <property name="text">
-      <string> </string>
+      <string/>
      </property>
     </row>
     <row>
@@ -835,6 +793,48 @@ color: rgb(0, 0, 0);</string>
      </rect>
     </property>
    </widget>
+   <widget class="QTextEdit" name="input_Pruebas">
+    <property name="geometry">
+     <rect>
+      <x>550</x>
+      <y>150</y>
+      <width>141</width>
+      <height>221</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(0, 0, 0);
+background-color: rgb(255, 255, 255);</string>
+    </property>
+   </widget>
+   <widget class="QTextEdit" name="input_Diagnostico">
+    <property name="geometry">
+     <rect>
+      <x>710</x>
+      <y>150</y>
+      <width>131</width>
+      <height>221</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(0, 0, 0);
+background-color: rgb(255, 255, 255);</string>
+    </property>
+   </widget>
+   <widget class="QTextEdit" name="input_Tratamiento">
+    <property name="geometry">
+     <rect>
+      <x>860</x>
+      <y>150</y>
+      <width>121</width>
+      <height>221</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(0, 0, 0);
+background-color: rgb(255, 255, 255);</string>
+    </property>
+   </widget>
    <zorder>input_fecha</zorder>
    <zorder>input_motivo</zorder>
    <zorder>label</zorder>
@@ -846,14 +846,11 @@ color: rgb(0, 0, 0);</string>
    <zorder>input_PacienteId</zorder>
    <zorder>label_5</zorder>
    <zorder>label_6</zorder>
-   <zorder>input_Pruebas</zorder>
-   <zorder>input_Diagnostico</zorder>
-   <zorder>input_Tratamiento</zorder>
    <zorder>label_7</zorder>
    <zorder>label_8</zorder>
    <zorder>label_9</zorder>
    <zorder>boton_Buscar</zorder>
-   <zorder>tabla_Consultas</zorder>
+   <zorder>tabla_consultas</zorder>
    <zorder>input_Aceptar</zorder>
    <zorder>comboBox_4</zorder>
    <zorder>label_13</zorder>
@@ -862,6 +859,9 @@ color: rgb(0, 0, 0);</string>
    <zorder>comboBox_2</zorder>
    <zorder>label_11</zorder>
    <zorder>motivo_consulta</zorder>
+   <zorder>input_Pruebas</zorder>
+   <zorder>input_Diagnostico</zorder>
+   <zorder>input_Tratamiento</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">

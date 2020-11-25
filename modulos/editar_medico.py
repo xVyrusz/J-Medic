@@ -44,7 +44,28 @@ class WindowTree(QtWidgets.QMainWindow):
 
     def validar_datos_id(self):
         if self.validar_id_medico():
-            self.switch()
+            result= medicos.buscar_medicos_id(int(self.input_id_medico.text()))
+            print (result)
+            #rowPosition = self.tabla_buscar_medico.rowCount()
+            #self.tabla_buscar_medico.insertRow(rowPosition)
+            ayuda = result
+            try:
+                self.tabla_buscar_medico.setItem(0 , 0, QTableWidgetItem(str(ayuda[0])))
+                self.tabla_buscar_medico.setItem(0 , 1, QTableWidgetItem(ayuda[1]))
+                self.tabla_buscar_medico.setItem(0 , 2, QTableWidgetItem(ayuda[2]))
+                self.tabla_buscar_medico.setItem(0 , 3, QTableWidgetItem(ayuda[3]))
+                self.tabla_buscar_medico.setItem(0 , 4, QTableWidgetItem(ayuda[4]))
+                self.tabla_buscar_medico.setItem(0 , 5, QTableWidgetItem(ayuda[5]))
+                self.tabla_buscar_medico.setItem(0 , 6, QTableWidgetItem(ayuda[6]))
+                self.input_Nombre.setText(str(ayuda[1]))
+                self.input_ApellidoP.setText(str(ayuda[2]))
+                self.input_ApellidoM.setText(str(ayuda[3]))
+                self.input_Cedula.setText(str(ayuda[4]))
+                self.input_Telefono.setText(str(ayuda[5]))
+                self.input_turno.setText(str(ayuda[6]))
+            except:
+                QMessageBox.warning(self, "Error", "No se ha encontrado nada", QMessageBox.Discard)
+            #self.switch()
         else:
             QMessageBox.warning(self, "Error", "Ingresa los datos correctamente", QMessageBox.Discard)
 
@@ -129,8 +150,19 @@ class WindowTree(QtWidgets.QMainWindow):
 
     def validar_datos(self):
         if self.validar_nombre() and self.validar_cedula() and self.validar_apellidoP() and self.validar_turno() and self.validar_apellidoM() and self.validar_telefono():
+            sangre = ''
+            if self.input_turno.text() == 'Matutino':
+                sangre = '1'
+            elif self.input_turno.text() == 'Vespertino':
+                sangre = '2'
+            else:
+                sangre ='1'
+            #result = medicos.editar_medico(self.input_Nombre.text(),self.input_id_medico.text())
+            result = medicos.editar_medico(self.input_Nombre.text(),self.input_ApellidoP.text(),self.input_ApellidoM.text(),self.input_Cedula.text(),self.input_Telefono.text(),sangre,self.input_id_medico.text())
+            print(result)
+
             QMessageBox.information(self, "Datos guardados", "Su informacion se ha guardado correctamente", QMessageBox.Discard)
-            self.switch()
+            #self.switch()
         else:
             QMessageBox.warning(self, "Error", "Ingresa los datos correctamente", QMessageBox.Discard)
 

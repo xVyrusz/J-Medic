@@ -2,9 +2,9 @@ import sys
 import os
 import re
 import ctypes
-from PyQt5 import uic, QtCore, QtWidgets
-from PyQt5.QtWidgets import QMessageBox
-
+from PyQt5 import uic, QtCore, QtWidgets, QtGui
+from PyQt5.QtWidgets import QMessageBox, QTableWidgetItem, QTableWidget
+import modulos.db_cita as cita
 
 class WindowTree(QtWidgets.QMainWindow):
 
@@ -41,8 +41,25 @@ class WindowTree(QtWidgets.QMainWindow):
 
     def validar_datos_id_cita(self):
         if self.validar_id_cita():
-            QMessageBox.information(self, "Datos guardados", "Su informacion se ha guardado correctamente", QMessageBox.Discard)
-            self.switch()
+            result=cita.buscar_cita_idcita(int(self.input_idc.text()))
+            print (result)
+            #rowPosition = self.tabla_buscar_medico.rowCount()
+            #self.tabla_buscar_medico.insertRow(rowPosition)
+            ayuda = result
+
+            try:
+                self.tabla_citas.setItem(0 , 0, QTableWidgetItem(str(ayuda[0])))
+                self.tabla_citas.setItem(0 , 1, QTableWidgetItem(str(ayuda[1])))
+                self.tabla_citas.setItem(0 , 2, QTableWidgetItem(str(ayuda[2])))
+                self.tabla_citas.setItem(0 , 3, QTableWidgetItem(ayuda[3]))
+                self.tabla_citas.setItem(0 , 4, QTableWidgetItem(ayuda[4]))
+                self.tabla_citas.setItem(0 , 5, QTableWidgetItem(str(ayuda[5])))
+                self.input_idp.setText(str(ayuda[1]))
+                self.input_fecha.setText(str(ayuda[5]))
+            except:
+                QMessageBox.warning(self, "Error", "No se ha encontrado nada", QMessageBox.Discard)
+            #QMessageBox.information(self, "Datos guardados", "Su informacion se ha guardado correctamente", QMessageBox.Discard)
+            #self.switch()
         else:
             QMessageBox.warning(self, "Error", "Ingresa los datos correctamente", QMessageBox.Discard)
 
@@ -82,7 +99,7 @@ class WindowTree(QtWidgets.QMainWindow):
         if minutos == "":
             cont+=1
 
-        self.input_fecha.setText(str(anio)+(mes)+(dia)+(hora)+(minutos))
+        self.input_fecha.setText(anio+'-'+mes+'-'+dia+hora+minutos)
         if cont>0:
             self.input_fecha.setText("")
 
@@ -96,6 +113,7 @@ class WindowTree(QtWidgets.QMainWindow):
 
     def validar_datos(self):
         if self.validar_id_paciente() and self.validar_fecha():
+            result=cita.editar_cita(self.input_idp.text(),self.input_fecha.text(),self.input_idc.text())
             QMessageBox.information(self, "Datos guardados", "Su informacion se ha guardado correctamente", QMessageBox.Discard)
             self.switch()
         else:

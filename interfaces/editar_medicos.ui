@@ -278,7 +278,7 @@ QPushButton:hover:before {
      <string>Editar</string>
     </property>
    </widget>
-   <widget class="QTableWidget" name="tabla_medicos">
+   <widget class="QTableWidget" name="tabla_buscar_medico">
     <property name="geometry">
      <rect>
       <x>40</x>
@@ -394,7 +394,7 @@ color: rgb(0, 0, 0);</string>
    <zorder>input_Turno_2</zorder>
    <zorder>boton_buscar</zorder>
    <zorder>boton_editar</zorder>
-   <zorder>tabla_medicos</zorder>
+   <zorder>tabla_buscar_medico</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">

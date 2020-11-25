@@ -52,4 +52,22 @@ def buscar_medicos_id(id):
         mydb.close()
         mycursor.close()
 
+def editar_medico(nombre,apellidop,apellidom,cedula,telefono,turno,idn):
+    try:
+        mydb = conexion.conexion()
+        mycursor = mydb.cursor()
+        #sql = """UPDATE medicos SET nombreMedico = %s WHERE idMedicos = %s"""
+        sql = """UPDATE medicos SET nombreMedico = %s, apellidoPMedico = %s,apellidoMMedico =%s, Cedula = %s, Telefono = %s, idTurnos_F = %s WHERE idMedicos = %s """
+        val = (nombre,apellidop,apellidom,cedula,telefono,turno,idn)
+        #val = (nombre,idn)
+        mycursor.execute(sql,val)
+        mydb.commit()
+        result =1
+        return result
+    except:
+        print('Something wrong happend 😡😡😡😠😡😡😡')
+    finally:
+        mydb.close()
+        mycursor.close()
+
 

@@ -47,12 +47,13 @@ def eliminar_consulta(pruebas):
         mydb.close()
         mycursor.close()
 
-def editar_datos_de_consulta(idmedicos,idpaciente,fecha,motivo):
+def editar_datos_de_consulta(idmedicos,idpaciente,fecha,motivo,idConsulta):
     try:
         mydb = conexion.conexion()
         mycursor = mydb.cursor()
         sql = "UPDATE datos_de_consulta SET idMedicos_F = %s , idPaciente_F = %s ,fechaVisita =%s  ,idMotivo_F = %s WHERE idConsulta=%s"
-        val = (idmedicos,idpaciente,fecha,motivo)
+        #sql2 ="UPDATE consulta SET pruebasRealizadas = %s , diagnostico= %s ,tratamiento = %s WHERE idConsulta_F=%s"
+        val = (idmedicos,idpaciente,fecha,motivo,idConsulta)
         mycursor.execute(sql, val)
         mydb.commit()
         result =1
@@ -64,12 +65,12 @@ def editar_datos_de_consulta(idmedicos,idpaciente,fecha,motivo):
         mycursor.close()
 
 
-def editar_consulta(pruebas,diagnostico,tratamiento):
+def editar_consulta(pruebas,diagnostico,tratamiento,idConsulta):
     try:
         mydb = conexion.conexion()
         mycursor = mydb.cursor()
-        sql = "UPDATE datos_de_consulta SET idMedicos_F = %s , idPaciente_F = %s ,fechaVisita =%s  ,idMotivo_F = %s WHERE idConsulta=%s"
-        val = (pruebas,diagnostico,tratamiento)
+        sql = "UPDATE consulta SET pruebasRealizadas = %s , diagnostico= %s ,tratamiento = %s WHERE idConsulta_F=%s"
+        val = (pruebas,diagnostico,tratamiento,idConsulta)
         mycursor.execute(sql, val)
         mydb.commit()
         result =1
@@ -188,6 +189,29 @@ def mostrar_datos_consulta_completa():
         mycursor.execute(consult)
         result3 = mycursor.fetchall()
         return result3
+    except:
+        print('Something wrong happend 😡😡😡😠😡😡😡')
+    finally:
+        mydb.close()
+        mycursor.close()
+
+
+def buscar_consulta_id_2(idn):
+    mydb = conexion.conexion()
+    mycursor = mydb.cursor()
+    try:
+        if idn:
+            consult2 = """
+            SELECT datos_de_consulta.idConsulta,medicos.idMedicos,pacientes.idPaciente, motivos_de_consulta.nombreMotivo,datos_de_consulta.fechaVisita,
+           consulta.pruebasRealizadas,consulta.diagnostico,consulta.tratamiento FROM datos_de_consulta inner join medicos on medicos.idMedicos=datos_de_consulta.idMedicos_F
+            inner join pacientes on datos_de_consulta.idPaciente_F=pacientes.idPaciente
+            inner join motivos_de_consulta on motivos_de_consulta.idMotivos_de_Consulta=datos_de_consulta.idMotivo_F
+            inner join consulta on datos_de_consulta.idConsulta=consulta.idConsulta_F where datos_de_consulta.idConsulta= {}""".format(idn)
+        else:
+            raise Exception('Id is needed')
+        mycursor.execute(consult2)
+        result2 = mycursor.fetchone()
+        return result2
     except:
         print('Something wrong happend 😡😡😡😠😡😡😡')
     finally:

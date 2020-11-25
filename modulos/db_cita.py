@@ -20,16 +20,16 @@ def insertar_cita(idpaciente, fecha):
         mycursor.close()
 
 
-def editar_cita(fecha):
+def editar_cita(paciente,fecha,idcita):
 
     try:
         mydb = conexion.conexion()
         mycursor = mydb.cursor()
-        sql = "UPDATE cita SET fechaCita = %s WHERE idCita = %s"
-        val = (fecha)
+        sql = "UPDATE cita SET idPaciente_F = %s, fechaCita = %s WHERE idCita = %s"
+        val = (paciente,fecha,idcita)
         mycursor.execute(sql, val)
+        mydb.commit()
         result = 1
-        result = mycursor.fetchall()
         return result
     except:
         print('Something wrong happend 😡😡😡😠😡😡😡')

@@ -51,3 +51,5 @@ def buscar_medicos_id(id):
     finally:
         mydb.close()
         mycursor.close()
+
+

@@ -3,7 +3,7 @@ import os
 import re
 import ctypes
 from PyQt5 import uic, QtCore, QtWidgets
-from PyQt5.QtWidgets import QMessageBox
+from PyQt5.QtWidgets import QMessageBox, QTableWidgetItem, QTableWidget
 import modulos.db_cita as cita
 
 class WindowTwo(QtWidgets.QMainWindow):
@@ -81,8 +81,28 @@ class WindowTwo(QtWidgets.QMainWindow):
         if self.validar_id_paciente() and self.validar_fecha():
             result=cita.insertar_cita(self.input_idp.text(),self.input_fecha.text())
             if result == 1:
-                QMessageBox.information(self, "Datos guardados", "Su informacion se ha guardado correctamente", QMessageBox.Discard)
-                self.switch()
+                result2 =cita.mostrar_citas()
+                print(result2)
+
+                ayuda = result2
+
+                try:
+                    if ayuda:
+                        contador = 0
+                        for elements in ayuda:
+                            self.tabla_citas.setItem(contador , 0, QTableWidgetItem(str(ayuda[contador][0])))
+                            self.tabla_citas.setItem(contador , 1, QTableWidgetItem(ayuda[contador][1]))
+                            self.tabla_citas.setItem(contador , 2, QTableWidgetItem(str(ayuda[contador][2])))
+                            self.tabla_citas.setItem(contador , 3, QTableWidgetItem(ayuda[contador][3]))
+                            self.tabla_citas.setItem(contador , 4, QTableWidgetItem(ayuda[contador][4]))
+                            self.tabla_citas.setItem(contador , 5, QTableWidgetItem(str(ayuda[contador][5])))
+                            contador+=1
+                    else:
+                        QMessageBox.warning(self, "Error", "No se ha encontrado nada", QMessageBox.Discard)
+                except:
+                    QMessageBox.warning(self, "Error", "No se ha encontrado nada", QMessageBox.Discard)
+                #QMessageBox.information(self, "Datos guardados", "Su informacion se ha guardado correctamente", QMessageBox.Discard)
+                #self.switch()
         else:
             QMessageBox.warning(self, "Error", "Ingresa los datos correctamente", QMessageBox.Discard)
 

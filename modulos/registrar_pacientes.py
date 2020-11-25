@@ -200,6 +200,9 @@ class WindowTwo(QtWidgets.QMainWindow):
             if result == 1:
                 QMessageBox.information(self, "Datos guardados", "Su informacion se ha guardado correctamente", QMessageBox.Discard)
                 self.switch()
+            else:
+                QMessageBox.warning(
+                    self, "Error", "No se guardo en la base de datos", QMessageBox.Discard)
         else:
             QMessageBox.warning(
                 self, "Error", "Ingresa los datos correctamente", QMessageBox.Discard)

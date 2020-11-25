@@ -112,3 +112,19 @@ def buscar_cita_fechacita(fecha):
     finally:
         mydb.close()
         mycursor.close()
+
+
+def mostrar_citas():
+
+    try:
+        mydb = conexion.conexion()
+        mycursor = mydb.cursor()
+        sql = "SELECT cita.idCita, pacientes.idPaciente, pacientes.nombrePaciente, pacientes.apellidoPPaciente, pacientes.apellidoMPaciente, cita.fechaCita FROM cita,  pacientes WHERE cita.idPaciente_F = pacientes.idPaciente order by idCita DESC"
+        mycursor.execute(sql)
+        result2 = mycursor.fetchall()
+        return result2
+    except:
+        print('Something wrong happend 😡😡😡😠😡😡😡')
+    finally:
+        mydb.close()
+        mycursor.close()

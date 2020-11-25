@@ -16,12 +16,12 @@ def insertar_datos_de_consulta(idmedicos,idpaciente,fecha,motivo):
     finally:
         mydb.close()
         mycursor.close()
-def insertar_consulta(pruebas,diagnostico,tratamiento):
+def insertar_consulta(idc,pruebas,diagnostico,tratamiento):
     try:
         mydb = conexion.conexion()
         mycursor = mydb.cursor()
-        sql = "INSERT INTO consulta(pruebasRealizadas,diagnostico,tratamiento) VALUES(%s,%s,%s)"
-        val = (pruebas,diagnostico,tratamiento)
+        sql = "INSERT INTO consulta(idConsulta_F,pruebasRealizadas,diagnostico,tratamiento) VALUES(%s,%s,%s,%s)"
+        val = (idc,pruebas,diagnostico,tratamiento)
         mycursor.execute(sql, val)
         mydb.commit()
         result =1
@@ -159,6 +159,35 @@ def buscar_consulta_fecha(fecha):
         mycursor.execute(sql)
         result = mycursor.fetchall()
         return result
+    except:
+        print('Something wrong happend 😡😡😡😠😡😡😡')
+    finally:
+        mydb.close()
+        mycursor.close()
+
+def mostrar_datos_consulta():
+    mydb = conexion.conexion()
+    mycursor = mydb.cursor()
+    try:
+        consult =" SELECT datos_de_consulta.idConsulta,medicos.nombreMedico,medicos.apellidoPMedico,pacientes.nombrePaciente,pacientes.apellidoPPaciente,datos_de_consulta.fechaVisita, motivos_de_consulta.nombreMotivo FROM datos_de_consulta inner join medicos on medicos.idMedicos=datos_de_consulta.idMedicos_F inner join pacientes on datos_de_consulta.idPaciente_F=pacientes.idPaciente inner join motivos_de_consulta on motivos_de_consulta.idMotivos_de_Consulta=datos_de_consulta.idMotivo_F order by idConsulta DESC"
+        mycursor.execute(consult)
+        result2 = mycursor.fetchall()
+        return result2
+    except:
+        print('Something wrong happend 😡😡😡😠😡😡😡')
+    finally:
+        mydb.close()
+        mycursor.close()
+
+
+def mostrar_datos_consulta_completa():
+    mydb = conexion.conexion()
+    mycursor = mydb.cursor()
+    try:
+        consult =" SELECT datos_de_consulta.idConsulta,medicos.nombreMedico,medicos.apellidoPMedico,pacientes.nombrePaciente,pacientes.apellidoPPaciente,datos_de_consulta.fechaVisita,motivos_de_consulta.nombreMotivo,consulta.pruebasRealizadas,consulta.diagnostico,consulta.tratamiento FROM datos_de_consulta inner join medicos on medicos.idMedicos=datos_de_consulta.idMedicos_F inner join pacientes on datos_de_consulta.idPaciente_F=pacientes.idPaciente inner join motivos_de_consulta on motivos_de_consulta.idMotivos_de_Consulta=datos_de_consulta.idMotivo_F inner join consulta on datos_de_consulta.idConsulta=consulta.idConsulta_F  order by idConsulta DESC"
+        mycursor.execute(consult)
+        result3 = mycursor.fetchall()
+        return result3
     except:
         print('Something wrong happend 😡😡😡😠😡😡😡')
     finally:

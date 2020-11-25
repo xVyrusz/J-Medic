@@ -101,7 +101,7 @@ QPushButton:hover:before {
      <rect>
       <x>90</x>
       <y>310</y>
-      <width>611</width>
+      <width>621</width>
       <height>211</height>
      </rect>
     </property>
@@ -109,16 +109,6 @@ QPushButton:hover:before {
      <string notr="true">background-color: rgb(255, 255, 255);
 color: rgb(0, 0, 0);</string>
     </property>
-    <row>
-     <property name="text">
-      <string/>
-     </property>
-    </row>
-    <row>
-     <property name="text">
-      <string/>
-     </property>
-    </row>
     <row>
      <property name="text">
       <string/>

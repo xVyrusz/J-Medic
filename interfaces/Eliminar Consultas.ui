@@ -109,7 +109,7 @@ QPushButton:hover:before {
      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;ID Medico&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="lineEdit_2">
+   <widget class="QLineEdit" name="input_MedicoId">
     <property name="geometry">
      <rect>
       <x>50</x>
@@ -132,7 +132,7 @@ QPushButton:hover:before {
      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;ID Paciente&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="lineEdit_3">
+   <widget class="QLineEdit" name="input_PacienteId">
     <property name="geometry">
      <rect>
       <x>270</x>
@@ -142,7 +142,7 @@ QPushButton:hover:before {
      </rect>
     </property>
    </widget>
-   <widget class="QTableWidget" name="tabla_elimnar_consultas">
+   <widget class="QTableWidget" name="tabla_consultas">
     <property name="geometry">
      <rect>
       <x>20</x>
@@ -260,7 +260,7 @@ background-color: rgb(255, 255, 255);</string>
      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Pruebas Realizadas&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
-   <widget class="QTextEdit" name="textEdit">
+   <widget class="QTextEdit" name="input_Tratamiento">
     <property name="geometry">
      <rect>
       <x>50</x>
@@ -287,7 +287,7 @@ background-color: rgb(255, 255, 255);</string>
      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Diagnostico&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
-   <widget class="QTextEdit" name="textEdit_2">
+   <widget class="QTextEdit" name="input_Diagnostico">
     <property name="geometry">
      <rect>
       <x>650</x>
@@ -314,7 +314,7 @@ background-color: rgb(255, 255, 255);</string>
      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Tratamiento&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
-   <widget class="QTextEdit" name="textEdit_3">
+   <widget class="QTextEdit" name="input_Pruebas">
     <property name="geometry">
      <rect>
       <x>280</x>
@@ -364,7 +364,7 @@ background-color: rgb(255, 255, 255);</string>
      </rect>
     </property>
    </widget>
-   <widget class="QLineEdit" name="input_motivo">
+   <widget class="QLineEdit" name="motivo_consulta">
     <property name="geometry">
      <rect>
       <x>30</x>

@@ -43,9 +43,9 @@ def eliminar_cita(fecha):
     try:
         mydb = conexion.conexion()
         mycursor = mydb.cursor()
-        sql = "DELETE FROM cita WHERE idCita = %s"
-        val = (fecha)
-        mycursor.execute(sql, val)
+        sql = "DELETE FROM cita WHERE idCita = '{}'".format(fecha)
+        #val = (fecha)
+        mycursor.execute(sql)
         mydb.commit()
         result = 1
         return result

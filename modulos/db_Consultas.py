@@ -31,13 +31,31 @@ def insertar_consulta(idc,pruebas,diagnostico,tratamiento):
     finally:
         mydb.close()
         mycursor.close()
-def eliminar_consulta(pruebas):
+
+
+def eliminar_consulta(idc):
     try:
         mydb = conexion.conexion()
         mycursor = mydb.cursor()
-        sql = "DELETE FROM datos_de_consulta WHERE idConsulta  = %s"
-        val = (pruebas)
-        mycursor.execute(sql, val)
+        sql = "DELETE FROM consulta WHERE idConsulta_F = '{}'".format(idc)
+        #val = (idc)
+        mycursor.execute(sql)
+        mydb.commit()
+        result =1
+        return result
+    except:
+        print('Something wrong happend 😡😡😡😠😡😡😡')
+    finally:
+        mydb.close()
+        mycursor.close()
+
+def eliminar_datos_consulta(idc):
+    try:
+        mydb = conexion.conexion()
+        mycursor = mydb.cursor()
+        sql = "DELETE FROM datos_de_consulta WHERE idConsulta = '{}'".format(idc)
+        #val = (idc)
+        mycursor.execute(sql)
         mydb.commit()
         result =1
         return result

@@ -10,6 +10,7 @@ class WindowTwo(QtWidgets.QMainWindow):
     switch_window5 = QtCore.pyqtSignal()
     switch_window6 = QtCore.pyqtSignal()
     switch_window7 = QtCore.pyqtSignal()
+    switch_window8 = QtCore.pyqtSignal()
 
     def __init__(self):
         QtWidgets.QMainWindow.__init__(self)
@@ -22,6 +23,8 @@ class WindowTwo(QtWidgets.QMainWindow):
         self.boton_eliminar_consulta.clicked.connect(self.switch5)
         self.boton_eliminar_cita.clicked.connect(self.switch6)
         self.boton_regresar.clicked.connect(self.switch7)
+        self.actionCerrar_sesion.setShortcut("Ctrl+R")
+        self.actionCerrar_sesion.triggered.connect(self.switch8)
 
     def switch(self):
         self.switch_window.emit()
@@ -43,3 +46,6 @@ class WindowTwo(QtWidgets.QMainWindow):
 
     def switch7(self):
         self.switch_window7.emit()
+
+    def switch8(self):
+        self.switch_window8.emit()

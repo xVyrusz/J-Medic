@@ -32,6 +32,14 @@ class Controller:
         self.window_tree.close()
         self.show_main2()
 
+    def close3(self):
+        self.window.close()
+        self.show_login()
+
+    def close4(self):
+        self.window_two.close()
+        self.show_login()
+
     def show_login(self):
         self.login = iniciosesion.Login()
         self.login.switch_window.connect(self.show_main)
@@ -48,6 +56,7 @@ class Controller:
         self.window.switch_window7.connect(self.show_buscar_consulta)
         self.window.switch_window8.connect(self.show_buscar_cita)
         self.window.switch_window9.connect(self.show_main2)
+        self.window.switch_window10.connect(self.close3)
         self.login.close()
         self.window.show()
 
@@ -115,6 +124,7 @@ class Controller:
         self.window_two.switch_window5.connect(self.show_eliminar_consulta)
         self.window_two.switch_window6.connect(self.show_eliminar_cita)
         self.window_two.switch_window7.connect(self.close)
+        self.window_two.switch_window8.connect(self.close4)
         self.window.close()
         self.window_two.show()
 

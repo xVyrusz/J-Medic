@@ -12,6 +12,8 @@ class MainWindow(QtWidgets.QMainWindow):
     switch_window7 = QtCore.pyqtSignal()
     switch_window8 = QtCore.pyqtSignal()
     switch_window9 = QtCore.pyqtSignal()
+    switch_window10 = QtCore.pyqtSignal()
+
 
     def __init__(self):
         QtWidgets.QMainWindow.__init__(self)
@@ -26,6 +28,8 @@ class MainWindow(QtWidgets.QMainWindow):
         self.boton_BuscarConsulta.clicked.connect(self.switch7)
         self.boton_BuscarCita.clicked.connect(self.switch8)
         self.boton_MasOpciones.clicked.connect(self.switch9)
+        self.actionCerrar_Sesi_n.setShortcut("Ctrl+R")
+        self.actionCerrar_Sesi_n.triggered.connect(self.switch10)
 
     def switch(self):
         self.switch_window.emit()
@@ -53,3 +57,6 @@ class MainWindow(QtWidgets.QMainWindow):
 
     def switch9(self):
         self.switch_window9.emit()
+
+    def switch10(self):
+        self.switch_window10.emit()

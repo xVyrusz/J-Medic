@@ -91,7 +91,7 @@ class WindowTwo(QtWidgets.QMainWindow):
                         contador = 0
                         for elements in ayuda:
                             self.tabla_citas.setItem(contador , 0, QTableWidgetItem(str(ayuda[contador][0])))
-                            self.tabla_citas.setItem(contador , 1, QTableWidgetItem(ayuda[contador][1]))
+                            self.tabla_citas.setItem(contador , 1, QTableWidgetItem(str(ayuda[contador][1])))
                             self.tabla_citas.setItem(contador , 2, QTableWidgetItem(str(ayuda[contador][2])))
                             self.tabla_citas.setItem(contador , 3, QTableWidgetItem(ayuda[contador][3]))
                             self.tabla_citas.setItem(contador , 4, QTableWidgetItem(ayuda[contador][4]))

@@ -62,7 +62,7 @@ class WindowTree(QtWidgets.QMainWindow):
                 self.tabla_pacientes.setItem(0 , 8, QTableWidgetItem(ayuda[8]))
                 self.tabla_pacientes.setItem(0 , 9, QTableWidgetItem(ayuda[9]))
                 self.tabla_pacientes.setItem(0 , 10, QTableWidgetItem(ayuda[10]))
-                self.input_Nombre.setText(str(ayuda[1]))
+                self.input_Nombre.setText(str(ayuda[1])) 
                 self.input_ApellidoP.setText(str(ayuda[2]))
                 self.input_ApellidoM.setText(str(ayuda[3]))
                 self.input_sexo.setText(str(ayuda[4]))

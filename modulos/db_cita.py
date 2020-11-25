@@ -85,7 +85,7 @@ def buscar_cita_idpaciente(id):
         mycursor = mydb.cursor()
         sql = """SELECT cita.idCita, pacientes.idPaciente, pacientes.nombrePaciente, pacientes.apellidoPPaciente, pacientes.apellidoMPaciente, cita.fechaCita 
             FROM cita,  pacientes
-            WHERE cita.idPaciente_F = pacientes.idPaciente AND cita.fechaCita= '{}' """.format(id)
+            WHERE cita.idPaciente_F = pacientes.idPaciente AND cita.idPaciente_F= '{}' """.format(id)
         mycursor.execute(sql)
         result = mycursor.fetchall()
         return result

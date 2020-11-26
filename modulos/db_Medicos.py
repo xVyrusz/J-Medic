@@ -72,3 +72,17 @@ def editar_medico(nombre, apellidop, apellidom, cedula, telefono, turno, idn):
     finally:
         mydb.close()
         mycursor.close()
+
+def mostrar_medicos():
+    try:
+        mydb = conexion.conexion()
+        mycursor = mydb.cursor()
+        consult = "SELECT medicos.idMedicos,nombreMedico,apellidoPMedico,apelLidoMMedico,Cedula,Telefono,turnos.nombreTurno FROM medicos inner join turnos on medicos.idTurnos_F=turnos.idTurnos"
+        mycursor.execute(consult)
+        result2 = mycursor.fetchall()
+        return result2
+    except:
+        print('Something wrong happend 😡😡😡😠😡😡😡')
+    finally:
+        mydb.close()
+        mycursor.close()

@@ -104,9 +104,9 @@ class WindowTree(QtWidgets.QMainWindow):
             print(result2)
             QMessageBox.information(
                 self, "Datos eliminados", "Se eliminaron los datos correctamente", QMessageBox.Discard)
+            self.switch()
         else:
             QMessageBox.warning(
                 self, "Error", "Ingresa los datos correctamente", QMessageBox.Discard)
-
     def switch(self):
         self.switch_window.emit()

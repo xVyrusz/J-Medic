@@ -12,6 +12,7 @@ class WindowTwo(QtWidgets.QMainWindow):
         uic.loadUi("interfaces/Buscar medico.ui", self)
         self.setWindowTitle("J-Medic: Buscar Medico")
         self.boton_buscar.clicked.connect(self.validar_datos_id)
+        self.boton_mostrar_medicos.clicked.connect(self.mostrar_medicos_all)
         self.actionRegresar.setShortcut("Ctrl+R")
         self.actionRegresar.triggered.connect(self.switch)
         self.validar()
@@ -55,3 +56,36 @@ class WindowTwo(QtWidgets.QMainWindow):
 
     def switch(self):
         self.switch_window.emit()
+
+
+    def mostrar_medicos_all(self):
+            result2 = medicos.mostrar_medicos()
+            print (result2)
+            #rowPosition = self.tabla_buscar_medico.rowCount()
+            #self.tabla_buscar_medico.insertRow(rowPosition)
+            ayuda2 = result2
+            try:
+                    if ayuda2:
+                        contador = 0
+                        for elements in ayuda2:
+                            self.tabla_buscar_medico.setItem(
+                                contador, 0, QTableWidgetItem(str(ayuda2[contador][0])))
+                            self.tabla_buscar_medico.setItem(
+                                contador, 1, QTableWidgetItem(ayuda2[contador][1]))
+                            self.tabla_buscar_medico.setItem(
+                                contador, 2, QTableWidgetItem(str(ayuda2[contador][2])))
+                            self.tabla_buscar_medico.setItem(
+                                contador, 3, QTableWidgetItem(ayuda2[contador][3]))
+                            self.tabla_buscar_medico.setItem(
+                                contador, 4, QTableWidgetItem(ayuda2[contador][4]))
+                            self.tabla_buscar_medico.setItem(
+                                contador, 5, QTableWidgetItem(str(ayuda2[contador][5])))
+                            self.tabla_buscar_medico.setItem(
+                                contador, 6, QTableWidgetItem(str(ayuda2[contador][6])))
+                            contador += 1
+                    else:
+                        QMessageBox.warning(
+                            self, "Error", "No se ha encontrado nada", QMessageBox.Discard)
+            except:
+                    QMessageBox.warning(
+                        self, "Error", "No se ha encontrado nada", QMessageBox.Discard)

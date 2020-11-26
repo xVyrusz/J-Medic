@@ -221,7 +221,7 @@ class WindowTree(QtWidgets.QMainWindow):
             ), self.input_Tratamiento.toPlainText(), self.input_ConsultaId.text())
             QMessageBox.information(
                 self, "Datos guardados", "Su informacion se ha guardado correctamente", QMessageBox.Discard)
-            # self.switch()
+            self.switch()
         else:
             QMessageBox.warning(
                 self, "Error", "Ingresa los datos correctamente", QMessageBox.Discard)

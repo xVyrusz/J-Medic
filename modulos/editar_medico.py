@@ -72,11 +72,10 @@ class WindowTree(QtWidgets.QMainWindow):
             except:
                 QMessageBox.warning(
                     self, "Error", "No se ha encontrado nada", QMessageBox.Discard)
-            # self.switch()
+                
         else:
             QMessageBox.warning(
                 self, "Error", "Ingresa los datos correctamente", QMessageBox.Discard)
-
     def validar_nombre(self):
         nombre = self.input_Nombre.text()
         validar = re.match(
@@ -172,7 +171,7 @@ class WindowTree(QtWidgets.QMainWindow):
 
             QMessageBox.information(
                 self, "Datos guardados", "Su informacion se ha guardado correctamente", QMessageBox.Discard)
-            # self.switch()
+            self.switch()
         else:
             QMessageBox.warning(
                 self, "Error", "Ingresa los datos correctamente", QMessageBox.Discard)

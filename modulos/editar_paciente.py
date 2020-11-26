@@ -260,6 +260,7 @@ class WindowTree(QtWidgets.QMainWindow):
             print(result)
             QMessageBox.information(
                 self, "Datos guardados", "Su informacion se ha guardado correctamente", QMessageBox.Discard)
+            self.switch()
         else:
             QMessageBox.warning(
                 self, "Error", "Ingresa los datos correctamente", QMessageBox.Discard)

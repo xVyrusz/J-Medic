@@ -219,7 +219,7 @@ color: rgb(0, 0, 0);</string>
     </column>
     <column>
      <property name="text">
-      <string>Apelliod Materno</string>
+      <string>Apellido Materno</string>
      </property>
     </column>
     <column>
@@ -331,12 +331,12 @@ color: rgb(0, 0, 0);</string>
     </column>
     <column>
      <property name="text">
-      <string>Nombre del Doctor</string>
+      <string>Nombre  Doctor</string>
      </property>
     </column>
     <column>
      <property name="text">
-      <string>Apellio Doctor</string>
+      <string>Apellido Doctor</string>
      </property>
     </column>
     <column>
@@ -382,7 +382,7 @@ color: rgb(0, 0, 0);</string>
      <x>0</x>
      <y>0</y>
      <width>1147</width>
-     <height>20</height>
+     <height>21</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuMenu">
